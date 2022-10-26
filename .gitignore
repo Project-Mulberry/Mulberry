@@ -1,3 +1,8 @@
+**/schema.rb
+**/*.sqlite3
+
+.idea
+
 *.gem
 *.rbc
 /.config
