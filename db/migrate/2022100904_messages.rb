@@ -1,8 +1,8 @@
 class Messages < ActiveRecord::Migration
   def change
     create_table(:messages, primary_key: 'mid') do |m|
-      m.integer  :sender_id
-      m.integer  :receiver_id
+      m.integer  :sender_uid
+      m.integer  :receiver_uid
       m.datetime :timestamp
       m.string   :message
       m.boolean  :is_read

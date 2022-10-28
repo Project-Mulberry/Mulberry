@@ -1,15 +1,18 @@
 class Users < ActiveRecord::Migration
   def change
     create_table(:users, primary_key: 'uid') do |u|
-      u.string   :username
-      u.string   :password
+      u.string   :phone    # exactly 10 [0-9] numbers
+      u.string   :password # at least 6 chars
       u.string   :name
       u.string   :gender
+      u.string   :sexuality
       u.datetime :birthday
-      u.string   :email
-      u.datetime :created_time
-      u.string   :city
+      u.string   :location
+      u.string   :education
+      u.string   :career
+      u.string   :height   # feet
       u.string   :profile_photo
+      u.datetime :created_time
     end
   end
 end

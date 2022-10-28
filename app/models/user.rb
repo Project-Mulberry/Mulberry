@@ -1,36 +1,48 @@
 require 'date'
 
 class User < ActiveRecord::Base
-  attr_accessor(:password)
-  def self.verify_username_and_password(username, password)
-    user = find_user_by_username(username)
-    if user.nil? or user.first.nil?
+  # @param  string(phone)
+  # @param  string(password)
+  # @return false if password is wrong or phone is invalid or phone not exists
+  # @return true if phone and password is matching
+  def self.verify_phone_and_password(phone, password)
+    unless phone =~ /^\d{10}$/
       return false
     end
-    return user.first[:password] == password
+    if user.where(phone: phone).exist?
+      return false
+    end
+    return find_user_by_phone(phone).first[:password] == password
   end
 
-  def self.find_user_by_username(username)
-    return User.where(username: username)
+  # @param  string(phone)
+  # @return User
+  def self.find_user_by_phone(phone)
+    return User.where(phone: phone)
   end
 
-  def self.create_new_user(username, password)
-    if User.where(username: 'Ryan').exists?
+  # @param  string(phone)
+  # @param  string(password)
+  # @return nil if phone is invalid or phone already registered
+  # @return User
+  def self.create_new_user(phone, password)
+    unless phone =~ /^\d{10}$/
       return nil
     end
-    User.create!({:username => username,
+    if User.where(phone: phone).exists?
+      return nil
+    end
+    user = User.create!({:phone => phone,
                   :password => password,
                   :created_time => DateTime.new })
-    return find_user_by_username(username)
+    Interest.create!({:uid => user[:uid]})
+    Prompt.create!({:uid => user[:uid]})
+    return user
   end
 
+  # @param  User(already updated User object)
+  # @return None
   def self.update_user_info(user)
-    user.save
-  end
-
-  def self.update_profile_photo(uid, photo_link)
-    user = User.where(uid: uid)
-    user.profile_photo = photo_link
     user.save
   end
 end
