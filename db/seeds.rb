@@ -29,7 +29,10 @@ end
 messages = [
   {:sender_uid => 1, :receiver_uid => 2, :timestamp => '01-Oct-2022 11:30:00', :message => 'Hello Zhen, How are you!', :is_read => true },
   {:sender_uid => 2, :receiver_uid => 1, :timestamp => '01-Oct-2022 13:30:00', :message => 'Hi Marcus!', :is_read => true },
-  {:sender_uid => 1, :receiver_uid => 2, :timestamp => '01-Oct-2022 15:00:00', :message => 'Bye', :is_read => false }
+  {:sender_uid => 1, :receiver_uid => 2, :timestamp => '01-Oct-2022 15:00:00', :message => 'Interested in the recommended activity?', :is_read => false },
+  {:sender_uid => 1, :receiver_uid => 3, :timestamp => '01-Oct-2022 12:00:00', :message => 'Hi, what\'s up', :is_read => false },
+  {:sender_uid => 4, :receiver_uid => 1, :timestamp => '01-Oct-2022 10:00:00', :message => 'Morning!', :is_read => false },
+  {:sender_uid => 3, :receiver_uid => 4, :timestamp => '01-Oct-2022 18:00:00', :message => 'Wanna eat out?', :is_read => true }
 ]
 messages.each do |message|
   Message.create!(message)

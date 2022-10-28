@@ -7,9 +7,9 @@ class Activity < ActiveRecord::Base
     activity = {
       :status => 'PENDING',
       :coupon_id => cid,
-      :fst_user => fst_uid,
+      :fst_uid => fst_uid,
       :fst_accept => false,
-      :snd_user => snd_uid,
+      :snd_uid => snd_uid,
       :snd_accept => false }
     return Activity.create!(activity)
   end
@@ -19,7 +19,7 @@ class Activity < ActiveRecord::Base
   # @return None
   def self.confirm_activity(aid, uid)
     activity = Activity.where(aid: aid).first
-    if activity[:fst_user] == uid
+    if activity[:fst_uid] == uid
       activity[:fst_accept] = true
     else
       activity[:snd_accept] = true
@@ -28,7 +28,7 @@ class Activity < ActiveRecord::Base
   end
 
   PULL_SINGLE_USER_ACTIVITY_BASE_SQL_QUERY =
-    "SELECT * FROM activities WHERE fst_user = '?' OR snd_user = '?' ORDER BY aid DESC"
+    "SELECT * FROM activities WHERE fst_uid = '?' OR snd_uid = '?' ORDER BY aid DESC"
 
   # @param  int(uid)
   # @return list(Activity)
@@ -38,7 +38,7 @@ class Activity < ActiveRecord::Base
   end
 
   PULL_DUAL_USER_ACTIVITY_BASE_SQL_QUERY =
-    "SELECT * FROM activities WHERE (fst_user = '?' AND snd_user = '?') OR (fst_user = '?' AND snd_user = '?') ORDER BY aid DESC"
+    "SELECT * FROM activities WHERE (fst_uid = '?' AND snd_uid = '?') OR (fst_uid = '?' AND snd_uid = '?') ORDER BY aid DESC"
 
   # @param  int(current login uid)
   # @param  int(uid who is invited)
