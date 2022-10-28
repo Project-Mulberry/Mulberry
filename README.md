@@ -3,7 +3,13 @@
 
 ## Brief Introduction
 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;TBD
+Have you Ever got 99+ Matches on Tinder?  
+But Never ONE Single Date in Real Life?  
+Don't Worry!  
+Mulberry solves that by limiting the matches per day & recommending fun dating activities with coupons!  
+More importantly, our App is Completely Free to users!!! No Membership Fee!!!  
+  
+Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 
 ## Development Team
 
@@ -28,6 +34,10 @@
 4. **[OPTIONAL: import sample data]** rake db:seed
 5. rails server -b 0.0.0.0 
 6. open browser localhost:3000
+
+> **For test:**  
+> bundle exec autotest  
+> rake cucumber  
 
 ## Documentation
 
