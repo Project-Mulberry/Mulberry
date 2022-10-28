@@ -9,10 +9,10 @@
 
 |                           |                    |
 |---------------------------|--------------------|
-| ***Product Manager***     | Marcus Min         |
-| ***Developer***           | Jack Wang          |
-|                           | Zhen Tao           |
-|                           | Hang Yuan          |
+| ***PM & Testing***        | Marcus Min         |
+| ***Front End***           | Jack Wang          |
+| ***Front End***           | Zhen Tao           |
+| ***Back End***            | Hang Yuan          |
 
 &nbsp;&nbsp;&nbsp;&nbsp;*Names are ordered by last name alphabetically*
 
