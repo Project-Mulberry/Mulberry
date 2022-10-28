@@ -24,8 +24,8 @@
 ### Environment Setup
 1. git pull repo
 2. bundle install --without production
-3. [OPTIONAL] rake db:migrate
-4. [OPTIONAL] rake db:seed
+3. **[OPTIONAL: create database]** rake db:migrate
+4. **[OPTIONAL: import sample data]** rake db:seed
 5. rails server -b 0.0.0.0 
 6. open browser localhost:3000
 

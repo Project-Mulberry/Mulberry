@@ -45,8 +45,9 @@ coupons.each do |coupon|
 end
 
 activities = [
-  {:status => 'DONE', :start_time => '01-Oct-2022', :end_time => '31-Oct-2022', :coupon_id => '2', :fst_user => 1, :snd_user => 2 },
-  {:status => 'CONFIRMED', :start_time => '01-Nov-2022', :end_time => '30-Nov-2022', :coupon_id => '1', :fst_user => 1, :snd_user => 2 },
+  {:status => 'PENDING', :coupon_id => '2', :fst_user => 1, :fst_accept => true, :snd_user => 2, :snd_accept => false },
+  {:status => 'DONE', :coupon_id => '2', :fst_user => 1, :fst_accept => true, :snd_user => 2, :snd_accept => true },
+  {:status => 'CONFIRMED', :coupon_id => '1', :fst_user => 1, :fst_accept => true, :snd_user => 2, :snd_accept => true },
 ]
 activities.each do |activity|
   Activity.create!(activity)
