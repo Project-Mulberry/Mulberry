@@ -1,7 +1,10 @@
 **/schema.rb
 **/*.sqlite3
+**/development.log
+**/Gemfile.lock
 
-.idea
+/.idea/
+*.iml
 
 *.gem
 *.rbc
