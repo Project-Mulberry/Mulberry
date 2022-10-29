@@ -1,0 +1,60 @@
+<h1>Users#new</h1>
+
+<%= form_for @user do |f| %>
+  <div class="div">
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+  </div>
+  <div>
+    <%= f.label :sexuality %>
+    <%= f.text_field :sexuality %>
+  </div>
+  <div>
+    <%= f.label :birthday %>
+    <%= f.datetime_local_field :birthday %>
+  </div>
+  <div>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div>
+    <%= f.label :education %>
+    <%= f.select :education, ["high school", 'undergradute', 'master','phd']%>
+  </div>
+
+  <div>
+    <%= f.label :height %>
+    <%= f.text_field :height %>
+  </div>
+
+  <div>
+    <%= f.label :profile_photo %>
+    <%= f.text_field :profile_photo %>
+  </div>
+
+  <div>
+    <%= f.label :height %>
+    <%= f.text_field :height %>
+  </div>
+
+  <div>
+    <%= f.label :created_time %>
+    <%= f.datetime_local_field :created_time %>
+  </div>
+
+
+  <%= submit_tag "Create" %>
+<% end %>
