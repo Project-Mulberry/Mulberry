@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to @user
+      redirect_to edit_user_path(@user)
     else
       # This line overrides the default rendering behavior, which
       # would have been to render the "create" view.
@@ -19,9 +19,24 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    # we receive all fields in params[:user]
+    # # update the model
+    # if successful, redirect to user page
+    @user = User.find(params[:id])
+    # @user = User.new(user_params)
+
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      # This line overrides the default rendering behavior, which
+      # would have been to render the "create" view.
+      render "edit"
+    end
+
   end
 
   def destroy

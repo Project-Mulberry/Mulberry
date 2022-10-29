@@ -1102,3 +1102,1537 @@ Processing by UsersController#show as HTML
   [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 5]]
   Rendered users/show.html.erb within layouts/application (1.3ms)
 Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 10:39:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tMfruKSE0JepMGTCuRVcD0wYoZ41Kpqzvg+0qBZnccDwANpyg+hqavU267uM7lO0KTy6srXBT50sr/X6KJ+WTQ==", "user"=>{"phone"=>"111-111-1111", "password"=>"[FILTERED]", "name"=>"Jack", "gender"=>"Male", "sexuality"=>"452", "birthday"=>"2022-10-28T09:51", "location"=>"New York", "education"=>"undergradute", "height"=>"8328324", "profile_photo"=>"www.google.com", "created_time"=>"2022-10-29T09:51"}, "commit"=>"Create"}
+  [1m[35m (2.4ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "users" ("phone", "password", "name", "gender", "sexuality", "birthday", "location", "education", "height", "profile_photo", "created_time") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["phone", "111-111-1111"], ["password", "53452"], ["name", "Jack"], ["gender", "Male"], ["sexuality", "452"], ["birthday", "2022-10-28 09:51:00.000000"], ["location", "New York"], ["education", "undergradute"], ["height", "8328324"], ["profile_photo", "www.google.com"], ["created_time", "2022-10-29 09:51:00.000000"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://0.0.0.0:3000/users/6
+Completed 302 Found in 17ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2022-10-29 10:39:03 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 6]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 10:39:32 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tMfruKSE0JepMGTCuRVcD0wYoZ41Kpqzvg+0qBZnccDwANpyg+hqavU267uM7lO0KTy6srXBT50sr/X6KJ+WTQ==", "user"=>{"phone"=>"111-111-1111", "password"=>"[FILTERED]", "name"=>"Jack", "gender"=>"Male", "sexuality"=>"452", "birthday"=>"2022-10-28T09:51", "location"=>"New York", "education"=>"undergradute", "height"=>"8328324", "profile_photo"=>"www.google.com", "created_time"=>"2022-10-29T09:51"}, "commit"=>"Create"}
+  [1m[35m (0.5ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("phone", "password", "name", "gender", "sexuality", "birthday", "location", "education", "height", "profile_photo", "created_time") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["phone", "111-111-1111"], ["password", ""], ["name", "Jack"], ["gender", "Male"], ["sexuality", "452"], ["birthday", "2022-10-28 09:51:00.000000"], ["location", "New York"], ["education", "undergradute"], ["height", "8328324"], ["profile_photo", "www.google.com"], ["created_time", "2022-10-29 09:51:00.000000"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Redirected to http://0.0.0.0:3000/users/7
+Completed 302 Found in 56ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/users/7" for 127.0.0.1 at 2022-10-29 10:39:32 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 7]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 10:53:04 -0400
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  app/models/user.rb:7:in `<class:User>'
+  app/models/user.rb:3:in `<top (required)>'
+  app/controllers/users_controller.rb:3:in `new'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 10:53:45 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 48ms (Views: 27.9ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 10:54:27 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+W7iAEP11HtvOOAlBdTjb6NieISe6/zXkJMPC7Ycbnq9qdPKZJluhjM+b1wwL+zUxkZjqB4AKfkCM05ZiOSJ9w==", "user"=>{"phone"=>"831332hjlksjhf", "password"=>"[FILTERED]", "name"=>"", "gender"=>"", "sexuality"=>"", "birthday"=>"", "location"=>"", "education"=>"high school", "height"=>"", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '831332hjlksjhf' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  Rendered users/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 37ms (Views: 15.4ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 10:58:46 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 46ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 10:59:07 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 37ms (Views: 34.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 10:59:12 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O4uKokk+3RD7O/3dVMmLnf23ntNmULOM3qkOWbpNmA5/TLtoblJn7ac9cqRhMoQmmJOF/+a7ZqJMCU8LhLV/gw==", "user"=>{"phone"=>"iyqwf", "password"=>"[FILTERED]", "name"=>"", "gender"=>"", "sexuality"=>"", "birthday"=>"", "location"=>"", "education"=>"high school", "height"=>"", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Create"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" = 'iyqwf' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 37ms (Views: 20.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 10:59:23 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O4uKokk+3RD7O/3dVMmLnf23ntNmULOM3qkOWbpNmA5/TLtoblJn7ac9cqRhMoQmmJOF/+a7ZqJMCU8LhLV/gw==", "user"=>{"phone"=>"", "password"=>"[FILTERED]", "name"=>"", "gender"=>"", "sexuality"=>"", "birthday"=>"", "location"=>"", "education"=>"high school", "height"=>"", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/new.html.erb within layouts/application (43.7ms)
+Completed 200 OK in 76ms (Views: 58.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-10-29 11:03:01 -0400
+
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  actionpack (4.2.10) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.10) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.10) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.13) lib/rack/etag.rb:24:in `call'
+  rack (1.6.13) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.13) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.13) lib/rack/session/abstract/id.rb:252:in `context'
+  rack (1.6.13) lib/rack/session/abstract/id.rb:247:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.10) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.10) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (1.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-10-29 11:03:34 -0400
+
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  actionpack (4.2.10) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.10) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.10) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.13) lib/rack/etag.rb:24:in `call'
+  rack (1.6.13) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.13) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.13) lib/rack/session/abstract/id.rb:252:in `context'
+  rack (1.6.13) lib/rack/session/abstract/id.rb:247:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.10) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.10) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-10-29 11:03:34 -0400
+
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  actionpack (4.2.10) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.10) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.10) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.13) lib/rack/etag.rb:24:in `call'
+  rack (1.6.13) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.13) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.13) lib/rack/session/abstract/id.rb:252:in `context'
+  rack (1.6.13) lib/rack/session/abstract/id.rb:247:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.10) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.10) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-29 11:03:42 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/railties-4.2.10/lib/rails/templates/rails/welcome/index.html.erb (0.7ms)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 11:03:50 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 73ms (Views: 45.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-10-29 11:03:53 -0400
+
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  actionpack (4.2.10) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.10) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.10) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.13) lib/rack/etag.rb:24:in `call'
+  rack (1.6.13) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.13) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.13) lib/rack/session/abstract/id.rb:252:in `context'
+  rack (1.6.13) lib/rack/session/abstract/id.rb:247:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.10) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.10) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 11:03:58 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 46ms (Views: 44.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:04:06 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yu0iPXWJbAenKIaPMkSJ8VvsmFSrgIN1okhh/GVyjoyOKhP3UuXW+vsuCfYHv4ZKPsiDeCtrVlsw6CCuW4ppAQ==", "user"=>{"phone"=>"", "password"=>"[FILTERED]", "name"=>"", "gender"=>"", "sexuality"=>"", "birthday"=>"", "location"=>"", "education"=>"high school", "height"=>"", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Create"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" = '' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 49ms (Views: 26.6ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."phone" = ?  [["phone", ""]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."phone" = ?[0m  [["phone", ""]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (2.2ms)[0m  [1mDELETE FROM "users" WHERE "users"."uid" = ?[0m  [["uid", 2]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "users" WHERE "users"."uid" = ?  [["uid", 3]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."phone" = ?  [["phone", ""]]
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:06:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xpQH3IcAKYgbVQSgR2I+YHVL6KajbiIN+38IWhnR2ayCUzYWoGyTdUdTi9lymTHbEG/ziiOF9yNp30kIJyk+IQ==", "user"=>{"phone"=>"", "password"=>"[FILTERED]", "name"=>"", "gender"=>"", "sexuality"=>"", "birthday"=>"", "location"=>"", "education"=>"high school", "height"=>"", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Create"}
+  [1m[35m (0.5ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 76ms (Views: 56.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:06:06 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2wAMd/1QNeE7rHR/TRCXFYyfGwJgCZ1lAr0rXPJ51Vqfxz292jyPHGeq+wZ465iu6bsALuDiSEuQHWoOzIEy1w==", "user"=>{"phone"=>"", "password"=>"[FILTERED]", "name"=>"", "gender"=>"", "sexuality"=>"", "birthday"=>"", "location"=>"", "education"=>"high school", "height"=>"", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Create"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" = '' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 44ms (Views: 27.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:06:11 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8rq6DVQdSl40E8YnTVfmJSb0uWnRTyWXW2W+sR0fRaq2fYvHc3Hwo2gVSV54rOmeQ9CiRVGk8LnJxf/jI+eiJw==", "user"=>{"phone"=>" ", "password"=>"[FILTERED]", "name"=>"", "gender"=>"", "sexuality"=>"", "birthday"=>"", "location"=>"", "education"=>"high school", "height"=>"", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ' ' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 41ms (Views: 22.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:06:13 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DDPCvORoTYhMWo4m1Olv9wltcYXdFQqDybEH1aOtLC5I9PN2wwT3dRBcAV/hEmBMbElqqV3+361bEUaHnVXLow==", "user"=>{"phone"=>" ", "password"=>"[FILTERED]", "name"=>"", "gender"=>"", "sexuality"=>"", "birthday"=>"", "location"=>"", "education"=>"high school", "height"=>"", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Create"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" = ' ' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 45ms (Views: 24.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:06:16 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rdivKHpc7BXQZ86BeDBMglMx/crKaditjQzNbciyDPHpH57iXTBW6IxhQfhNy0M5NhXm5kqCDYMfrIw/9krrfA==", "user"=>{"phone"=>"  ", "password"=>"[FILTERED]", "name"=>"", "gender"=>"", "sexuality"=>"", "birthday"=>"", "location"=>"", "education"=>"high school", "height"=>"", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '  ' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 43ms (Views: 26.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 11:17:32 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 37ms (Views: 23.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:17:43 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxys+sRUIbkEf4IG82xbHUWXSmm/fzfKTAGvAO1yTMWD250w4zibRFh5DX/Gl1SmILNRRT+U4uTeoe5S04qrSA==", "user"=>{"phone"=>"0123456789", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" = '0123456789' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 41ms (Views: 22.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:18:24 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3nWtfH6r2fmf1/s4amnyKLv4ms47qTAZ6r4O4DlV7/Saspy2WcdjBMPRdEFfkv2T3tyB4rtC5Td4Hk+yB60IeQ==", "user"=>{"phone"=>"0123456789", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '0123456789' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 49ms (Views: 30.1ms | ActiveRecord: 0.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."uid" DESC LIMIT 1[0m
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 11:24:18 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 37ms (Views: 22.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:24:26 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fFn5eEyahk6odSbwdDN0wvO1ylpvwEs/H5sZ1WD5q884nsiya/Y8s/RzqYlByHt5lpHRdu8rnhGNO1iHXgFMQg==", "user"=>{"phone"=>"1234567890", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" = '1234567890' LIMIT 1
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "users" ("phone", "password") VALUES (?, ?)[0m  [["phone", "1234567890"], ["password", "123123123"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 3.7ms)
+
+NoMethodError (undefined method `edit_users_path' for #<UsersController:0x0000000102ed2eb8>):
+  app/controllers/users_controller.rb:9:in `create'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:24:54 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fFn5eEyahk6odSbwdDN0wvO1ylpvwEs/H5sZ1WD5q884nsiya/Y8s/RzqYlByHt5lpHRdu8rnhGNO1iHXgFMQg==", "user"=>{"phone"=>"1234567890", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" = '1234567890' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 42ms (Views: 22.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:25:04 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VtjKCUcXf+nQRyF4j2ffLoOLuLyARB4wzAlzkn/mOYgSH/vDYHvFFIxBrgG6nNCV5q+jkACvyx5eqTLAQR7eBQ==", "user"=>{"phone"=>"1234567891", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '1234567891' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("phone", "password") VALUES (?, ?)  [["phone", "1234567891"], ["password", "123123"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/users/9/edit
+Completed 302 Found in 11ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/users/9/edit" for 127.0.0.1 at 2022-10-29 11:25:04 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  Rendered users/edit.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: 
+    5: <h1>WELCOME TO MULBERRY USER CREATION!!</h1>
+    6: 
+    7: <%= form_for @user do |f| %>
+    8:   <div class="phone">
+    9:     <%= f.label :phone %>
+   10:     <%= f.text_field :phone %>
+  app/views/users/edit.html.erb:7:in `_app_views_users_edit_html_erb___3531694782800848570_2594688620'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.9ms)
+
+
+Started GET "/users/9/edit" for 127.0.0.1 at 2022-10-29 11:25:53 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 9]]
+  Rendered users/edit.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 63ms (Views: 35.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-10-29 11:26:06 -0400
+
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  actionpack (4.2.10) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.10) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.10) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.13) lib/rack/etag.rb:24:in `call'
+  rack (1.6.13) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.13) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.13) lib/rack/session/abstract/id.rb:252:in `context'
+  rack (1.6.13) lib/rack/session/abstract/id.rb:247:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.10) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.10) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:26:17 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fFn5eEyahk6odSbwdDN0wvO1ylpvwEs/H5sZ1WD5q884nsiya/Y8s/RzqYlByHt5lpHRdu8rnhGNO1iHXgFMQg==", "user"=>{"phone"=>"fasd", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" = 'fasd' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 36ms (Views: 24.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:26:34 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/++MeL791vFBxwPpuX14Rajm/1U19nZie4M9PPl+tNTOI/7xZdNppkBk3aTHvpac4eA0dQ8DPcbTk2mzR0dXg==", "user"=>{"phone"=>"8394", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '8394' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  Rendered users/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 38ms (Views: 28.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-10-29 11:26:38 -0400
+
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  actionpack (4.2.10) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.10) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.10) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.13) lib/rack/etag.rb:24:in `call'
+  rack (1.6.13) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.13) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.13) lib/rack/session/abstract/id.rb:252:in `context'
+  rack (1.6.13) lib/rack/session/abstract/id.rb:247:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.10) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.10) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 11:27:51 -0400
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+ArgumentError (Range unspecified. Specify the :in, :within, :maximum, :minimum, or :is option.):
+  app/models/user.rb:15:in `<class:User>'
+  app/models/user.rb:3:in `<top (required)>'
+  app/controllers/users_controller.rb:3:in `new'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.9ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 11:28:41 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 54ms (Views: 39.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:28:46 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nf8GPIqVXTPkV80Kk5vLAItYjbb6V8kKW2v0seNx+/XZODf2rfnnzrhRQnOmYMS77nyWmnq8HCTJy7Xj3YkceA==", "user"=>{"phone"=>"44", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" = '44' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 63ms (Views: 52.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:29:19 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"avhdBCZpZYKSpCL6sCE1xllq98K8S6XIovOG4TMz1PMuP2zOAQXff86irYOF2jp9PE7s7jygcOYwU8ezDcszfg==", "user"=>{"phone"=>"1234234297", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '1234234297' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("phone", "password") VALUES (?, ?)  [["phone", "1234234297"], ["password", "23423412"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/users/10/edit
+Completed 302 Found in 14ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/users/10/edit" for 127.0.0.1 at 2022-10-29 11:29:19 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 10]]
+  Rendered users/edit.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/10/edit" for 127.0.0.1 at 2022-10-29 11:31:12 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 10]]
+  Rendered users/edit.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms)
+
+SyntaxError (/Users/jackwang/Columbia/4152/Mulberry/app/views/users/edit.html.erb:52: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  app/views/users/edit.html.erb:52: syntax error, unexpected ensure, expecting end-of-input
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.7ms)
+
+
+Started GET "/users/10/edit" for 127.0.0.1 at 2022-10-29 11:31:32 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 10]]
+  Rendered users/edit.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 47ms (Views: 42.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/10/edit" for 127.0.0.1 at 2022-10-29 11:32:06 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 10]]
+  Rendered users/edit.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 61ms (Views: 55.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/10/edit" for 127.0.0.1 at 2022-10-29 11:32:38 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 10]]
+  Rendered users/edit.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 32ms (Views: 20.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/10/edit" for 127.0.0.1 at 2022-10-29 11:38:08 -0400
+
+NameError (undefined local variable or method `on' for #<ActionDispatch::Routing::Mapper:0x0000000104917710>):
+  config/routes.rb:3:in `block (2 levels) in <top (required)>'
+  config/routes.rb:2:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.9ms)
+
+
+Started GET "/users/10/edit" for 127.0.0.1 at 2022-10-29 11:38:48 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"without"=>[:edit], "id"=>"10"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 10]]
+  Rendered users/edit.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 36ms (Views: 22.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/10/profile" for 127.0.0.1 at 2022-10-29 11:38:54 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"without"=>[:edit], "id"=>"10"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 10]]
+  Rendered users/edit.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/profile" for 127.0.0.1 at 2022-10-29 11:40:45 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 10]]
+  Rendered users/edit.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 47ms (Views: 24.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 11:43:07 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 30ms (Views: 19.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:43:41 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3cVBRplZiI5ubP8RUkjLtmmfZUCwvlJj8423lOB6fRaZAnCMvjUyczJqcGhns8QNDLt+bDBVh01hLfbG3oKamw==", "user"=>{"phone"=>"9876543210", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '9876543210' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("phone", "password") VALUES (?, ?)  [["phone", "9876543210"], ["password", "4243423"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/users/11/profile
+Completed 302 Found in 12ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/users/11/profile" for 127.0.0.1 at 2022-10-29 11:43:41 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 11]]
+  Rendered users/edit.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/users/11" for 127.0.0.1 at 2022-10-29 11:44:17 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vl0R79YbiLs9H4o8l6iMgK5+X0FbBeC1iP2MLWUNQjr6miAl8XcyRmEZBUWiU4M7y1pEbdvuNZsaXc1/W/Wltw==", "user"=>{"name"=>"Jack", "gender"=>"Male", "sexuality"=>"Male", "birthday"=>"2022-10-29T11:43", "location"=>"31324", "education"=>"undergradute", "height"=>"423", "profile_photo"=>"www.google.com", "created_time"=>"2022-10-27T11:44"}, "commit"=>"Create", "id"=>"11"}
+  Rendered users/update.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 34ms (Views: 30.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/11" for 127.0.0.1 at 2022-10-29 11:48:05 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 11]]
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 61ms (Views: 49.4ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/users/11" for 127.0.0.1 at 2022-10-29 11:48:12 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vl0R79YbiLs9H4o8l6iMgK5+X0FbBeC1iP2MLWUNQjr6miAl8XcyRmEZBUWiU4M7y1pEbdvuNZsaXc1/W/Wltw==", "user"=>{"name"=>"Jack", "gender"=>"Male", "sexuality"=>"Male", "birthday"=>"2022-10-29T11:43", "location"=>"31324", "education"=>"undergradute", "height"=>"423", "profile_photo"=>"www.google.com", "created_time"=>"2022-10-27T11:44"}, "commit"=>"Create", "id"=>"11"}
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 58ms (Views: 20.6ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/users/11" for 127.0.0.1 at 2022-10-29 11:48:17 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vl0R79YbiLs9H4o8l6iMgK5+X0FbBeC1iP2MLWUNQjr6miAl8XcyRmEZBUWiU4M7y1pEbdvuNZsaXc1/W/Wltw==", "user"=>{"name"=>"Jack", "gender"=>"Male", "sexuality"=>"Male", "birthday"=>"2022-10-29T11:43", "location"=>"31324", "education"=>"undergradute", "height"=>"423", "profile_photo"=>"www.google.com", "created_time"=>"2022-10-27T11:44"}, "commit"=>"Create", "id"=>"11"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 30ms (Views: 20.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/11" for 127.0.0.1 at 2022-10-29 11:49:35 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 11]]
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 32ms (Views: 21.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 11:49:41 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 11:50:02 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"49S72j512xBond/Orgs3vb2McbSlmwek4FP2TEDfF9OnE4oQGRlh7TSbULeb8DgG2KhqmCVw0opy87cefifwXg==", "user"=>{"phone"=>"7384932333", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" = '7384932333' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("phone", "password") VALUES (?, ?)[0m  [["phone", "7384932333"], ["password", "123123121"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://0.0.0.0:3000/users/12/profile
+Completed 302 Found in 17ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/users/12/profile" for 127.0.0.1 at 2022-10-29 11:50:02 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 12]]
+  Rendered users/edit.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/12/profile" for 127.0.0.1 at 2022-10-29 11:55:44 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 12]]
+  Rendered users/edit.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 44ms (Views: 38.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/12/profile" for 127.0.0.1 at 2022-10-29 11:55:46 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 12]]
+  Rendered users/edit.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/users/12" for 127.0.0.1 at 2022-10-29 11:55:50 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iortKzXoKNbb043vqsByZlUvcoDCqdMx/G0QmMAWj6vOTdzhEoSSK4fVApafO33dMAtprEJCBh9uzVHK/u5oJg==", "user"=>{"name"=>"", "gender"=>"", "sexuality"=>"", "birthday"=>"", "location"=>"", "education"=>"high school", "height"=>"", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Submit", "id"=>"12"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 12]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."phone" = '7384932333' AND "users"."uid" != 12) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  Rendered users/edit.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 31ms (Views: 15.4ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/users/12" for 127.0.0.1 at 2022-10-29 11:56:13 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PGl00/6N8fvFKSrsaSgxarcwBWmiKegcDzOng13vRi54rkUZ2eFLBpkvpZVc0z7R0hQeRSLCPTKdk+bRYxehow==", "user"=>{"name"=>"88", "gender"=>"434", "sexuality"=>"34", "birthday"=>"", "location"=>"434", "education"=>"high school", "height"=>"", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Submit", "id"=>"12"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."phone" = '7384932333' AND "users"."uid" != 12) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  Rendered users/edit.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 28ms (Views: 14.6ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/users/12" for 127.0.0.1 at 2022-10-29 11:56:55 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"49hWUqdCWoF+F+eqkuQLni7wlHl5AqMnPlEymGpcJYmnH2eYgC7gfCIRaNOnHwQlS9SPVfnpdgms8XPKVKTCBA==", "user"=>{"name"=>"88", "gender"=>"434", "sexuality"=>"34", "birthday"=>"", "location"=>"434", "education"=>"high school", "height"=>"434", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Submit", "id"=>"12"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 12]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."phone" = '7384932333' AND "users"."uid" != 12) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  Rendered users/edit.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 29ms (Views: 16.3ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/users/12" for 127.0.0.1 at 2022-10-29 11:56:58 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B7wjWp+mYTk5WSQXTXSQghRj6KBsUwOVXBVF5msh0LxDexKQuMrbxGVfq254j585cUfzjOy41rvOtQS0Vdk3MQ==", "user"=>{"name"=>"88", "gender"=>"434", "sexuality"=>"34", "birthday"=>"", "location"=>"434", "education"=>"high school", "height"=>"434", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Submit", "id"=>"12"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."phone" = '7384932333' AND "users"."uid" != 12) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/edit.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 31ms (Views: 17.8ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/users/12" for 127.0.0.1 at 2022-10-29 11:57:32 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jUntw5zymbWAHUM6cus84hLpOKrjnPQdEIlxDoTCVtDJjtwJu54jSNwbzENHEDNZd80jhmN3ITOCKTBcujqxXQ==", "user"=>{"name"=>"88", "gender"=>"434", "sexuality"=>"34", "birthday"=>"", "location"=>"434", "education"=>"high school", "height"=>"434", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Submit", "id"=>"12"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."phone" = '7384932333' AND "users"."uid" != 12) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  Rendered users/edit.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 31ms (Views: 22.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2022-10-29 11:58:21 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/Users/jackwang/Columbia/4152/Mulberry/app/models/user.rb:12: syntax error, unexpected ':', expecting end
+            presence: true, if: -> { persisted? }
+                    ^
+/Users/jackwang/Columbia/4152/Mulberry/app/models/user.rb:12: Can't assign to true
+            presence: true, if: -> { persisted? }
+                      ^~~~):
+  app/models/user.rb:12: syntax error, unexpected ':', expecting end
+  app/models/user.rb:12: Can't assign to true
+  app/controllers/users_controller.rb:18:in `show'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.4ms)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2022-10-29 11:58:29 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 12]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 51ms (Views: 26.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2022-10-29 11:58:55 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 12]]
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 37ms (Views: 31.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/12/profile" for 127.0.0.1 at 2022-10-29 11:59:30 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 12]]
+  Rendered users/edit.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 43ms (Views: 38.2ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/users/12" for 127.0.0.1 at 2022-10-29 11:59:36 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xY30Q4yxQmM2uFd691laWMAjdc8ZOs4A+bsR68cDtQaBSsWJq934nmq+2APColXjpQdu45nRGy5rG1C5+ftSiw==", "user"=>{"name"=>"", "gender"=>"", "sexuality"=>"", "birthday"=>"", "location"=>"", "education"=>"high school", "height"=>"", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Submit", "id"=>"12"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 12]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."phone" = '7384932333' AND "users"."uid" != 12) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/edit.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 37ms (Views: 19.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2022-10-29 12:00:49 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 12]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 28ms (Views: 21.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/12/profile" for 127.0.0.1 at 2022-10-29 12:00:54 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 12]]
+  Rendered users/edit.html.erb within layouts/application (30.0ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `date_local_field' for #<ActionView::Helpers::FormBuilder:0x0000000102ee88a8>):
+    36:   </div>
+    37:   <div class="birthday">
+    38:     <%= f.label :birthday %>
+    39:     <%= f.date_local_field :birthday %>
+    40:     <% if @user.errors[:birthday].present? %>
+    41:       <% @user.errors[:birthday].each do |msg| %>
+    42:         <p style="color:red"><%= msg %></p>
+  app/views/users/edit.html.erb:39:in `block in _app_views_users_edit_html_erb___3531694782800848570_2172030900'
+  app/views/users/edit.html.erb:7:in `_app_views_users_edit_html_erb___3531694782800848570_2172030900'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.4ms)
+
+
+Started GET "/users/12/profile" for 127.0.0.1 at 2022-10-29 12:01:25 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 12]]
+  Rendered users/edit.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 43ms (Views: 37.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 12:03:06 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 29ms (Views: 25.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 12:03:22 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"l4rapicHoxjmaNPYUISgUV+yLBn1Ah0WOY1MTe1EFLzTTetsAGsZ5bpuXKFlf6/qOpY3NXXpyDirLQ0f07zzMQ==", "user"=>{"phone"=>"890230423", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '890230423' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 30ms (Views: 20.0ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 12:04:33 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zgXBQT/NF/QniiO6ol3OdB5KjP2mPbkCsNUNgnZ6m0mKwvCLGKGtCXuMrMOXpsHPe26X0SbWbCwidUzQSIJ8xA==", "user"=>{"phone"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" = '' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 56ms (Views: 44.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 12:04:39 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2ndMLS9jsz9n9fHm2982h3qeE3+tUid03jFf/8PrzzCesH3nCA8Jwjvzfp/uJDk8H7oIUy258lpMkR6t/RMovQ==", "user"=>{"phone"=>"343423", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '343423' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 28ms (Views: 19.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 12:04:46 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 12:04:51 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3hkR/icOvQw69P8Wz4mzzb296rW1fbknhggM0TVNg9qa3iA0AGIH8WbycG/6crx22JnxmTWWbAkUqE2DC7VkVw==", "user"=>{"phone"=>"42423432", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" = '42423432' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 29ms (Views: 20.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 12:05:03 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 45ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 12:05:15 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kkGHuivRqUSuiz4aN4RejVOSzbBs+jeoCNwqZMsXdCXWhrZwDL0TufKNsWMCf1E2NrbWnOwR4oaafGs29e+TqA==", "user"=>{"phone"=>"3883839454", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[35m (0.7ms)[0m  begin transaction
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '3883839454' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("phone", "password") VALUES (?, ?)  [["phone", "3883839454"], ["password", "9390485"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/users/13/profile
+Completed 302 Found in 23ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/users/13/profile" for 127.0.0.1 at 2022-10-29 12:05:15 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 13]]
+  Rendered users/edit.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/users/13" for 127.0.0.1 at 2022-10-29 12:05:19 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZXi8IOYP8GeXEcPazaywtBUe8ulifjQm6W2U3n89y70hv43qwWNKmssXTKP4V78PcDrpxeKV4Qh7zdWMQcUsMA==", "user"=>{"name"=>"", "gender"=>"", "sexuality"=>"", "birthday"=>"", "location"=>"", "education"=>"high school", "height"=>"", "profile_photo"=>"", "created_time"=>""}, "commit"=>"Submit", "id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 13]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."phone" = '3883839454' AND "users"."uid" != 13) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/edit.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 67ms (Views: 17.4ms | ActiveRecord: 0.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddTimestampsToUsers (20221029160823)
+  [1m[35m (0.0ms)[0m  begin transaction
+DEPRECATION WARNING: `#add_timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /Users/jackwang/Columbia/4152/Mulberry/db/migrate/20221029160823_add_timestamps_to_users.rb:4)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "created_at" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "updated_at" datetime
+  [1m[36m (0.1ms)[0m  [1mCREATE TEMPORARY TABLE "ausers" ("uid" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "phone" varchar, "password" varchar, "name" varchar, "gender" varchar, "sexuality" varchar, "birthday" datetime, "location" varchar, "education" varchar, "career" varchar, "height" varchar, "profile_photo" varchar, "created_time" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "users"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "ausers" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_time","created_at","updated_at") VALUES (1, '324234', 'ewrreqwreqw', 'rewqrqew', 'qrew', 'erq', NULL, 'rqewr', 'high school', NULL, 'rqweqrt', 'trqet', NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "ausers" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_time","created_at","updated_at") VALUES (4, '1111', '11111', '111111', '1111324', '41234134', '2022-10-07 09:47:00.000000', '31324', 'undergradute', NULL, '41324', 'url', '2022-10-21 09:48:00.000000', NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "ausers" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_time","created_at","updated_at") VALUES (5, '111-111-1111', '111111', 'Jack', 'Male', '452', '2022-10-28 09:51:00.000000', 'New York', 'undergradute', NULL, '8328324', 'www.google.com', '2022-10-29 09:51:00.000000', NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "ausers" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_time","created_at","updated_at") VALUES (6, '111-111-1111', '53452', 'Jack', 'Male', '452', '2022-10-28 09:51:00.000000', 'New York', 'undergradute', NULL, '8328324', 'www.google.com', '2022-10-29 09:51:00.000000', NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "ausers" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_time","created_at","updated_at") VALUES (7, '111-111-1111', '', 'Jack', 'Male', '452', '2022-10-28 09:51:00.000000', 'New York', 'undergradute', NULL, '8328324', 'www.google.com', '2022-10-29 09:51:00.000000', NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "ausers" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_time","created_at","updated_at") VALUES (8, '1234567890', '123123123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "ausers" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_time","created_at","updated_at") VALUES (9, '1234567891', '123123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "ausers" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_time","created_at","updated_at") VALUES (10, '1234234297', '23423412', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "ausers" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_time","created_at","updated_at") VALUES (11, '9876543210', '4243423', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "ausers" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_time","created_at","updated_at") VALUES (12, '7384932333', '123123121', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "ausers" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_time","created_at","updated_at") VALUES (13, '3883839454', '9390485', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "users"
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "users" ("uid" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "phone" varchar, "password" varchar, "name" varchar, "gender" varchar, "sexuality" varchar, "birthday" datetime, "location" varchar, "education" varchar, "career" varchar, "height" varchar, "profile_photo" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "ausers"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "users" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_at","updated_at") VALUES (1, '324234', 'ewrreqwreqw', 'rewqrqew', 'qrew', 'erq', NULL, 'rqewr', 'high school', NULL, 'rqweqrt', 'trqet', NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "users" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_at","updated_at") VALUES (4, '1111', '11111', '111111', '1111324', '41234134', '2022-10-07 09:47:00.000000', '31324', 'undergradute', NULL, '41324', 'url', NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "users" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_at","updated_at") VALUES (5, '111-111-1111', '111111', 'Jack', 'Male', '452', '2022-10-28 09:51:00.000000', 'New York', 'undergradute', NULL, '8328324', 'www.google.com', NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "users" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_at","updated_at") VALUES (6, '111-111-1111', '53452', 'Jack', 'Male', '452', '2022-10-28 09:51:00.000000', 'New York', 'undergradute', NULL, '8328324', 'www.google.com', NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "users" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_at","updated_at") VALUES (7, '111-111-1111', '', 'Jack', 'Male', '452', '2022-10-28 09:51:00.000000', 'New York', 'undergradute', NULL, '8328324', 'www.google.com', NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "users" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_at","updated_at") VALUES (8, '1234567890', '123123123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "users" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_at","updated_at") VALUES (9, '1234567891', '123123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "users" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_at","updated_at") VALUES (10, '1234234297', '23423412', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "users" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_at","updated_at") VALUES (11, '9876543210', '4243423', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "users" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_at","updated_at") VALUES (12, '7384932333', '123123121', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "users" ("uid","phone","password","name","gender","sexuality","birthday","location","education","career","height","profile_photo","created_at","updated_at") VALUES (13, '3883839454', '9390485', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  DROP TABLE "ausers"
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221029160823"]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/users/13" for 127.0.0.1 at 2022-10-29 12:14:22 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 13]]
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `created_time' for #<User:0x0000000103825a60>):
+    41: </div>
+    42: 
+    43: <div>
+    44:   Created_time: <%= @user.created_time %>
+    45: </div>
+  app/views/users/show.html.erb:44:in `_app_views_users_show_html_erb__1459494771717343182_2315364900'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (16.7ms)
+
+
+Started GET "/users/13" for 127.0.0.1 at 2022-10-29 12:14:46 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 13]]
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 34ms (Views: 20.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 12:14:52 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 12:15:05 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ak+6tmIO10vWDuSuGdSl7BODCszvVx7bkhibeyPri+AuiIt8RWJttooIa9csL6pXdqcR4G+8y/UAuNopHRNsbQ==", "user"=>{"phone"=>"4848594033", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[35m (2.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '4848594033' LIMIT 1[0m
+  [1m[35mSQL (7.3ms)[0m  INSERT INTO "users" ("phone", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["phone", "4848594033"], ["password", "384985908"], ["created_at", "2022-10-29 16:15:05.510592"], ["updated_at", "2022-10-29 16:15:05.510592"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/users/14/profile
+Completed 302 Found in 43ms (ActiveRecord: 10.9ms)
+
+
+Started GET "/users/14/profile" for 127.0.0.1 at 2022-10-29 12:15:05 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 14]]
+  Rendered users/edit.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/14/profile" for 127.0.0.1 at 2022-10-29 12:16:48 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 14]]
+  Rendered users/edit.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 36ms (Views: 31.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/14/profile" for 127.0.0.1 at 2022-10-29 12:17:10 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 14]]
+  Rendered users/edit.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 81ms (Views: 77.5ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/users/14" for 127.0.0.1 at 2022-10-29 12:17:34 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RUOzuE4YENa4gFy2eyU9fwH4M85dNlbs/9+7GAIeYn0BhIJyaXSqK+SG089O3jLEZNwo4t3dg8Jtf/pKPOaF8A==", "user"=>{"name"=>"Jack", "gender"=>"dad", "sexuality"=>"fasf", "birthday"=>"2022-10-04", "location"=>"daff", "education"=>"undergradute", "height"=>"dasfdsa", "profile_photo"=>"www.google.com"}, "commit"=>"Submit", "id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 14]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."phone" = '4848594033' AND "users"."uid" != 14) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/edit.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 68ms (Views: 56.7ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/users/14" for 127.0.0.1 at 2022-10-29 12:17:37 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DPlNLAqPw3PMXouM6njjP5qA3gfyol8lNK9aKQUrFjJIPnzmLeN5jpBYBPXfg+yE/6TFK3JJigumDxt7O9Pxvw==", "user"=>{"name"=>"Jack", "gender"=>"dad", "sexuality"=>"fasf", "birthday"=>"2022-10-04", "location"=>"daff", "education"=>"undergradute", "height"=>"dasfdsa", "profile_photo"=>"www.google.com"}, "commit"=>"Submit", "id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 14]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."phone" = '4848594033' AND "users"."uid" != 14) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/edit.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 29ms (Views: 18.6ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/users/14" for 127.0.0.1 at 2022-10-29 12:17:39 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"35kNWpRJ7KD16mxfTcHQuLBHn0kgczcCQ5h2vl4ld1WbXjyQsyVWXans4yZ4Ot8D1WOEZaCY4izRODfsYN2Q2A==", "user"=>{"name"=>"Jack", "gender"=>"dad", "sexuality"=>"fasf", "birthday"=>"2022-10-04", "location"=>"daff", "education"=>"undergradute", "height"=>"dasfdsa", "profile_photo"=>"www.google.com"}, "commit"=>"Submit", "id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 14]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."phone" = '4848594033' AND "users"."uid" != 14) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/edit.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 33ms (Views: 23.5ms | ActiveRecord: 0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 14]]
+  [1m[35m (0.5ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."phone" = '4848594033' AND "users"."uid" != 14) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+
+
+Started GET "/users/14" for 127.0.0.1 at 2022-10-29 12:25:17 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (3.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 14]]
+  Rendered users/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 46ms (Views: 32.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 12:25:22 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 12:25:30 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"era/EXXC6yxZENlpBYKAFVpR5dwx86UPDbcM/a8XVDs+cY7bUq5R0QUWVhAweY+uP3X+8LEYcCGfF02vke+ztg==", "user"=>{"phone"=>"8384949050", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[35m (1.1ms)[0m  begin transaction
+  [1m[36mUser Exists (1.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '8384949050' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("phone", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["phone", "8384949050"], ["password", "323432423"], ["created_at", "2022-10-29 16:25:30.420436"], ["updated_at", "2022-10-29 16:25:30.420436"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/users/15/profile
+Completed 302 Found in 14ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/users/15/profile" for 127.0.0.1 at 2022-10-29 12:25:30 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 15]]
+  Rendered users/edit.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/users/15" for 127.0.0.1 at 2022-10-29 12:25:42 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+T2po29ewOjnMzPGD1EXElnPdMVgCnPTlIWZiUCi17C9+phpSDJ6Fbs1vL86qhipPOtv6eDhpv0GJdjbflowPQ==", "user"=>{"name"=>"faf", "gender"=>"sdfasdf", "sexuality"=>"fasdfasd", "birthday"=>"2022-09-27", "location"=>"fsafa", "education"=>"undergradute", "career"=>"dsfas", "height"=>"dfasd", "profile_photo"=>"dfdsaf"}, "commit"=>"Submit", "id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 15]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."phone" = '8384949050' AND "users"."uid" != 15) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "name" = ?, "gender" = ?, "sexuality" = ?, "birthday" = ?, "location" = ?, "education" = ?, "career" = ?, "height" = ?, "profile_photo" = ?, "updated_at" = ? WHERE "users"."uid" = ?  [["name", "faf"], ["gender", "sdfasdf"], ["sexuality", "fasdfasd"], ["birthday", "2022-09-27 00:00:00.000000"], ["location", "fsafa"], ["education", "undergradute"], ["career", "dsfas"], ["height", "dfasd"], ["profile_photo", "dfdsaf"], ["updated_at", "2022-10-29 16:25:42.569814"], ["uid", 15]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/users/15
+Completed 302 Found in 15ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/users/15" for 127.0.0.1 at 2022-10-29 12:25:42 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 15]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/15" for 127.0.0.1 at 2022-10-29 12:28:23 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 15]]
+Completed 404 Not Found in 6ms (ActiveRecord: 0.4ms)
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'uid'=15):
+  app/controllers/users_controller.rb:18:in `show'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 12:30:27 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 28ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 12:30:57 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IlxWGqcv/8wrlanU0kUwM3zJ5fa8AVcn8kSuyiGHFKZmm2fQgENFMXeTJq3nvj+IGe3+2jzqgglg5O+YH3/zKw==", "user"=>{"phone"=>"3884", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[35m (0.6ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '3884' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 54ms (Views: 26.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 12:31:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rnSPKXvllbYA71AisKwjPH16pN1pHpChzonbWHHhykDqs77jXIkvS1zp31uFVyyHGF6/8en1RY9cKZoKTxktzQ==", "user"=>{"phone"=>"dhfakdsjf", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" = 'dhfakdsjf' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.html.erb within layouts/application (41.8ms)
+Completed 200 OK in 67ms (Views: 56.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 12:31:09 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wazMTsZX6ICkli4gAFrnFi7Mxt1YGhL4iH6YVKXQhq2Fa/2E4TtSffiQoVk1oeitS+jd8djxx9Ya3tkGmyhhIA==", "user"=>{"phone"=>"fdasf", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = 'fdasf' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 32ms (Views: 24.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-10-29 12:31:37 -0400
+
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  actionpack (4.2.10) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.10) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.10) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.10) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.10) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.10) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.13) lib/rack/etag.rb:24:in `call'
+  rack (1.6.13) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.13) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.13) lib/rack/session/abstract/id.rb:252:in `context'
+  rack (1.6.13) lib/rack/session/abstract/id.rb:247:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.10) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.10) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.10) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.10) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /Users/jackwang/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-10-29 12:31:40 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 58ms (Views: 56.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 12:32:55 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EkU/rH138rOx9CyjO2l8u54ZCnE0Hq2g9hKpWMyPOBZWgg5mWhtITu3yo9oOknMA+z0RXbT1eI5ksugK8nffmw==", "user"=>{"phone"=>"23432", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."phone" = '23432' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 45ms (Views: 33.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-10-29 12:33:05 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y6CIwq/wFCFKk4Zspb2i8ItXa1qxjAnvH6Iqhhd2lpyPZ7kIiJyu3BaVCRWQRq1L7nNwdjFn3MGNAmvUKY5xEQ==", "user"=>{"phone"=>"8384939232", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."phone" = '8384939232' LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "users" ("phone", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["phone", "8384939232"], ["password", "dfadsfadsf"], ["created_at", "2022-10-29 16:33:05.828489"], ["updated_at", "2022-10-29 16:33:05.828489"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/users/16/profile
+Completed 302 Found in 14ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/users/16/profile" for 127.0.0.1 at 2022-10-29 12:33:05 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 16]]
+  Rendered users/edit.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/users/16" for 127.0.0.1 at 2022-10-29 12:33:08 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BPtoPousq9NfUaEFYglHPL3nQLWlFqt5OfnUBiXMXLpAPFn0rMARLgNXLnxX8kiH2MNbmSX9flerWZVUGzS7Nw==", "user"=>{"name"=>"", "gender"=>"", "sexuality"=>"", "birthday"=>"", "location"=>"", "education"=>"high school", "career"=>"", "height"=>"", "profile_photo"=>""}, "commit"=>"Submit", "id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 16]]
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."phone" = '8384939232' AND "users"."uid" != 16) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/edit.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 41ms (Views: 24.3ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/users/16" for 127.0.0.1 at 2022-10-29 12:33:39 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SHWodeYJ4O2U2ZRJJi67Sb0qdWAJ3pRTwwpepCON7eoMspm/wWVaEMjfGzAT1bTy2A5uTIk1QX1Rqh/2HXUKZw==", "user"=>{"name"=>"Jack", "gender"=>"Male", "sexuality"=>"daf", "birthday"=>"2022-10-26", "location"=>"New York", "education"=>"undergradute", "career"=>"CEO", "height"=>"dfasdf", "profile_photo"=>"www.google.com"}, "commit"=>"Submit", "id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", 16]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."phone" = '8384939232' AND "users"."uid" != 16) LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE "users" SET "name" = ?, "gender" = ?, "sexuality" = ?, "birthday" = ?, "location" = ?, "education" = ?, "career" = ?, "height" = ?, "profile_photo" = ?, "updated_at" = ? WHERE "users"."uid" = ?  [["name", "Jack"], ["gender", "Male"], ["sexuality", "daf"], ["birthday", "2022-10-26 00:00:00.000000"], ["location", "New York"], ["education", "undergradute"], ["career", "CEO"], ["height", "dfasdf"], ["profile_photo", "www.google.com"], ["updated_at", "2022-10-29 16:33:39.608071"], ["uid", 16]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/users/16
+Completed 302 Found in 15ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/users/16" for 127.0.0.1 at 2022-10-29 12:33:39 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", 16]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.1ms)

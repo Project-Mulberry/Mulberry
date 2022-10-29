@@ -4,52 +4,21 @@
   <div class="phone">
     <%= f.label :phone %>
     <%= f.text_field :phone %>
+    <% if @user.errors[:phone].present? %>
+        <% @user.errors[:phone].each do |msg| %>
+          <p style="color:red"><%= msg %></p>
+        <% end %>
+    <% end %>
   </div>
   <div class="password">
     <%= f.label :password %>
     <%= f.password_field :password %>
+    <% if @user.errors[:password].present? %>
+      <% @user.errors[:password].each do |msg| %>
+        <p style="color:red"><%= msg %></p>
+      <% end %>
+    <% end %>
   </div>
-  <div class="name">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="gender">
-    <%= f.label :gender %>
-    <%= f.text_field :gender %>
-  </div>
-  <div class="sexuality">
-    <%= f.label :sexuality %>
-    <%= f.text_field :sexuality %>
-  </div>
-  <div class="birthday">
-    <%= f.label :birthday %>
-    <%= f.datetime_local_field :birthday %>
-  </div>
-  <div class="location">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-  </div>
-
-  <div class="education">
-    <%= f.label :education %>
-    <%= f.select :education, ["high school", 'undergradute', 'master','phd']%>
-  </div>
-
-  <div class="height">
-    <%= f.label :height %>
-    <%= f.text_field :height %>
-  </div>
-
-  <div class = "profile_photo">
-    <%= f.label :profile_photo %>
-    <%= f.text_field :profile_photo %>
-  </div>
-
-  <div class = "created_time">
-    <%= f.label :created_time %>
-    <%= f.datetime_local_field :created_time %>
-  </div>
-
 
   <%= submit_tag "Create" %>
 <% end %>
