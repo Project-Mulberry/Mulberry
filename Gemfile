@@ -18,7 +18,7 @@ group :development do
 
   # gem 'cucumber-rails', :require => false
   # gem 'cucumber-rails-training-wheels'
-  # gem 'simplecov', '0.16.1', :require => false
+  gem 'simplecov', '0.16.1', :require => false
   # gem 'rspec', '>= 3.3.0'
   # gem 'rack-test', '0.6.3'
   # gem 'rack_session_access', '0.1.1'

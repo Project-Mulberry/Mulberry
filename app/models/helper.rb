@@ -5,5 +5,6 @@ class Helper
       sql['?'] = values[index]
       index += 1
     end
+    return sql
   end
 end
