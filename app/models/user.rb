@@ -70,6 +70,6 @@ class User < ActiveRecord::Base
   # @param  User(already updated User object)
   # @return None
   def self.update_user_info(user)
-    user.save
+    user.save!
   end
 end
