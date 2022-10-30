@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   end
 
   def create
+    puts "params: #{params.inspect}"
     @user = User.new(user_params)
+    # @user = User.create_new_user(user_params[:phone], user_params[:password])
     if @user.save
       redirect_to edit_user_path(@user)
     else

@@ -10,10 +10,15 @@ class User < ActiveRecord::Base
   validates :name, :gender, :sexuality, :birthday, :location, :education,
             :career, :height, :profile_photo,
             presence: true, if: -> { persisted? }
-  validates :phone, format: { with: /\d*/, message: "only allows digits" },
-            if: -> { phone.present? }
-  validates :phone, length: { is: 10 }, if: -> { phone.present? }
+  # validates :phone, format: { with: /\d*/, message: "only allows digits" },
+  #          if: -> { phone.present? }
+  #validates :phone, length: { is: 10 }, if: -> { phone.present? }
   validates :phone, uniqueness: true
+
+
+  validates :phone,:presence => true,
+            :numericality => true,
+            :length => { :minimum => 10, :maximum => 15 }
 
   # @param  string(phone)
   # @param  string(password)
@@ -33,8 +38,10 @@ class User < ActiveRecord::Base
   # @param  string(phone)
   # @return User
   def self.find_user_by_phone(phone)
-    return User.where(phone: phone)
+    User.where(phone: phone)
   end
+  # 1. this is returning an ActiveRecord::Relation object. Not a single User record
+  # 2. Rails already has a method for this: User.find_by_phone("4345453434")
 
   # @param  string(phone)
   # @param  string(password)
