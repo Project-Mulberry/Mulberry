@@ -1,7 +1,6 @@
 class Prompt < ActiveRecord::Migration
   def change
-    create_table(:prompts, id: false) do |i|
-      i.integer :uid
+    create_table(:prompts, primary_key: 'uid') do |i|
       i.string  :answer1
       i.string  :answer2
       i.string  :answer3

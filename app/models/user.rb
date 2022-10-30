@@ -9,10 +9,11 @@ class User < ActiveRecord::Base
     unless phone =~ /^\d{10}$/
       return false
     end
-    if user.where(phone: phone).exist?
+    user = find_user_by_phone(phone)
+    unless user.where(phone: phone).any?
       return false
     end
-    return find_user_by_phone(phone).first[:password] == password
+    return user.first[:password] == password
   end
 
   # @param  string(phone)
@@ -29,14 +30,20 @@ class User < ActiveRecord::Base
     unless phone =~ /^\d{10}$/
       return nil
     end
-    if User.where(phone: phone).exists?
+    if User.where(phone: phone).any?
       return nil
     end
     user = User.create!({:phone => phone,
                   :password => password,
                   :created_time => DateTime.new })
-    Interest.create!({:uid => user[:uid]})
-    Prompt.create!({:uid => user[:uid]})
+    Interest.create!({:uid => user[:uid],
+                      :interest1 => '',
+                      :interest2 => '',
+                      :interest3 => ''})
+    Prompt.create!({:uid => user[:uid],
+                    :answer1 => '',
+                    :answer2 => '',
+                    :answer3 => ''})
     return user
   end
 

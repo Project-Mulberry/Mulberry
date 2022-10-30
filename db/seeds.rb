@@ -20,7 +20,7 @@ interests = [
   {:uid => 1, :interest1 => 'Y', :interest2 => 'Y', :interest3 => 'Y' },
   {:uid => 2, :interest1 => 'Y', :interest2 => 'Y', :interest3 => 'Y' },
   {:uid => 3, :interest1 => 'N', :interest2 => 'N', :interest3 => 'N' },
-  {:uid => 4, :interest1 => nil, :interest2 => nil, :interest3 => nil }
+  {:uid => 4, :interest1 => '', :interest2 => '', :interest3 => '' }
 ]
 interests.each do |interest|
   Interest.create!(interest)
@@ -60,7 +60,7 @@ prompts = [
   {:uid => 1, :answer1 => 'prompt-1-answer', :answer2 => 'prompt-1-answer', :answer3 => 'prompt-1-answer' },
   {:uid => 2, :answer1 => 'prompt-1-answer', :answer2 => 'prompt-1-answer', :answer3 => 'prompt-1-answer' },
   {:uid => 3, :answer1 => 'prompt-1-answer', :answer2 => 'prompt-1-answer', :answer3 => 'prompt-1-answer' },
-  {:uid => 4, :answer1 => nil, :answer2 => nil, :answer3 => nil }
+  {:uid => 4, :answer1 => '', :answer2 => '', :answer3 => '' }
 ]
 prompts.each do |prompt|
   Prompt.create!(prompt)
