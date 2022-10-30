@@ -55,8 +55,7 @@ class User < ActiveRecord::Base
       return nil
     end
     user = User.create!({:phone => phone,
-                  :password => password,
-                  :created_time => DateTime.new })
+                  :password => password })
     Interest.create!({:uid => user[:uid],
                       :interest1 => '',
                       :interest2 => '',
