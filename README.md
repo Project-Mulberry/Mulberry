@@ -40,12 +40,12 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 > rake cucumber  
   
 > **For deployment:**  
-> heroku stack:set heroku-20  
-> bundle install --with production
-> git push heroku {*branchname*}:master  
-> heroku run rake db:migrate  
-> heroku run rake db:seed  
-> https://arcane-fortress-74887.herokuapp.com
+> 1. heroku stack:set heroku-20  
+> 2. bundle install --with production
+> 3. git push heroku {*branchname*}:master  
+> 4. heroku run rake db:migrate  
+> 5. heroku run rake db:seed  
+> 6. https://arcane-fortress-74887.herokuapp.com
 
 ## Documentation
 
