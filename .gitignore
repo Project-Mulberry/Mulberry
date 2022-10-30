@@ -1,8 +1,7 @@
 **/schema.rb
 **/*.sqlite3
 **/development.log
-**/Gemfile.lock
-
+log
 /.idea/
 *.iml
 
