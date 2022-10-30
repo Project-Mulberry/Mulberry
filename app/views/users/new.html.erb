@@ -1,0 +1,24 @@
+<h1>WELCOME TO MULBERRY USER CREATION!!</h1>
+
+<%= form_for @user do |f| %>
+  <div class="phone">
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+    <% if @user.errors[:phone].present? %>
+        <% @user.errors[:phone].each do |msg| %>
+          <p style="color:red"><%= msg %></p>
+        <% end %>
+    <% end %>
+  </div>
+  <div class="password">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <% if @user.errors[:password].present? %>
+      <% @user.errors[:password].each do |msg| %>
+        <p style="color:red"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= submit_tag "Create" %>
+<% end %>

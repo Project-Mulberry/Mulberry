@@ -49,13 +49,13 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'update user info' do
-    it 'Successfully' do
-      User.create_new_user('1234567890', '12345678')
-      user = User.find_user_by_phone('1234567890').first
-      user[:name] = 'Marcus'
-      User.update_user_info(user)
-      expect(User.find_user_by_phone('1234567890').first.name).to eq('Marcus')
-    end
-  end
+  # context 'update user info' do
+  #   it 'Successfully' do
+  #     User.create_new_user('1234567890', '12345678')
+  #     user = User.find_user_by_phone('1234567890').first
+  #     user[:name] = 'Marcus'
+  #     User.update_user_info(user)
+  #     expect(User.find_user_by_phone('1234567890').first.name).to eq('Marcus')
+  #   end
+  # end
 end
