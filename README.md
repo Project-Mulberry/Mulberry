@@ -41,6 +41,7 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
   
 > **For deployment:**  
 > heroku stack:set heroku-20  
+> bundle install --with production
 > git push heroku {*branchname*}:master  
 > heroku run rake db:migrate  
 > heroku run rake db:seed  
