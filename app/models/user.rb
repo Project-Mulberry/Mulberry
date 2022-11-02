@@ -43,8 +43,6 @@ class User < ActiveRecord::Base
   def self.find_user_by_phone(phone)
     User.where(phone: phone)
   end
-  # 1. this is returning an ActiveRecord::Relation object. Not a single User record
-  # 2. Rails already has a method for this: User.find_by_phone("4345453434")
 
   # @param  string(phone)
   # @param  string(password)
@@ -73,7 +71,6 @@ class User < ActiveRecord::Base
   # @param  User(already updated User object)
   # @return None
   def self.update_user_info(user)
-    user.save!
+    user.save
   end
 end
-
