@@ -1,17 +1,16 @@
 Feature: create a new user profile
-
 	As a new user
 	So that I can create a profile to use Mulberry
 	I want see my 10 daily matches after I complete creating my profile
 
 
 Background: the profile creation form is shown
-
-	Given the following questions exist: Phone, Name, Age, Gender, Sexuality, Height, Location, Education, Career, Hobbies
+	Given  I am on the home page
+	And    the following questions exist: phone, password
 
 
 Scenario: fill in correct answers
-	Given  I fill in the following questions: Phone, Name, Age, Gender, Sexuality, Height, Location, Education, Career, Hobbies 
+	Given  I fill in the following questions: Phone, Name, Age, Gender, Sexuality, Height, Location, Education, Career, Hobbies
 	When   I click "submit"
 	Then   I should see the match page
 
