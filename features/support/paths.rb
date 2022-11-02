@@ -34,8 +34,6 @@ module NavigationHelpers
       messages_path
 
 
-
-
     else
       begin
         page_name =~ /^the (.*) page$/
