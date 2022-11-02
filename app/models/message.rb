@@ -20,11 +20,20 @@ class Message < ActiveRecord::Base
   #   end
   #   return messages
   # end
-
   # @param  int(sender uid)
   # @param  int(receiver uid)
   # @param  string(actual message)
   # @return Message
+
+  # additional method for chat_list: retrieve all message send/received by someone using uid
+  def self.pull_send_message_by_id(uid)
+    return Message.where(sender_uid: uid).all
+  end
+
+  def self.pull_receive_message_by_id(uid)
+    return Message.where(receiver_uid: uid).all
+  end
+
   def self.post_message(sender_uid, receiver_uid, message)
     message = {:sender_uid => sender_uid,
                :receiver_uid => receiver_uid,
