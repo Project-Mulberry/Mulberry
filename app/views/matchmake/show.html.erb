@@ -37,5 +37,4 @@
 
 <p id="notice"><%= notice %></p>
 <%= link_to 'Chat', message_path(@user.uid) %>
-<%= link_to 'Delete', matchmake_path(@user.uid), method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Back', matchmake_index_path %>

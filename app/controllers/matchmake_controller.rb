@@ -18,13 +18,6 @@ class MatchmakeController < ApplicationController
     @user = User.new
   end
 
-  # GET /matchmake/1/edit
-  def edit
-    id = params[:id]
-    @user = User.find(id)
-    @to_message = Message.pull_message(id2, id)
-    @from_message = Message.pull_message(id, id2)
-  end
 
   # POST /matchmake
   def create
@@ -48,8 +41,8 @@ class MatchmakeController < ApplicationController
 
   # DELETE /matchmake/1
   def destroy
-    @user.destroy
-    redirect_to matchmake_url, notice: 'User was successfully destroyed.'
+    #@user.destroy
+    #redirect_to matchmake_url, notice: 'User was successfully destroyed.'
   end
 
   private
