@@ -1,9 +1,13 @@
 **/schema.rb
 **/*.sqlite3
-**/development.log
 log
+/.idea/*
+.idea
+.idea/*
+/.idea
 /.idea/
 *.iml
+Gemfile.lock
 
 *.gem
 *.rbc
@@ -19,6 +23,7 @@ log
 
 # Ignore all logfiles and tempfiles.
 /log/*
+/log/
 /tmp/*
 !/log/.keep
 !/tmp/.keep
