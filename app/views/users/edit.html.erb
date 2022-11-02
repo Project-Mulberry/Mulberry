@@ -36,7 +36,7 @@
   </div>
   <div class="birthday">
     <%= f.label :birthday %>
-    <%= f.date_field :birthday %>
+    <%= f.date_field :birthday, value: Date.today %>
     <% if @user.errors[:birthday].present? %>
       <% @user.errors[:birthday].each do |msg| %>
         <p style="color:red"><%= msg %></p>
@@ -64,7 +64,7 @@
   </div>
 
   <div class = "career">
-    <%= f.label :career, "career" %>
+    <%= f.label :career, "Career" %>
     <%= f.text_field :career %>
     <% if @user.errors[:career].present? %>
       <% @user.errors[:career].each do |msg| %>
