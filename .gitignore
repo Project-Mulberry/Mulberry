@@ -1,4 +1,4 @@
-**/schema.rb
+log/test.log
 **/*.sqlite3
 log
 /.idea/*
