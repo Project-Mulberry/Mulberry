@@ -12,6 +12,8 @@ EXAMPLE_INPUT_FIELDS = {
   profile_photo: "www.google.com"
 }
 
+
+
 RSpec.describe "Users", type: :request do
   describe "GET /new" do
     it "returns http success" do
