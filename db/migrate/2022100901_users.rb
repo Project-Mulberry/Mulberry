@@ -13,7 +13,6 @@ class Users < ActiveRecord::Migration
       u.string   :height   # feet
       u.string   :profile_photo
       u.timestamps
-      #u.datetime :created_at
     end
   end
 end
