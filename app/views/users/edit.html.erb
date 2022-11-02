@@ -93,7 +93,20 @@
     <% end %>
   </div>
 
-
+  <%= f.fields_for :interest do |ff| %>
+    <% ff.hidden_field :uid %>
+    <% [:interest1, :interest2, :interest3].each do |field_name| %>
+      <div class="profile_interest">
+        <%= ff.label field_name %>
+        <%= ff.text_field field_name %>
+        <% if @user.errors[field_name].present? %>
+          <% @user.errors[field_name].each do |msg| %>
+            <p style="color:red"><%= msg %></p>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
 
   <%= submit_tag "Submit" %>
 <% end %>

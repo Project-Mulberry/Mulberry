@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
             :numericality => true,
             :length => { :minimum => 10, :maximum => 15 }
 
+  has_one :interest, primary_key: :uid, foreign_key: :uid
+  accepts_nested_attributes_for :interest
+
   # @param  string(phone)
   # @param  string(password)
   # @return false if password is wrong or phone is invalid or phone not exists

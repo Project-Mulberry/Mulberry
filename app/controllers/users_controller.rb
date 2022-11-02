@@ -22,6 +22,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    # if @user.interest.blank?
+      #  @user.interest = Interest.new(uid: @user.id)
+      #end
   end
 
   def update
@@ -29,10 +32,15 @@ class UsersController < ApplicationController
     # # update the model
     # if successful, redirect to user page
     @user = User.find(params[:id])
+    if @user.interest.blank?
+      @user.interest = Interest.new(uid: @user.id)
+    end
     # @user = User.new(user_params)
 
-    if @user.update(user_params)
-      redirect_to user_path(@user)
+    Rails.logger.info(user_params.inspect)
+
+    if @user.update(user_params)# && @user.interest.update(params[:user][:interest_attributes])
+      redirect_to matchmake_index_path
     else
       # This line overrides the default rendering behavior, which
       # would have been to render the "create" view.
@@ -47,6 +55,9 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:phone, :password , :name , :gender , :sexuality , :birthday , :location, :education , :career, :height, :profile_photo)
+    params.require(:user).permit(
+      :phone, :password , :name , :gender , :sexuality , :birthday ,
+      :location, :education , :career, :height, :profile_photo)
+    #interest_attributes: [:interest1, :interest2, :interest3])
   end
 end
