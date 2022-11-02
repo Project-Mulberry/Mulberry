@@ -1,10 +1,12 @@
 Feature: create a new user profile
+
 	As a new user
 	So that I can create a profile to use Mulberry
 	I want see my 10 daily matches after I complete creating my profile
 
 
 Background: the profile creation form is shown
+
 	Given  I am on the home page
 	And    the following questions exist: phone, password
 
