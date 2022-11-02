@@ -12,8 +12,6 @@ EXAMPLE_INPUT_FIELDS = {
   profile_photo: "www.google.com"
 }
 
-
-
 RSpec.describe "Users", type: :request do
   describe "GET /new" do
     it "returns http success" do
@@ -21,37 +19,6 @@ RSpec.describe "Users", type: :request do
       expect(response).to have_http_status(:success)
     end
   end
-
-  # describe "POST /create" do
-  #   it "returns http success" do
-  #     get "/users/create"
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
-
-  # it "creates a User and redirects to the User's edit page" do
-  #   get "/users/new"
-  #   expect(response).to render_template(:new)
-  #
-  #   # create stub user
-  #   post "/users", { :user => { :phone => "4123423452", :password => "1234qwer" } }
-  #
-  #   # if user was created successfully, it should redirect to extended form
-  #   # on the edit action path
-  #   expect(response).to redirect_to(edit_user_path(User.last))
-  #   follow_redirect!
-  #   expect(response).to render_template(:edit)
-  #
-  #   # let's take sample of correct values for edit form
-  #   # and submit them
-  #   fields = EXAMPLE_INPUT_FIELDS
-  #   put "/users/#{User.last.id}", { :user => fields }
-  #
-  #   # after correct update browser should redirect to user page
-  #   expect(response).to redirect_to(user_path(User.last))
-  #   follow_redirect!
-  #   expect(response).to render_template(:show)
-  # end
 
   it "should not update profile if career field was blank" do
     get "/users/new"
@@ -77,36 +44,4 @@ RSpec.describe "Users", type: :request do
     # check that error message was rendered
     expect(response.body).to match("can&#39;t be blank")
   end
-
-
-
-
-  # describe "GET /show" do
-  #   it "returns http success" do
-  #     get "/users/show"
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
-
-  # describe "GET /edit" do
-  #   it "returns http success" do
-  #     get "/users/edit"
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
-
-  # describe "GET /update" do
-  #   it "returns http success" do
-  #     get "/users/update"
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
-  #
-  # describe "GET /destroy" do
-  #   it "returns http success" do
-  #     get "/users/destroy"
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
-
 end
