@@ -48,7 +48,7 @@ RSpec.describe Activity, type: :model do
       expect(activity[:fst_accept]).to eq(true)
       expect(activity[:snd_accept]).to eq(false)
     end
-    it 'both users accept' do
+    it 'both matchmake accept' do
       activity = Activity.create_new_activity(@cid, @uid1, @uid2)
       activity = Activity.confirm_activity(activity.aid, @uid1)
       activity = Activity.confirm_activity(activity.aid, @uid2)
