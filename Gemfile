@@ -14,7 +14,7 @@ group :development do
   gem 'rspec-rails'
   gem 'capybara', '2.4.4'
   gem 'ZenTest', '4.11.2'
-  gem 'cucumber', '2.0.0'
+  gem 'cucumber-rails', :require => false
   gem 'rspec-autotest', '1.0.0'
   gem 'simplecov', '0.16.1', :require => false
 

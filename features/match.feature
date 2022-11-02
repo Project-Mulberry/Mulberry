@@ -6,37 +6,35 @@ Feature: view profile of 10 daily matches
 
 
 Background: profiles in database
+
 	Given the following profiles exist:
-	| name    | age | location     | education           | career   | Hobbies   |
-	| Aaron   | 25  | New York, NY | Columbia University | Finance  | NA        |
-	| Barry   | 24  | New York, NY | Columbia University | Finance  | NA        |
-	| Carl    | 30  | New York, NY | Columbia University | Finance  | NA        |
-	| Deven   | 21  | New York, NY | Columbia University | Finance  | NA        |
-	| Elloiot | 29  | New York, NY | Columbia University | Finance  | NA        |
-	| Fred    | 27  | New York, NY | Columbia University | Finance  | NA        |
-	| George  | 22  | New York, NY | Columbia University | Finance  | NA        |
-	| Hector  | 25  | New York, NY | Columbia University | Finance  | NA        |
-	| Isaac   | 23  | New York, NY | Columbia University | Finance  | NA        |
-	| Jason   | 22  | New York, NY | Columbia University | Finance  | NA        |
+	| Name    | Location | Education   | Career              | Hobby1 | Hobby2 | Hobby3 |
+	| Marcus  | NY       | Bachelor    | Student             | Y      | Y      | Y      |
+	| Zhen    | NY       | Master      | Student             | Y      | Y      | Y      |
+	| Jack    | NY       | PhD         | Software Engineer   | Y      | Y      | Y      |
+	| Hang    | NY       | High School | Unemployed          | N      | N      | N      |
+
+	And I am on the matchmake page
 
 
-Scenario: fill in correct answers
-	Given  I
-	When   I
-	Then   I
+Scenario: click "Direct to Message List" to check all chats
+	When   I follow "Direct to Message List"
+	Then   I should be on the messages page
+	And    I should see the following names: Marcus, Zhen, Jack, Hang
+	But    I should not see the following names: A, B, C
 
 
-Scenario: click submit button with incomplete answers
-	Given  I fill in the following questions: Phone, Name, Age, Gender, Sexuality, Height, Location
-	When   I click "submit"
-	Then   I should see a warning "You have incomplete answers for some questions!"
-	And    I should see the following questions highlighted: Location, Education, Career, Hobbies
+Scenario: click "detail" to see more details of a particular user and chat with them
+	When   I follow "detail"
+	Then   I should see "Details about Marcus"
+	And    I should see the following questions: Name, Sexuality, Gender, Birthday, Height, Interest
+	But    I should not see the following questions: A, B, C
+	When   I follow "Chat"
+	And    I should see "Chats for Marcus"
 
 
-Scenario: click submit button with a invalid answer for Phone
-	Given  I fill in the question "Phone" with answer "abcde"
-	And    I fill in the following questions: Name, Age, Gender, Sexuality, Height, Location, Education, Career, Hobbies
-	When   I click "submit"
-	Then   I should see a warning "You have entered an invalid Phone Number"
-	And    I should see the following questions highlighted: Phone
-
+Scenario: click "detail" to see more details of a particular user and go back
+	When   I follow "detail"
+	Then   I should see "Details about Marcus"
+	When   I follow "Back"
+	Then   I should be on the matchmake page

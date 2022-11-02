@@ -1,28 +1,33 @@
-Feature: chat with another user
+Feature: start a chat from the Message List
 
-	As a user
-	So that I can arrange a date
-	I want to exchange messages with another user and get system notifications during chat
-
-
-	Background: xxx
-
-	Scenario: fill in correct answers
-		Given
-		When
-		Then
+    As a user
+    So that I can start on a particular conversation
+    I want to go through all my chatlist and enter the chat with a another user
 
 
-	Scenario: click submit button with incomplete answers
-		Given  I fill in the following questions: Phone, Name, Age, Gender, Sexuality, Height, Location
-		When   I click "submit"
-		Then   I should see a warning "You have incomplete answers for some questions!"
-		And    I should see the following questions highlighted: Location, Education, Career, Hobbies
+Background: chats in database
+
+    Given   I am on the messages page
+    And     I should see the following names: Marcus, Zhen, Jack, Hang
 
 
-	Scenario: click submit button with a invalid answer for Phone
-		Given  I fill in the question "Phone" with answer "abcde"
-		And    I fill in the following questions: Name, Age, Gender, Sexuality, Height, Location, Education, Career, Hobbies
-		When   I click "submit"
-		Then   I should see a warning "You have entered an invalid Phone Number"
-		And    I should see the following questions highlighted: Phone
+Scenario: click "show" to to see all messages with a particular user and chat with them
+    When   I follow "Show"
+    Then   I should see "Chats for Marcus"
+    And    I should see the following names: Zhen, Jack, Hang
+    But    I should not see the following names: A, B, C
+
+
+Scenario: click "show" to to see all messages with a particular user and go back to chat list
+    When   I follow "Show"
+    Then   I should see "Chats for Marcus"
+    When   I follow "Back to Message List"
+    Then   I should be on the messages page
+
+
+Scenario: click "show" to to see all messages with a particular user and go back to match page
+    When   I follow "Show"
+    Then   I should see "Chats for Marcus"
+    When   I follow "Back to Match List"
+    Then   I should be on the matchmake page
+
