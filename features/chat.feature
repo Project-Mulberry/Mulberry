@@ -7,15 +7,38 @@ Feature: start a chat from the Message List
 
 Background: chats in database
 
-    Given   I am on the messages page
+    Given the following profiles exist:
+    | name    | location | education   | career              |
+    | Marcus  | NY       | Bachelor    | Student             |
+    | Zhen    | NY       | Master      | Student             |
+    | Jack    | NY       | PhD         | Software Engineer   |
+    | Hang    | NY       | High School | Unemployed          |
+
+    Given the following messages exist:
+    | sender_uid | receiver_uid | message                  |
+    | 1          | 2            | Hello Zhen, How are you! |
+    | 2          | 1            | Hi Marcus!               |
+    | 1          | 3            | Hi, what\'s up           |
+    | 4          | 1            | Morning!                 |
+
+    Given the following interests exist:
+    | interest1 | interest2 | interest3 |
+    | Y         | Y      	| Y      	|
+    | Y      	| Y      	| Y      	|
+    | Y      	| Y      	| Y      	|
+    | N      	| N      	| N      	|
+
+
+    And     I am on the messages page
     And     I should see the following names: Marcus, Zhen, Jack, Hang
 
 
 Scenario: click "show" to to see all messages with a particular user and chat with them
     When   I follow "Show"
     Then   I should see "Chats for Marcus"
+    And    I should see all chats for "Marcus"
     And    I should see the following names: Zhen, Jack, Hang
-    But    I should not see the following names: A, B, C
+    But    I should not see the following names: Lily, Tom, June
 
 
 Scenario: click "show" to to see all messages with a particular user and go back to chat list

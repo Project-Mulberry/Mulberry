@@ -13,7 +13,7 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the (RottenPotatoes )?home\s?page$/ then '/movies'
+      #when /^the (RottenPotatoes )?home\s?page$/ then '/movies'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
@@ -25,7 +25,7 @@ module NavigationHelpers
     #when /^the matchmake page for "(.*)"$/ then
       #m = Movie.find_by_title($1)
     when /^the matchmake page$/ then
-      matchmake_path
+      matchmake_index_path
 
     # go to the messages page
     # when /^the messages page for "(.*)"$/ then
@@ -47,6 +47,9 @@ module NavigationHelpers
       end
     end
   end
+
 end
+
+
 
 World(NavigationHelpers)

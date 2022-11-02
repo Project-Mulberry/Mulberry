@@ -8,11 +8,25 @@ Feature: view profile of 10 daily matches
 Background: profiles in database
 
 	Given the following profiles exist:
-	| Name    | Location | Education   | Career              | Hobby1 | Hobby2 | Hobby3 |
-	| Marcus  | NY       | Bachelor    | Student             | Y      | Y      | Y      |
-	| Zhen    | NY       | Master      | Student             | Y      | Y      | Y      |
-	| Jack    | NY       | PhD         | Software Engineer   | Y      | Y      | Y      |
-	| Hang    | NY       | High School | Unemployed          | N      | N      | N      |
+	| name    | location | education   | career              |
+	| Marcus  | NY       | Bachelor    | Student             |
+	| Zhen    | NY       | Master      | Student             |
+	| Jack    | NY       | PhD         | Software Engineer   |
+	| Hang    | NY       | High School | Unemployed          |
+
+	Given the following interests exist:
+	| interest1 | interest2 | interest3 |
+	| Y         | Y      	| Y      	|
+	| Y      	| Y      	| Y      	|
+	| Y      	| Y      	| Y      	|
+	| N      	| N      	| N      	|
+
+	Given the following prompts exist:
+		| answer1         | answer2         | answer3         |
+		| prompt-1-answer | prompt-1-answer | prompt-1-answer |
+		| prompt-1-answer | prompt-1-answer | prompt-1-answer |
+		| prompt-1-answer | prompt-1-answer | prompt-1-answer |
+		| prompt-1-answer | prompt-1-answer | prompt-1-answer |
 
 	And I am on the matchmake page
 
@@ -21,14 +35,14 @@ Scenario: click "Direct to Message List" to check all chats
 	When   I follow "Direct to Message List"
 	Then   I should be on the messages page
 	And    I should see the following names: Marcus, Zhen, Jack, Hang
-	But    I should not see the following names: A, B, C
+	But    I should not see the following names: Lucy, Lily, Tom
 
 
 Scenario: click "detail" to see more details of a particular user and chat with them
 	When   I follow "detail"
 	Then   I should see "Details about Marcus"
 	And    I should see the following questions: Name, Sexuality, Gender, Birthday, Height, Interest
-	But    I should not see the following questions: A, B, C
+	But    I should not see the following questions: Father's Name, Mother's Name, Credit Card Number
 	When   I follow "Chat"
 	And    I should see "Chats for Marcus"
 
