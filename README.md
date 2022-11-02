@@ -38,6 +38,14 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 > **For test:**  
 > rake spec (or rspec or bundle exec autotest)  
 > rake cucumber  
+  
+> **For deployment:**  
+> 1. heroku stack:set heroku-20  
+> 2. bundle install --with production
+> 3. git push heroku {*branchname*}:master  
+> 4. heroku run rake db:migrate  
+> 5. heroku run rake db:seed  
+> 6. https://arcane-fortress-74887.herokuapp.com
 
 ## Documentation
 

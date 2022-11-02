@@ -3,22 +3,23 @@ source "https://rubygems.org"
 ruby '2.6.6'
 
 gem 'rails', '4.2.10'
-gem 'sqlite3', '~> 1.3.6'
 gem 'sass-rails', '~> 5.0.3'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'uglifier'
 
 group :development do
   gem 'byebug'
+  gem 'sqlite3', '~> 1.3.6'
   gem 'rspec-rails'
   gem 'capybara', '2.4.4'
   gem 'ZenTest', '4.11.2'
   gem 'cucumber', '2.0.0'
   gem 'rspec-autotest', '1.0.0'
+  gem 'simplecov', '0.16.1', :require => false
 
   # gem 'cucumber-rails', :require => false
   # gem 'cucumber-rails-training-wheels'
-  gem 'simplecov', '0.16.1', :require => false
   # gem 'rspec', '>= 3.3.0'
   # gem 'rack-test', '0.6.3'
   # gem 'rack_session_access', '0.1.1'
