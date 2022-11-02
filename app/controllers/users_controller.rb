@@ -23,9 +23,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    # if @user.interest.blank?
-      #  @user.interest = Interest.new(uid: @user.id)
-      #end
   end
 
   def update
@@ -36,11 +33,10 @@ class UsersController < ApplicationController
     if @user.interest.blank?
       @user.interest = Interest.new(uid: @user.id)
     end
-    # @user = User.new(user_params)
 
     Rails.logger.info(user_params.inspect)
 
-    if @user.update(user_params)# && @user.interest.update(params[:user][:interest_attributes])
+    if @user.update(user_params)
       redirect_to matchmake_index_path
     else
       # This line overrides the default rendering behavior, which
@@ -59,6 +55,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :phone, :password , :name , :gender , :sexuality , :birthday ,
       :location, :education , :career, :height, :profile_photo)
-    #interest_attributes: [:interest1, :interest2, :interest3])
   end
 end

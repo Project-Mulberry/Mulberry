@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   # @param  string(phone)
   # @return User
   def self.find_user_by_phone(phone)
-    User.where(phone: phone)
+    return User.where(phone: phone)
   end
 
   # @param  string(phone)
@@ -66,11 +66,5 @@ class User < ActiveRecord::Base
                     :answer2 => '',
                     :answer3 => ''})
     return user
-  end
-
-  # @param  User(already updated User object)
-  # @return None
-  def self.update_user_info(user)
-    user.save
   end
 end
