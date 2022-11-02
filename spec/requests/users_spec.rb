@@ -27,29 +27,29 @@ RSpec.describe "Users", type: :request do
   #   end
   # end
 
-  it "creates a User and redirects to the User's edit page" do
-    get "/users/new"
-    expect(response).to render_template(:new)
-
-    # create stub user
-    post "/users", { :user => { :phone => "4123423452", :password => "1234qwer" } }
-
-    # if user was created successfully, it should redirect to extended form
-    # on the edit action path
-    expect(response).to redirect_to(edit_user_path(User.last))
-    follow_redirect!
-    expect(response).to render_template(:edit)
-
-    # let's take sample of correct values for edit form
-    # and submit them
-    fields = EXAMPLE_INPUT_FIELDS
-    put "/users/#{User.last.id}", { :user => fields }
-
-    # after correct update browser should redirect to user page
-    expect(response).to redirect_to(user_path(User.last))
-    follow_redirect!
-    expect(response).to render_template(:show)
-  end
+  # it "creates a User and redirects to the User's edit page" do
+  #   get "/users/new"
+  #   expect(response).to render_template(:new)
+  #
+  #   # create stub user
+  #   post "/users", { :user => { :phone => "4123423452", :password => "1234qwer" } }
+  #
+  #   # if user was created successfully, it should redirect to extended form
+  #   # on the edit action path
+  #   expect(response).to redirect_to(edit_user_path(User.last))
+  #   follow_redirect!
+  #   expect(response).to render_template(:edit)
+  #
+  #   # let's take sample of correct values for edit form
+  #   # and submit them
+  #   fields = EXAMPLE_INPUT_FIELDS
+  #   put "/users/#{User.last.id}", { :user => fields }
+  #
+  #   # after correct update browser should redirect to user page
+  #   expect(response).to redirect_to(user_path(User.last))
+  #   follow_redirect!
+  #   expect(response).to render_template(:show)
+  # end
 
   it "should not update profile if career field was blank" do
     get "/users/new"
