@@ -1,5 +1,9 @@
-# Mulberry-BE
+# Mulberry
 
+.  
+### [**Hi TAs!** _Please click me to see the guidance for grading_](#guidance-for-grading)
+
+.  
 
 ## Brief Introduction
 
@@ -24,7 +28,7 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 
 ## Version Information
 
-&nbsp;&nbsp;&nbsp;&nbsp;**v1.0** - xx/xx/xxxx - xxx
+&nbsp;&nbsp;&nbsp;&nbsp;**v0.1** - 11/02/2022 - Basic App with MVP
 
 ## Guidance
 ### Environment Setup
@@ -36,18 +40,49 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 6. open browser localhost:3000
 
 > **For test:**  
-> db:migrate RAILS_ENV=test  
-> rake spec (or rspec or bundle exec autotest)  
-> rake cucumber
+> 1. `db:migrate RAILS_ENV=test`   
+> 2. `rake spec (or rspec or bundle exec autotest)`  
+> 3. `rake cucumber`
   
 > **For deployment:**  
-> 1. heroku stack:set heroku-20  
-> 2. bundle install --with production
-> 3. git push heroku {*branchname*}:master  
-> 4. heroku run rake db:migrate  
-> 5. heroku run rake db:seed  
-> 6. https://arcane-fortress-74887.herokuapp.com
+> 1. `heroku stack:set heroku-20`  
+> 2. `bundle install --with production`
+> 3. `git push heroku {*branchname*}:master`  
+> 4. `heroku run rake db:migrate`  
+> 5. `heroku run rake db:seed`  
+> 6. `https://arcane-fortress-74887.herokuapp.com`
+
 
 ## Documentation
 
-&nbsp;&nbsp;&nbsp;&nbsp;Please refer to our [Confluence](https://marcus117.atlassian.net/wiki/spaces/MULBERRY/overview "Mulberry Confluence") page for development documents
+&nbsp;&nbsp;&nbsp;&nbsp;Please refer to [Confluence](https://marcus117.atlassian.net/wiki/spaces/MULBERRY/overview "Mulberry Confluence") page for development documents
+
+
+# Guidance for Grading
+> **Running Environment**
+> * **branch**: proj-iter-1
+> * **Ruby Version**: ruby 2.6.6p146
+> * **OS**: Mac(12.0), Ubuntu(20.04 LTS)
+> * **Bundler version**: 1.17.2
+
+> **Heroku Web Link**  
+> [https://arcane-fortress-74887.herokuapp.com/](https://arcane-fortress-74887.herokuapp.com/)
+
+> **Local APP Setup**
+> 1. `bundle install --without production`
+> 2. `bundle update` (if bundler prompted to do so)
+> 3. `rake db:migrate`
+> 4. `rake db:seed`
+> 5. `rails server -b 0.0.0.0`
+> 6. open browser with URL: `localhost:3000`
+> > **For test coverage check**
+> > 1. `rake db:migrate RAILS_ENV=test` (for testing env)
+> > 2. `rake spec`
+> > 3. `rake cucumber`
+> > 4. open the `index.html` file under coverage folder
+
+>
+> local sqlite database doesn't need credentials;  
+> remote postgreSQL database credentials are already included in the config file  
+> **no action is needed**
+> 
