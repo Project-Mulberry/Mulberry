@@ -13,6 +13,7 @@ Background: the profile creation form is shown
 
 Scenario: fill in correct answers and create successful
 	Given  I fill in the following questions: Phone, Password
+
 	When   I press "Create"
 	Then   I should be redirected to the user edit page
 	And    I fill in the following questions: Name, Gender, Sexuality, Location, Career, Height, Profile Photo URL
