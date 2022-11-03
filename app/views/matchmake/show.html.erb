@@ -1,0 +1,40 @@
+<h2>Details about <em><%= @user.name %></em></h2>
+
+<ul id="details">
+  <li>
+    Name:
+    <%= @user.name %>
+  </li>
+  <li>
+    Sexuality:
+    <%= @user.sexuality%>
+  </li>
+  <li>
+    Gender:
+    <%= @user.gender%>
+  </li>
+  <li>
+    Birthday:
+    <%= @user.birthday%>
+  </li>
+  <li>
+    Height:
+    <%= @user.height%>
+  </li>
+  <li>
+    Interest:
+    <p><%= @interest.interest1%></p>
+    <p><%= @interest.interest2%></p>
+    <p><%= @interest.interest3%></p>
+  </li>
+</ul>
+
+<h3>Prompt:</h3>
+<p>1. <%= @prompt.answer1 %></p>
+<p>2. <%= @prompt.answer2 %></p>
+<p>3. <%= @prompt.answer3 %></p>
+
+
+<p id="notice"><%= notice %></p>
+<%= link_to 'Chat', message_path(@user.uid) %>
+<%= link_to 'Back', matchmake_index_path %>

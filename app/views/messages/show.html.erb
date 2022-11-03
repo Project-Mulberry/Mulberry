@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Chats for <em><%= @user.name %></em> </h1>
+
+<table>
+  <thead>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @message_send.each do |message| %>
+    <tr>
+      <td><!%= message.receiver_uid %>   </td>
+      <td>To <%= User.find(message.receiver_uid).name %>: </td>
+      <td><%= message.message %>   </td>
+    </tr>
+  <% end %>
+  <% @message_receive.each do |message| %>
+    <tr>
+      <td><!%= message.sender_uid %>   </td>
+      <td>From <%= User.find(message.sender_uid).name %>: </td>
+      <td><%= message.message %>   </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!%= link_to 'Edit', edit_message_path(@message) %>
+<%= link_to 'Back to Message List', messages_path %>
+<%= link_to 'Back to Match List', matchmake_index_path %>
+
