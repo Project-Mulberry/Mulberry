@@ -42,6 +42,9 @@ RSpec.describe "Users", type: :request do
       fields.delete(:career)
 
       it 'should not update the user  & display error message' do
+        get "/users/#{user.id}"
+        expect(response).to render_template(:show)
+
         get "/users/#{user.id}/edit"
 
         # this request should not update our user,
