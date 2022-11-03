@@ -33,7 +33,8 @@ module NavigationHelpers
     when /^the messages page$/ then
       messages_path
 
-
+    when /^the home page$/ then
+      "users/new"
 
 
     else
