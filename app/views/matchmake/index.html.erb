@@ -26,9 +26,15 @@
       <td><%= user.location %>   </td>
       <td><%= user.education %>   </td>
       <td><%= user.career %>   </td>
-      <td><%= Interest.get_interests_by_uid(user.uid).interest1 %></td>
-      <td><%= Interest.get_interests_by_uid(user.uid).interest2 %></td>
-      <td><%= Interest.get_interests_by_uid(user.uid).interest3 %></td>
+      <% if user.interest.present? %>
+        <td><%= Interest.get_interests_by_uid(user.uid).interest1 %></td>
+        <td><%= Interest.get_interests_by_uid(user.uid).interest2 %></td>
+        <td><%= Interest.get_interests_by_uid(user.uid).interest3 %></td>
+      <% else %>
+        <td></td>
+        <td></td>
+        <td></td>
+      <% end %>
       <td><%= link_to 'detail', matchmake_path(user.uid) %>   </td>
       </td>
 
