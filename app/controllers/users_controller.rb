@@ -26,6 +26,8 @@ class UsersController < ApplicationController
       # This line overrides the default rendering behavior, which
       # would have been to render the "create" view.
       # render "new"
+    else
+      render "new"
     end
   end
 
