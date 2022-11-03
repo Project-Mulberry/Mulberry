@@ -9,6 +9,18 @@ class UsersController < ApplicationController
 
     # @user = User.create_new_user(user_params[:phone], user_params[:password])
     if @user.save
+      uid = User.find_by_phone(@user.phone).uid
+
+      # default Interest and Prompt value
+      Interest.create!({:uid => uid,
+                        :interest1 => '',
+                        :interest2 => '',
+                        :interest3 => ''})
+      Prompt.create!({:uid => uid,
+                      :answer1 => '',
+                      :answer2 => '',
+                      :answer3 => ''})
+
       redirect_to edit_user_path(@user)
 
       # This line overrides the default rendering behavior, which

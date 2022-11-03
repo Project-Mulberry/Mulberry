@@ -108,5 +108,24 @@
     <% end %>
   <% end %>
 
+  <br>
+
+  <%= f.fields_for :prompt do |ff| %>
+    <% ff.hidden_field :uid %>
+    <% [:prompt1, :prompt2, :prompt3].each do |field_name| %>
+      <div class="profile_prompt">
+        <%= ff.label field_name %>
+        <%= ff.text_field field_name %>
+        <% if @user.errors[field_name].present? %>
+          <% @user.errors[field_name].each do |msg| %>
+            <p style="color:red"><%= msg %></p>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <br>
+
   <%= submit_tag "Submit" %>
 <% end %>
