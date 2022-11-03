@@ -10,15 +10,15 @@ class UsersController < ApplicationController
     # @user = User.create_new_user(user_params[:phone], user_params[:password])
     if @user.save
       redirect_to edit_user_path(@user)
-    else
+
       # This line overrides the default rendering behavior, which
       # would have been to render the "create" view.
-      render "new"
+      # render "new"
     end
   end
 
   def show
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
   end
 
   def edit

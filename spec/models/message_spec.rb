@@ -19,6 +19,12 @@ RSpec.describe Message, type: :model do
       Message.post_message(@uid1, @uid2, 'This is a message')
       Message.post_message(@uid2, @uid1, 'This is a response message')
       messages = Message.pull_message(@uid1, @uid2)
+
+      m_send = Message.pull_send_message_by_id(@uid1)
+      m_receive = Message.pull_receive_message_by_id(@uid1)
+      expect(m_send.nil?).to eq (false)
+      expect(m_receive.nil?).to eq (false)
+
       expect(messages.nil?).to eq(false)
       expect(messages.count).to eq(2)
       expect(messages.first['message']).to eq('This is a message')
