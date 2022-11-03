@@ -8,11 +8,12 @@ Feature: start a chat from the Message List
 Background: chats in database
 
     Given the following profiles exist:
-    | name    | location | education   | career              |
-    | Marcus  | NY       | Bachelor    | Student             |
-    | Zhen    | NY       | Master      | Student             |
-    | Jack    | NY       | PhD         | Software Engineer   |
-    | Hang    | NY       | High School | Unemployed          |
+    | name    | location | education   | career              | phone	| password	| gender	| birthday	| sexuality	| height | profile_photo |
+    | Marcus  | NY       | Bachelor    | Student             | 1534643573 | 1       | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
+    | Zhen    | NY       | Master      | Student             | 5437525723 | 1       | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
+    | Jack    | NY       | PhD         | Software Engineer   | 4668756566 | 1       | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
+    | Hang    | NY       | High School | Unemployed          | 4527772777 | 1       | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
+
 
     Given the following messages exist:
     | sender_uid | receiver_uid | message                  |
