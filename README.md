@@ -17,12 +17,12 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 
 ## Development Team
 
-|                           |                    |
-|---------------------------|--------------------|
-| ***PM & Testing***        | Marcus Min         |
-| ***Front End***           | Jack Wang          |
-| ***Front End***           | Zhen Tao           |
-| ***Back End***            | Hang Yuan          |
+|                           |                    | UNI    |
+|---------------------------|--------------------|--------|
+| ***PM & Testing***        | Marcus Min         | jm5025 |
+| ***Front End***           | Jack Wang          | yw4014 |
+| ***Front End***           | Zhen Tao           | zt2276 |
+| ***Back End***            | Hang Yuan          | hy2784 |
 
 &nbsp;&nbsp;&nbsp;&nbsp;*Names are ordered by last name alphabetically*
 
@@ -85,4 +85,12 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 > local sqlite database doesn't need credentials;  
 > remote postgreSQL database credentials are already included in the config file  
 > **no action is needed**
-> 
+>
+
+## Development Team
+|                           |                    | UNI    |
+|---------------------------|--------------------|--------|
+| ***PM & Testing***        | Marcus Min         | jm5025 |
+| ***Front End***           | Jack Wang          | yw4014 |
+| ***Front End***           | Zhen Tao           | zt2276 |
+| ***Back End***            | Hang Yuan          | hy2784 |
