@@ -4,6 +4,18 @@ Given /the following profiles exist/ do |match_table|
   end
 end
 
+Given /the following interests exist/ do |interest_table|
+  interest_table.hashes.each do |interest|
+    Interest.create(interest)
+  end
+end
+
+Given /the following prompts exist/ do |prompt_table|
+  prompt_table.hashes.each do |prompt|
+    Prompt.create(prompt)
+  end
+end
+
 # Then   I should see the following names: Marcus, Zhen, Jack, Hang
 
 Then /^I should (not )?see the following names: (.*)$/ do |no, match_list|
