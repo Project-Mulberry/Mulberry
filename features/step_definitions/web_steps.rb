@@ -41,7 +41,6 @@ When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
 end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
-  puts "page_name: #{page_name.inspect}"
   visit path_to(page_name)
 end
 
