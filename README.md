@@ -50,11 +50,18 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 > 5. `heroku run rake db:seed`  
 > 6. `https://arcane-fortress-74887.herokuapp.com`
 
+
+## Documentation
+
+&nbsp;&nbsp;&nbsp;&nbsp;Please refer to [Confluence](https://marcus117.atlassian.net/wiki/spaces/MULBERRY/overview "Mulberry Confluence") page for development documents
+
+
 # Guidance for Grading
 > **Running Environment**
-> * **branch**: proj-iter-1  
-> * **Ruby Version**: ruby 2.6.6p146  
-> * **OS**: Mac, Ubuntu(20.04 LTS)  
+> * **branch**: proj-iter-1
+> * **Ruby Version**: ruby 2.6.6p146
+> * **OS**: Mac(12.0), Ubuntu(20.04 LTS)
+> * **Bundler version**: 1.17.2
 
 > **Heroku Web Link**  
 > [https://arcane-fortress-74887.herokuapp.com/](https://arcane-fortress-74887.herokuapp.com/)
@@ -72,12 +79,8 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 > > 3. `rake cucumber`
 > > 4. open the `index.html` file under coverage folder
 
->   
+>
 > local sqlite database doesn't need credentials;  
 > remote postgreSQL database credentials are already included in the config file  
 > **no action is needed**
-
-
-## Documentation
-
-&nbsp;&nbsp;&nbsp;&nbsp;Please refer to [Confluence](https://marcus117.atlassian.net/wiki/spaces/MULBERRY/overview "Mulberry Confluence") page for development documents
+> 
