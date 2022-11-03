@@ -1,3 +1,6 @@
+# :nocov:
+
+
 class MatchmakeController < ApplicationController
 
   # GET /matchmake

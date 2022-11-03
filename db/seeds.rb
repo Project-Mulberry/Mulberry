@@ -7,10 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = [
-  {:phone => '1', :password => '123456', :name => 'Marcus', :gender => 'm', :sexuality => 'straight', :birthday => '01-Jan-2000', :location => 'NY', :education => 'Bachelor', :career => 'Student', :height => '6.0', :profile_photo => nil, :created_time => '01-Jan-2022' },
-  {:phone => '2', :password => '123456', :name => 'Zhen', :gender => 'f', :sexuality => 'straight', :birthday => '02-Feb-2001', :location => 'NY', :education => 'Master', :career => 'Student', :height => '6.0', :profile_photo => nil, :created_time => '01-Jan-2022' },
-  {:phone => '3', :password => '123456', :name => 'Jack', :gender => 'm', :sexuality => 'straight', :birthday => '03-Mar-2002', :location => 'NY', :education => 'PhD', :career => 'Software Engineer', :height => '6.0', :profile_photo => nil, :created_time => '01-Jan-2022' },
-  {:phone => '4', :password => '123456', :name => 'Hang', :gender => 'm', :sexuality => 'straight', :birthday => '04-Apr-2003', :location => 'NY', :education => 'High School', :career => 'Unemployed', :height => '6.0', :profile_photo => nil, :created_time => '01-Jan-2022' }
+  {:phone => '142349324120', :password => '123456', :name => 'Marcus', :gender => 'm', :sexuality => 'straight', :birthday => '01-Jan-2000', :location => 'NY', :education => 'Bachelor', :career => 'Student', :height => '6.0', :profile_photo => nil },
+  {:phone => '245245324543', :password => '123456', :name => 'Zhen', :gender => 'f', :sexuality => 'straight', :birthday => '02-Feb-2001', :location => 'NY', :education => 'Master', :career => 'Student', :height => '6.0', :profile_photo => nil },
+  {:phone => '345234523453', :password => '123456', :name => 'Jack', :gender => 'm', :sexuality => 'straight', :birthday => '03-Mar-2002', :location => 'NY', :education => 'PhD', :career => 'Software Engineer', :height => '6.0', :profile_photo => nil },
+  {:phone => '452435423234', :password => '123456', :name => 'Hang', :gender => 'm', :sexuality => 'straight', :birthday => '04-Apr-2003', :location => 'NY', :education => 'High School', :career => 'Unemployed', :height => '6.0', :profile_photo => nil }
 ]
 users.each do |user|
   User.create!(user)

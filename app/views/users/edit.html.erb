@@ -1,0 +1,131 @@
+<h1> </h1>
+<!-- <p>Find me in app/views/users/edit.html.erb</p> -->
+
+
+<h1>Please input the following to create your profile</h1>
+
+<%= form_for @user do |f| %>
+
+  <div class="name">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <% if @user.errors[:name].present? %>
+      <% @user.errors[:name].each do |msg| %>
+        <p style="color:red"><%= msg %></p>
+      <% end %>
+    <% end %>
+
+  </div>
+  <div class="gender">
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+    <% if @user.errors[:gender].present? %>
+      <% @user.errors[:gender].each do |msg| %>
+        <p style="color:red"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="sexuality">
+    <%= f.label :sexuality %>
+    <%= f.text_field :sexuality %>
+    <% if @user.errors[:sexuality].present? %>
+      <% @user.errors[:sexuality].each do |msg| %>
+        <p style="color:red"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="birthday">
+    <%= f.label :birthday %>
+    <%= f.date_field :birthday, value: Date.today %>
+    <% if @user.errors[:birthday].present? %>
+      <% @user.errors[:birthday].each do |msg| %>
+        <p style="color:red"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="location">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    <% if @user.errors[:location].present? %>
+      <% @user.errors[:location].each do |msg| %>
+        <p style="color:red"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="education">
+    <%= f.label :education %>
+    <%= f.select :education, ["high school", 'undergradute', 'master','phd']%>
+    <% if @user.errors[:education].present? %>
+      <% @user.errors[:education].each do |msg| %>
+        <p style="color:red"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class = "career">
+    <%= f.label :career, "Career" %>
+    <%= f.text_field :career %>
+    <% if @user.errors[:career].present? %>
+      <% @user.errors[:career].each do |msg| %>
+        <p style="color:red"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="height">
+    <%= f.label :height %>
+    <%= f.text_field :height %>
+    <% if @user.errors[:height].present? %>
+      <% @user.errors[:height].each do |msg| %>
+        <p style="color:red"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class = "profile_photo">
+    <%= f.label :profile_photo, "Profile Photo URL" %>
+    <%= f.text_field :profile_photo %>
+    <% if @user.errors[:profile_photo].present? %>
+      <% @user.errors[:profile_photo].each do |msg| %>
+        <p style="color:red"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= f.fields_for :interest do |ff| %>
+    <% ff.hidden_field :uid %>
+    <% [:interest1, :interest2, :interest3].each do |field_name| %>
+      <div class="profile_interest">
+        <%= ff.label field_name %>
+        <%= ff.text_field field_name %>
+        <% if @user.errors[field_name].present? %>
+          <% @user.errors[field_name].each do |msg| %>
+            <p style="color:red"><%= msg %></p>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <br>
+
+  <%= f.fields_for :prompt do |ff| %>
+    <% ff.hidden_field :uid %>
+    <% [:prompt1, :prompt2, :prompt3].each do |field_name| %>
+      <div class="profile_prompt">
+        <%= ff.label field_name %>
+        <%= ff.text_field field_name %>
+        <% if @user.errors[field_name].present? %>
+          <% @user.errors[field_name].each do |msg| %>
+            <p style="color:red"><%= msg %></p>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <br>
+
+  <%= submit_tag "Submit" %>
+<% end %>

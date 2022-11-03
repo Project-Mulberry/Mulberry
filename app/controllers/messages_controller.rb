@@ -1,3 +1,6 @@
+# :nocov:
+
+
 class MessagesController < ApplicationController
 
   # GET /messages

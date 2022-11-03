@@ -12,7 +12,7 @@ class Users < ActiveRecord::Migration
       u.string   :career
       u.string   :height   # feet
       u.string   :profile_photo
-      u.datetime :created_time
+      u.timestamps
     end
   end
 end

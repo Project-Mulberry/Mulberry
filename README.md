@@ -36,8 +36,9 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 6. open browser localhost:3000
 
 > **For test:**  
+> db:migrate RAILS_ENV=test  
 > rake spec (or rspec or bundle exec autotest)  
-> rake cucumber  
+> rake cucumber
   
 > **For deployment:**  
 > 1. heroku stack:set heroku-20  
