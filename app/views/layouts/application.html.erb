@@ -9,12 +9,55 @@
   <body>
     <%# These classes come from the Bootstrap CSS framework. %>
     <nav class="navbar navbar-expand-lg bg-primary text-white mb-3">
+      <ul>
+        <% if logged_in? %>
+          <ul class="nav navbar-right ">
+            <p style="color: white; text-align: right ">Logged In As: <%= current_user&.name || current_user.phone %></p>
+            <li><%= link_to "Log out", logout_path, class: "mx-2", method: :delete %></li>
+          </ul>
+        <% else %>
+          <ul class="nav navbar-right ">
+            <li><%= link_to "Sign up", signup_path, class: "btn btn-primary" %></li>
+            <li><%= link_to "Log In", login_path, class: "btn btn-primary" %></li>
+          </ul>
+        <% end %>
+      </ul>
       <h1 class="title">Mulberry!</h1>
     </nav>
     <div class="container">
       <main id="main">
         <%= yield %>
+        <% flash.each do |type, msg| %>
+          <div>
+            <%= msg %>
+          </div>
+        <% end %>
       </main>
     </div>
   </body>
+
+  <style>
+      ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+      }
+      li {
+          float: left;
+      }
+      li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+      }
+      li a:hover {
+          background-color: #111;
+      }
+  </style>
+
 </html>
+

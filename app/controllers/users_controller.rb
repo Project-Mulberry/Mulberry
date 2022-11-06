@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, except: %i[new create]
   def new
     @user = User.new
   end
@@ -21,6 +22,7 @@ class UsersController < ApplicationController
                       :answer2 => '',
                       :answer3 => ''})
 
+      log_in @user
       redirect_to edit_user_path(@user)
 
       # This line overrides the default rendering behavior, which
@@ -45,7 +47,34 @@ class UsersController < ApplicationController
     # if successful, redirect to user page
     @user = User.find(params[:id])
     if @user.interest.blank?
-      @user.interest = Interest.new(uid: @user.id)
+      @user.create_interest(
+        uid: @user.uid,
+        interest1: user_params_with_prompts_and_interests[:interest_attributes][:interest1],
+        interest2: user_params_with_prompts_and_interests[:interest_attributes][:interest2],
+        interest3: user_params_with_prompts_and_interests[:interest_attributes][:interest3]
+      )
+    else
+      @user.interest.update!(
+        interest1: user_params_with_prompts_and_interests[:interest_attributes][:interest1],
+        interest2: user_params_with_prompts_and_interests[:interest_attributes][:interest2],
+        interest3: user_params_with_prompts_and_interests[:interest_attributes][:interest3]
+      )
+    end
+
+    if @user.prompt.blank?
+      @user.create_prompt(
+        uid: @user.uid,
+        answer1: user_params_with_prompts_and_interests[:prompt_attributes][:answer1],
+        answer2: user_params_with_prompts_and_interests[:prompt_attributes][:answer2],
+        answer3: user_params_with_prompts_and_interests[:prompt_attributes][:answer3]
+      )
+    else
+      @user.prompt.update!(
+        uid: @user.uid,
+        answer1: user_params_with_prompts_and_interests[:prompt_attributes][:answer1],
+        answer2: user_params_with_prompts_and_interests[:prompt_attributes][:answer2],
+        answer3: user_params_with_prompts_and_interests[:prompt_attributes][:answer3]
+      )
     end
 
     Rails.logger.info(user_params.inspect)
@@ -69,5 +98,13 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :phone, :password , :name , :gender , :sexuality , :birthday ,
       :location, :education , :career, :height, :profile_photo)
+  end
+
+  def user_params_with_prompts_and_interests
+    params.require(:user).permit(
+      :phone, :password , :name , :gender , :sexuality , :birthday ,
+      :location, :education , :career, :height, :profile_photo,
+      interest_attributes: %i[interest1 interest2 interest3],
+      prompt_attributes: %i[answer1 answer2 answer3])
   end
 end

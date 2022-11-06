@@ -1,4 +1,5 @@
 class Prompt < ActiveRecord::Base
+  belongs_to :user, foreign_key: :uid
   # @param  int(uid)
   # @return Prompt
   def self.get_prompt_by_uid(uid)
