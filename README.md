@@ -17,7 +17,7 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 
 ## Development Team
 
-|                           |                    | UNI    |
+| Role                      | Name               | UNI    |
 |---------------------------|--------------------|--------|
 | ***PM & Testing***        | Marcus Min         | jm5025 |
 | ***Front End***           | Jack Wang          | yw4014 |
