@@ -7,10 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = [
-  {:phone => '142349324120', :password => '123456', :name => 'Marcus', :gender => 'm', :sexuality => 'straight', :birthday => '01-Jan-2000', :location => 'NY', :education => 'Bachelor', :career => 'Student', :height => '6.0', :profile_photo => nil },
-  {:phone => '245245324543', :password => '123456', :name => 'Zhen', :gender => 'f', :sexuality => 'straight', :birthday => '02-Feb-2001', :location => 'NY', :education => 'Master', :career => 'Student', :height => '6.0', :profile_photo => nil },
-  {:phone => '345234523453', :password => '123456', :name => 'Jack', :gender => 'm', :sexuality => 'straight', :birthday => '03-Mar-2002', :location => 'NY', :education => 'PhD', :career => 'Software Engineer', :height => '6.0', :profile_photo => nil },
-  {:phone => '452435423234', :password => '123456', :name => 'Hang', :gender => 'm', :sexuality => 'straight', :birthday => '04-Apr-2003', :location => 'NY', :education => 'High School', :career => 'Unemployed', :height => '6.0', :profile_photo => nil }
+  {:phone => '1234567890', :password => '123456', :name => 'Marcus', :gender => 'm', :sexuality => 'straight', :birthday => '01-Jan-2000', :location => 'NY', :education => 'Bachelor', :career => 'Student', :height => '6.0', :profile_photo => nil },
+  {:phone => '1234567891', :password => '123456', :name => 'Zhen', :gender => 'f', :sexuality => 'straight', :birthday => '02-Feb-2001', :location => 'NY', :education => 'Master', :career => 'Student', :height => '5.9', :profile_photo => nil },
+  {:phone => '1234567892', :password => '123456', :name => 'Jack', :gender => 'm', :sexuality => 'straight', :birthday => '03-Mar-2002', :location => 'NY', :education => 'PhD', :career => 'Software Engineer', :height => '5.8', :profile_photo => nil },
+  {:phone => '1234567893', :password => '123456', :name => 'Hang', :gender => 'f', :sexuality => 'straight', :birthday => '04-Apr-2003', :location => 'NY', :education => 'High School', :career => 'Unemployed', :height => '5.7', :profile_photo => nil },
+  {:phone => '1234567894', :password => '123456', :name => 'robot', :gender => 'f', :sexuality => 'straight', :birthday => '05-May-2004', :location => 'NY', :education => 'Bachelor', :career => 'Student', :height => '5.6', :profile_photo => nil }
 ]
 users.each do |user|
   User.create!(user)
@@ -20,7 +21,8 @@ interests = [
   {:uid => 1, :interest1 => 'Y', :interest2 => 'Y', :interest3 => 'Y' },
   {:uid => 2, :interest1 => 'Y', :interest2 => 'Y', :interest3 => 'Y' },
   {:uid => 3, :interest1 => 'N', :interest2 => 'N', :interest3 => 'N' },
-  {:uid => 4, :interest1 => '', :interest2 => '', :interest3 => '' }
+  {:uid => 4, :interest1 => '', :interest2 => '', :interest3 => '' },
+  {:uid => 5, :interest1 => 'Y', :interest2 => 'Y', :interest3 => 'Y' }
 ]
 interests.each do |interest|
   Interest.create!(interest)
@@ -60,8 +62,18 @@ prompts = [
   {:uid => 1, :answer1 => 'prompt-1-answer', :answer2 => 'prompt-1-answer', :answer3 => 'prompt-1-answer' },
   {:uid => 2, :answer1 => 'prompt-1-answer', :answer2 => 'prompt-1-answer', :answer3 => 'prompt-1-answer' },
   {:uid => 3, :answer1 => 'prompt-1-answer', :answer2 => 'prompt-1-answer', :answer3 => 'prompt-1-answer' },
-  {:uid => 4, :answer1 => '', :answer2 => '', :answer3 => '' }
+  {:uid => 4, :answer1 => '', :answer2 => '', :answer3 => '' },
+  {:uid => 5, :answer1 => 'prompt-1-answer', :answer2 => 'prompt-1-answer', :answer3 => 'prompt-1-answer' }
 ]
 prompts.each do |prompt|
   Prompt.create!(prompt)
+end
+
+history_list = [
+  {:uid => 1, :matched_uid => 4, :connected => false, :updated_time => '2022-11-01 12:00:00'},
+  {:uid => 2, :matched_uid => 3, :connected => true, :updated_time => '2022-11-11 12:00:00'},
+  {:uid => 4, :matched_uid => 1, :connected => true, :updated_time => '2022-11-11 12:00:00'}
+]
+history_list.each do |history|
+  MatchHistory.create!(history)
 end
