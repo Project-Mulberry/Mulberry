@@ -1,4 +1,4 @@
-class Prompt < ActiveRecord::Migration
+class Prompts < ActiveRecord::Migration
   def change
     create_table(:prompts, primary_key: 'uid') do |i|
       i.string  :answer1
