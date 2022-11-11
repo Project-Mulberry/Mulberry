@@ -33,11 +33,11 @@ RSpec.describe "Users", type: :request do
   end
 
   describe '#update' do
-    context 'career field is missing in the form attributes' do
+    pending context 'career field is missing in the form attributes' do
       user = User.last ||  User.create(phone: "4123423452", password: "1234qwer")
       # let's intentionally remove career field,
       # which is required to be present
-      # and checked by User model validations
+      # and checked by User model validation
       fields = EXAMPLE_INPUT_FIELDS.clone
       fields.delete(:career)
 
@@ -58,7 +58,7 @@ RSpec.describe "Users", type: :request do
       end
     end
 
-    context 'all required user fields are present' do
+    pending context 'all required user fields are present' do
       user = User.last ||  User.create(phone: "4123423452", password: "1234qwer")
 
       it 'should update the user successfully' do
