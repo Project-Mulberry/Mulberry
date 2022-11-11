@@ -40,7 +40,7 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 6. open browser localhost:3000
 
 > **For test:**  
-> 1. `db:migrate RAILS_ENV=test`   
+> 1. `rake db:migrate RAILS_ENV=test`   
 > 2. `rake spec (or rspec or bundle exec autotest)`  
 > 3. `rake cucumber`
   

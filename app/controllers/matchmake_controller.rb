@@ -1,6 +1,3 @@
-# :nocov:
-
-
 class MatchmakeController < ApplicationController
 
   before_action :logged_in_user

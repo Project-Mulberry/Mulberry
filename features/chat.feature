@@ -16,11 +16,11 @@ Background: chats in database
 
 
     Given the following messages exist:
-    | sender_uid | receiver_uid | message                  |
-    | 1          | 2            | Hello Zhen, How are you! |
-    | 2          | 1            | Hi Marcus!               |
-    | 1          | 3            | Hi, what\'s up           |
-    | 4          | 1            | Morning!                 |
+    | sender_uid | receiver_uid | key     | message                  |
+    | 1          | 2            | <1>-<2> | Hello Zhen, How are you! |
+    | 2          | 1            | <1>-<2> | Hi Marcus!               |
+    | 1          | 3            | <1>-<3> | Hi, what\'s up           |
+    | 4          | 1            | <1>-<4> | Morning!                 |
 
     Given the following interests exist:
     | interest1 | interest2 | interest3 |
