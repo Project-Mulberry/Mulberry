@@ -70,4 +70,8 @@ class User < ActiveRecord::Base
                     :answer3 => ''})
     return user
   end
+
+  def profile_created?
+    name.present? && gender.present? && sexuality.present?
+  end
 end

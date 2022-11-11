@@ -7,7 +7,11 @@ class SessionsController < ApplicationController
     user = User.find_by(phone: params[:user][:phone])
     if user && user.password == params[:user][:password]
       log_in user
-      redirect_to matchmake_index_path
+      if user.profile_created?
+        redirect_to matchmake_index_path
+      else
+        redirect_to edit_user_path(user)
+      end
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
