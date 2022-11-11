@@ -1,6 +1,3 @@
-# :nocov:
-
-
 class MessagesController < ApplicationController
 
   # GET /messages
@@ -11,8 +8,8 @@ class MessagesController < ApplicationController
   # GET /messages/1
   def show
     @user = User.find(params[:id])
-    @message_send = Message.pull_send_message_by_id(params[:id])
-    @message_receive = Message.pull_receive_message_by_id(params[:id])
+    @message_send = Message.where(sender_uid: params[:id]).all
+    @message_receive = Message.where(receiver_uid: params[:id]).all
   end
 
   # GET /messages/new

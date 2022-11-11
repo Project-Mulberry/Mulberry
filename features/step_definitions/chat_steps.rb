@@ -22,8 +22,8 @@ end
 Then /I should see all chats for "Marcus"/ do
   # Make sure that all the chats for Marcus are visible in the table
   result = true
-  send = Message.pull_send_message_by_id($1)
-  receive = Message.pull_receive_message_by_id($1)
+  send = Message.where(sender_uid: $1).all
+  receive = Message.where(receiver_uid: $1).all
   send.each do |m|
     if !page.body.include?(m.message) then
       result = false
