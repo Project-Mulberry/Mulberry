@@ -77,8 +77,8 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 > 6. open browser with URL: `localhost:3000`
 > > **For test coverage check**
 > > 1. `rake db:migrate RAILS_ENV=test` (for testing env)
-> > 2. `rake spec`
-> > 3. `rake cucumber`
+> > 2. `rake cucumber`
+> > 3. `rake spec`
 > > 4. open the `index.html` file under coverage folder
 
 >
@@ -88,7 +88,7 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 >
 
 ## Development Team
-|                           |                    | UNI    |
+| Role                      | Name               | UNI    |
 |---------------------------|--------------------|--------|
 | ***PM & Testing***        | Marcus Min         | jm5025 |
 | ***Front End***           | Jack Wang          | yw4014 |
