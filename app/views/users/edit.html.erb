@@ -2,7 +2,7 @@
 <!-- <p>Find me in app/views/users/edit.html.erb</p> -->
 
 
-<h1>Please input the following to create your profile</h1>
+<h1>Please add more details about your profile</h1>
 
 <%= form_for @user do |f| %>
 
@@ -25,6 +25,7 @@
       <% end %>
     <% end %>
   </div>
+
   <div class="sexuality">
     <%= f.label :sexuality %>
     <%= f.text_field :sexuality %>
@@ -34,6 +35,7 @@
       <% end %>
     <% end %>
   </div>
+
   <div class="birthday">
     <%= f.label :birthday %>
     <%= f.date_field :birthday, value: Date.today %>
@@ -43,6 +45,7 @@
       <% end %>
     <% end %>
   </div>
+
   <div class="location">
     <%= f.label :location %>
     <%= f.text_field :location %>
@@ -112,7 +115,7 @@
 
   <%= f.fields_for :prompt do |ff| %>
     <% ff.hidden_field :uid %>
-    <% [:prompt1, :prompt2, :prompt3].each do |field_name| %>
+    <% [:answer1, :answer2, :answer3].each do |field_name| %>
       <div class="profile_prompt">
         <%= ff.label field_name %>
         <%= ff.text_field field_name %>

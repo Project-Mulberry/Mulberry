@@ -3,9 +3,11 @@
 
 class MatchmakeController < ApplicationController
 
+  before_action :logged_in_user
+
   # GET /matchmake
   def index
-    @users = User.all
+    @users = User.where(uid: current_user.uid)
   end
 
   # GET /matchmake/1

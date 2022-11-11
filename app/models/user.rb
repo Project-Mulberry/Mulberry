@@ -21,7 +21,10 @@ class User < ActiveRecord::Base
             :length => { :minimum => 10, :maximum => 15 }
 
   has_one :interest, primary_key: :uid, foreign_key: :uid
+  has_one :prompt, primary_key: :uid, foreign_key: :uid
+
   accepts_nested_attributes_for :interest
+  accepts_nested_attributes_for :prompt
 
   # @param  string(phone)
   # @param  string(password)
@@ -66,5 +69,9 @@ class User < ActiveRecord::Base
                     :answer2 => '',
                     :answer3 => ''})
     return user
+  end
+
+  def profile_created?
+    name.present? && gender.present? && sexuality.present?
   end
 end

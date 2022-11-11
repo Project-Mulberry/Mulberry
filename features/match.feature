@@ -39,8 +39,8 @@ Scenario: click "Direct to Message List" to check all chats
 
 
 Scenario: click "detail" to see more details of a particular user and chat with them
-	When   I follow "detail"
-	Then   I should see "Details about Marcus"
+	When   I follow "Show"
+	Then   I should see "Chats for Marcus"
 	And    I should see the following questions: Name, Sexuality, Gender, Birthday, Height, Interest
 	But    I should not see the following questions: Father's Name, Mother's Name, Credit Card Number
 	When   I follow "Chat"

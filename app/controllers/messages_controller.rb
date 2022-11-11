@@ -3,6 +3,8 @@
 
 class MessagesController < ApplicationController
 
+  before_action :logged_in_user
+
   # GET /messages
   def index
     @users = User.all
