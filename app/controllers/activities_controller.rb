@@ -5,6 +5,7 @@ class ActivitiesController < ApplicationController
   # GET /messages
   def index
     @activities = Activity.all
+    @coupons = Coupon.all
   end
 
   # GET /messages/1
