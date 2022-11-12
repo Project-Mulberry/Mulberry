@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: %i[new create]
+  before_action :set_user, only: %i[show edit update destroy]
+  before_action :ensure_owner_user, only: %i[edit update delete]
   def new
     @user = User.new
   end
@@ -33,18 +35,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
     # we receive all fields in params[:user]
     # # update the model
     # if successful, redirect to user page
-    @user = User.find(params[:id])
     if @user.interest.blank?
       @user.create_interest(
         uid: @user.uid,
@@ -93,6 +92,10 @@ class UsersController < ApplicationController
 
   private
 
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(
       :phone, :password , :name , :gender , :sexuality , :birthday ,
@@ -105,5 +108,11 @@ class UsersController < ApplicationController
       :location, :education , :career, :height, :profile_photo,
       interest_attributes: %i[interest1 interest2 interest3],
       prompt_attributes: %i[answer1 answer2 answer3])
+  end
+
+  def ensure_owner_user
+    if @user != current_user
+      redirect_to root_url, notice: 'You are not authorized to view other user page'
+    end
   end
 end
