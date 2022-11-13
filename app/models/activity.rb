@@ -3,6 +3,7 @@ class Activity < ActiveRecord::Base
   # @param  int(first uid)
   # @param  int(second uid)
   # @return list(Activity)
+
   def self.create_new_activity(cid, fst_uid, snd_uid)
     activity = {
       :status => 'PENDING',
