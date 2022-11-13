@@ -10,11 +10,20 @@
   </thead>
 
   <tbody>
-  <% @users.each do |user| %>
+  <% @messages.each do |message| %>
     <tr>
-      <td><%= user.phone %></td>
-      <td><%= user.name %></td>
-      <td><%= link_to 'Show', message_path(user.uid) %></td>
+      <td><!%= message %></td>
+      <td>
+        <% if message["sender_uid"] == current_user.uid %>
+          <%= User.find(message["receiver_uid"]).name %>:
+          <%= message["message"] %>
+          <%= link_to 'Show', message_path(message["receiver_uid"]) %>
+        <% else %>
+          <%= User.find(message["sender_uid"]).name %>:
+          <%= message["message"] %>
+          <%= link_to 'Show', message_path(message["sender_uid"]) %>
+        <% end %>
+      </td>
 
     </tr>
   <% end %>
