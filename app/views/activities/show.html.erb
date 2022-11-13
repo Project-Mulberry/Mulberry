@@ -4,8 +4,8 @@
 <p>First User: <%= link_to User.find(@activity.fst_uid).name, user_path(@activity.fst_uid) %>(Accepted: <%= @activity.fst_accept %>)</p>
 <p>Second User: <%= link_to User.find(@activity.snd_uid).name, user_path(@activity.snd_uid) %>(Accepted: <%= @activity.snd_accept %>)</p>
 <p>DateTime: <%=@activity.datetime %>  </p>
-<h2>Coupon</h2>
-<p>Name: <%= link_to Coupon.find(@activity.coupon_id).name, "/coupons/#{(@activity.coupon_id)}" %></p>
+
+<p>Name: <%=Coupon.find(@activity.coupon_id).name %></p>
 <p>Location: <%=Coupon.find(@activity.coupon_id).location%></p>
 <p>Advertiser: <%=Coupon.find(@activity.coupon_id).advertiser%></p>
 <p>Original price: <%=Coupon.find(@activity.coupon_id).original_price%></p>
@@ -35,11 +35,12 @@
 <% end %>
 
 <% if @activity.status == 'PENDING' && @activity.snd_uid == current_user.uid && @activity.snd_accept != true %>
-
   <% if @activity.fst_accept == true %>
     <td colspan="100"><h3>The other user have already accepted the invitation! </h3></td>
     <td colspan="100"><h3>Waiting for you to accept the invite! </h3></td>
   <% end %>
+
+
 
   <td colspan="100"><%= link_to 'Accept Invitation', accept_activity_path(@activity.id, uid: current_user.uid) %></td>
 <% end %>

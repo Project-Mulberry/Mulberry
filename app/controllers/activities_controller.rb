@@ -30,7 +30,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @uid = params[:uid]
     Activity.schedule_activity(@activity.id, @uid)
-    redirect_to activities_path
+    redirect_to @activity
   end
 
   private
