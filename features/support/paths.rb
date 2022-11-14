@@ -36,6 +36,9 @@ module NavigationHelpers
     when /^the signup page$/ then
       "/signup"
 
+    when /^the login page$/ then
+      "/login"
+
 
     else
       begin
