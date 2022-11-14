@@ -34,7 +34,10 @@ module NavigationHelpers
       messages_path
 
     when /^the signup page$/ then
-      "/signup"
+      signup_path
+
+    when /^the user profile page$/ then
+      "/users/#{User.last.id}"
 
 
     else
