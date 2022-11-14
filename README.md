@@ -1,9 +1,8 @@
 # Mulberry
 
-.  
+
 ### [**Hi TAs!** _Please click me to see the guidance for grading_](#guidance-for-grading)
 
-.  
 
 ## Brief Introduction
 
