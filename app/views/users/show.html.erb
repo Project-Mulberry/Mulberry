@@ -1,4 +1,4 @@
-<h1>Here is the information you typed!</h1>
+<h1>This is your current profile</h1>
 
 <div>
   Phone: <%= @user.phone %>
@@ -40,3 +40,6 @@
   Profile_photo: <%= @user.profile_photo %>
 </div>
 
+<br>
+
+<%= link_to "Edit", edit_user_path(@current_user)%>
