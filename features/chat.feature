@@ -50,6 +50,7 @@ Scenario: click "show" to to see all messages with a particular user and go back
     Then   I should be on the messages page
 
 
+
 Scenario: click "show" to to see all messages with a particular user and go back to match page
     When   I am on the messages page
     Then    I logged in as a user
