@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 
   # GET /messages
   def index
-    @users = User.all
+    @messages = Message.get_message_list(current_user.uid)
   end
 
   # GET /messages/1
