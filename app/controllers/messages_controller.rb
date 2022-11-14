@@ -4,14 +4,13 @@ class MessagesController < ApplicationController
 
   # GET /messages
   def index
-    @users = User.all
+    @messages = Message.get_message_list(current_user.uid)
   end
 
   # GET /messages/1
   def show
     @user = User.find(params[:id])
-    @message_send = Message.where(sender_uid: params[:id]).all
-    @message_receive = Message.where(receiver_uid: params[:id]).all
+    @chat = Message.pull_message(current_user.uid,params[:id])
   end
 
   # GET /messages/new
