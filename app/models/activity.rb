@@ -3,6 +3,7 @@ class Activity < ActiveRecord::Base
   # @param  int(first uid)
   # @param  int(second uid)
   # @return list(Activity)
+
   def self.create_new_activity(cid, fst_uid, snd_uid)
     activity = {
       :status => 'PENDING',
@@ -17,7 +18,7 @@ class Activity < ActiveRecord::Base
   # @param  int(activity id)
   # @param  int(uid)
   # @return Activity
-  def self.confirm_activity(aid, uid)
+  def self.schedule_activity(aid, uid)
     activity = Activity.where(aid: aid).first
     if activity[:fst_uid] == uid
       activity[:fst_accept] = true
