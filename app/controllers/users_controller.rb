@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: %i[new create]
   before_action :set_user, only: %i[show edit update destroy]
-  before_action :ensure_owner_user, only: %i[edit update delete]
+  before_action :ensure_owner_user, only: %i[new show edit update delete]
   def new
     @user = User.new
   end
@@ -112,7 +112,7 @@ class UsersController < ApplicationController
 
   def ensure_owner_user
     if @user != current_user
-      redirect_to root_url, notice: 'You are not authorized to view other user page'
+      redirect_to root_url
     end
   end
 end
