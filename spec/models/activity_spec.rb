@@ -42,7 +42,7 @@ RSpec.describe Activity, type: :model do
   context 'confirm activity' do
     it 'one user accept' do
       activity = Activity.create_new_activity(@cid, @uid1, @uid2)
-      activity = Activity.confirm_activity(activity.aid, @uid1)
+      activity = Activity.schedule_activity(activity.aid, @uid1)
       expect(activity.nil?).to eq(false)
       expect(activity[:status]).to eq('PENDING')
       expect(activity[:fst_accept]).to eq(true)
@@ -50,8 +50,8 @@ RSpec.describe Activity, type: :model do
     end
     it 'both matchmake accept' do
       activity = Activity.create_new_activity(@cid, @uid1, @uid2)
-      activity = Activity.confirm_activity(activity.aid, @uid1)
-      activity = Activity.confirm_activity(activity.aid, @uid2)
+      activity = Activity.schedule_activity(activity.aid, @uid1)
+      activity = Activity.schedule_activity(activity.aid, @uid2)
       expect(activity.nil?).to eq(false)
       expect(activity[:status]).to eq('SCHEDULED')
       expect(activity[:fst_accept]).to eq(true)

@@ -1,0 +1,80 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Activities</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr colspan="1000">
+    <td colspan="100"><h4>status   </h4></td>
+    <td colspan="100"><h4>coupon_id   </h4></td>
+    <td colspan="100"><h4>datetime   </h4></td>
+    <td colspan="100"><h4>First User   </h4></td>
+    <td colspan="100"><h4>First User Accepted Invite?  </h4></td>
+    <td colspan="100"><h4>Second User  </h4></td>
+    <td colspan="100"><h4>Second User Accepted Invite? </h4></td>
+  </tr>
+
+  <% @activities.each do |activity| %>
+    <tr>
+      <td colspan="100"><%= activity.status %>   </td>
+      <td colspan="100"><%= activity.coupon_id %>   </td>
+      <td colspan="100"><%= activity.datetime %>   </td>
+      <td colspan="100"><%= link_to User.find(activity.fst_uid).name, user_path(activity.fst_uid) %>   </td>
+      <td colspan="100"><%= activity.fst_accept %>   </td>
+      <td colspan="100"><%= link_to User.find(activity.snd_uid).name, user_path(activity.snd_uid) %>   </td>
+      <td colspan="100"><%= activity.snd_accept %>   </td>
+      <% if activity.status == 'PENDING' && activity.fst_uid == current_user.uid && activity.fst_accept != true %>
+        <td colspan="100"><%= link_to 'Accept Invitation', accept_activity_path(activity.id, uid: current_user.uid) %></td>
+      <% end %>
+      <% if activity.status == 'PENDING' && activity.snd_uid == current_user.uid && activity.snd_accept != true %>
+        <td colspan="100"><%= link_to 'Accept Invitation', accept_activity_path(activity.id, uid: current_user.uid) %></td>
+      <% end %>
+      </td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h1>Coupons</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr colspan="1000">
+    <td colspan="100"><h4>Name   </h4></td>
+    <td colspan="100"><h4>message   </h4></td>
+    <td colspan="100"><h4>location   </h4></td>
+    <td colspan="100"><h4>original_price   </h4></td>
+    <td colspan="100"><h4>discount_price  </h4></td>
+    <td colspan="100"><h4>advertiser  </h4></td>
+
+  </tr>
+
+  <% @coupons.each do |coupon| %>
+    <tr>
+      <td colspan="100"><%= coupon.name %>   </td>
+      <td colspan="100"><%= coupon.message %>   </td>
+      <td colspan="100"><%= coupon.location %>   </td>
+      <td colspan="100"><%= coupon.original_price %>   </td>
+      <td colspan="100"><%= coupon.discount_price %>   </td>
+      <td colspan="100"><%= coupon.advertiser %>   </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Direct to Message List', messages_path %>

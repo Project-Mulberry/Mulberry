@@ -53,7 +53,9 @@ end
 activities = [
   {:status => 'PENDING', :coupon_id => 2, :datetime => '2022-01-01 18:00:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => false },
   {:status => 'DONE', :coupon_id => 2, :datetime => '2022-01-01 18:00:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => true },
-  {:status => 'CONFIRMED', :coupon_id => 1, :datetime => '2022-01-01 18:00:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => true },
+  {:status => 'SCHEDULED', :coupon_id => 1, :datetime => '2022-01-01 18:00:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => true },
+  {:status => 'PENDING', :coupon_id => 2, :datetime => '2022-01-01 18:00:00', :fst_uid => 3, :fst_accept => true, :snd_uid => 4, :snd_accept => false },
+
 ]
 activities.each do |activity|
   Activity.create!(activity)
