@@ -14,7 +14,9 @@
           <ul class="nav navbar-right ">
             <p style="color: white; text-align: right ">Logged In As: <%= current_user&.name || current_user.phone %></p>
             <li><%= link_to "Log out", logout_path, class: "mx-2", method: :delete %></li>
-            <li><%= link_to "Profile", edit_user_path(@current_user), class: "mx-2" %></li>
+            <li><%= link_to "Profile", user_path(@current_user), class: "mx-2" %></li>
+            <li><%= link_to "Matches", matchmake_index_path, class: "mx-2" %></li>
+            <li><%= link_to "Chats", messages_path, class: "mx-2" %></li>
           </ul>
         <% else %>
           <ul class="nav navbar-right ">
