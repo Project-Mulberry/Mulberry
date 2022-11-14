@@ -1,9 +1,8 @@
 # Mulberry
 
-.  
+
 ### [**Hi TAs!** _Please click me to see the guidance for grading_](#guidance-for-grading)
 
-.  
 
 ## Brief Introduction
 
@@ -41,8 +40,8 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 
 > **For test:**  
 > 1. `rake db:migrate RAILS_ENV=test`   
-> 2. `rake spec (or rspec or bundle exec autotest)`  
-> 3. `rake cucumber`
+> 2. `rake cucumber`
+> 3. `rake spec (or rspec or bundle exec autotest)`  
   
 > **For deployment:**  
 > 1. `heroku stack:set heroku-20`  

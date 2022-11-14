@@ -10,18 +10,10 @@
   </thead>
 
   <tbody>
-  <% @message_send.each do |message| %>
+  <% @chat.each do |chat| %>
     <tr>
-      <td><!%= message.receiver_uid %>   </td>
-      <td>To <%= User.find(message.receiver_uid).name %>: </td>
-      <td><%= message.message %>   </td>
-    </tr>
-  <% end %>
-  <% @message_receive.each do |message| %>
-    <tr>
-      <td><!%= message.sender_uid %>   </td>
-      <td>From <%= User.find(message.sender_uid).name %>: </td>
-      <td><%= message.message %>   </td>
+      <td><%= User.find(chat["sender_uid"]).name %>:   </td>
+      <td><%= chat["message"] %>   </td>
     </tr>
   <% end %>
   </tbody>

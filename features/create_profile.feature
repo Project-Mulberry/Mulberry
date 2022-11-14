@@ -18,7 +18,7 @@ Scenario: fill in correct answers and create successful
 	Then   I should be redirected to the user edit page
 	And    I fill in the following questions: Name, Gender, Sexuality, Location, Career, Height, Profile Photo URL
 	And    I press "Submit"
-	Then   I should be redirected to the matchmake page
+	Then   I should be on the user profile page
 
 Scenario: click create button with incomplete answers for password
 	Given  I fill in the question "Phone" with answer "1234567890"
