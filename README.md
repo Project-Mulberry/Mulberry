@@ -39,9 +39,10 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 6. open browser localhost:3000
 
 > **For test:**  
-> 1. `rake db:migrate RAILS_ENV=test`   
-> 2. `rake cucumber`
-> 3. `rake spec (or rspec or bundle exec autotest)`  
+> 1. `[OPTIONAL: if datbase exist] rake db:reset`
+> 2. `rake db:migrate RAILS_ENV=test`   
+> 3. `rake cucumber`
+> 4. `rake spec (or rspec or bundle exec autotest)`  
   
 > **For deployment:**  
 > 1. `heroku stack:set heroku-20`  
@@ -74,11 +75,13 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 > 4. `rake db:seed`
 > 5. `rails server -b 0.0.0.0`
 > 6. open browser with URL: `localhost:3000`
-> > **For test coverage check**
-> > 1. `rake db:migrate RAILS_ENV=test` (for testing env)
-> > 2. `rake cucumber`
-> > 3. `rake spec`
-> > 4. open the `index.html` file under coverage folder
+
+> **For test coverage check**
+> 1. `[OPTIONAL: if datbase exist] rake db:reset`
+> 2. `rake db:migrate RAILS_ENV=test`   
+> 3. `rake cucumber`
+> 4. `rake spec`
+> 5. open the `index.html` file under coverage folder
 
 >
 > local sqlite database doesn't need credentials;  
