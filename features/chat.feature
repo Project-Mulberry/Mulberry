@@ -30,8 +30,6 @@ Background: chats in database
     | N      	| N      	| N      	|
 
 
-
-
 Scenario: click "login" to see all messages of the specific user with other users
     When    I am on the login page
     Then    I logged in as a user
@@ -39,25 +37,25 @@ Scenario: click "login" to see all messages of the specific user with other user
     And     I am on the messages page
     And     I should see the following names: Zhen, Jack, Hang
 
+
 Scenario: click "show" to to see all messages with a particular user and go back to chat list
     When   I am on the messages page
-    Then    I logged in as a user
-    And     I press "Log in"
-    And     I am on the messages page
+    Then   I logged in as a user
+    And    I press "Log in"
+    And    I am on the messages page
     And    I follow "Show"
-    Then   I should see "Chats for Hang"
+    Then   I should see "Conversation with Hang"
     When   I follow "Back to Message List"
     Then   I should be on the messages page
 
 
-
 Scenario: click "show" to to see all messages with a particular user and go back to match page
     When   I am on the messages page
-    Then    I logged in as a user
-    And     I press "Log in"
-    And     I am on the messages page
+    Then   I logged in as a user
+    And    I press "Log in"
+    And    I am on the messages page
     And    I follow "Show"
-    Then   I should see "Chats for Hang"
+    Then   I should see "Conversation with Hang"
     When   I follow "Back to Match List"
     Then   I should be on the matchmake page
 
