@@ -31,7 +31,7 @@ Background: chats in database
 
     Given  I am on the login page
     Then   I logged in as a user
-    And    I press "Log in"
+    And    I press "Log In"
     And    I am on the messages page
 
 

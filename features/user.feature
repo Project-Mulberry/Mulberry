@@ -1,8 +1,8 @@
 Feature: create a new user profile
 
-	As a new user
-	So that I can create a profile to use Mulberry
-	I want see my 10 daily matches after I complete creating my profile
+	As a new or previous user
+	So that I can see my matches and chats
+	I either sign up or log in
 
 
 Background: the profile creation form is shown
