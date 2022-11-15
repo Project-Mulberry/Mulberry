@@ -14,6 +14,14 @@ Background: profiles in database
 	| Jack    | NY       | PhD         | Software Engineer   | 4668756566 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
 	| Hang    | NY       | High School | Unemployed          | 4527772777 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
 
+
+	Given the following messages exist:
+	| sender_uid | receiver_uid | key     | message                  |
+	| 1          | 2            | <1>-<2> | Hello Zhen, How are you! |
+	| 2          | 1            | <1>-<2> | Hi Marcus!               |
+	| 1          | 3            | <1>-<3> | Hi, what\'s up           |
+	| 4          | 1            | <1>-<4> | Morning!                 |
+
 	Given the following interests exist:
 	| interest1 | interest2 | interest3 |
 	| Y         | Y      	| Y      	|
@@ -37,8 +45,7 @@ Background: profiles in database
 Scenario: click "Direct to Message List" to check all chats
 	And    I follow "Direct to Message List"
 	Then   I should be on the messages page
-	And    I should see the following names: Zhen, Jack, Hang
-	But    I should not see the following names: Lucy, Lily, Tom
+	And    I should see "Your Chats"
 
 
 Scenario: click "detail" to see more details of a particular user and chat with them
@@ -46,7 +53,7 @@ Scenario: click "detail" to see more details of a particular user and chat with 
 	Then   I should see "Profile of"
 	And    I should see the following questions: Sexuality, Gender, Birthday, Height, Interest, Prompt
 	But    I should not see the following questions: Father's Name, Mother's Name, Credit Card Number
-	When   I follow "Chat"
+	When   I follow "Send"
 	And    I should see "Conversation with"
 
 
