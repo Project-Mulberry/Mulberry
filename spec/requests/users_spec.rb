@@ -30,12 +30,11 @@ RSpec.describe "Users", type: :request do
       end
     end
 
-    context 'user did not click signup to save' do
-      it 'creates the user profile successfully' do
-        post "/users", { :user => { :phone => "4123423455", :password => "1234qwer" } }
-        expect(response).to redirect_to(edit_user_path(User.last))
-        follow_redirect!
-        expect(response).to render_template(:edit)
+    context 'user did not put a password' do
+      it 'flash a warning and stay on the same page' do
+        post "/users", { :user => { :phone => "4123423455", :password => "" } }
+        expect(response).to render_template(:new)
+        expect(response.body).to match("can&#39;t be blank")
       end
     end
   end
