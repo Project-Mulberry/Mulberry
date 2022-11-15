@@ -8,11 +8,11 @@ Feature: start a chat from the Message List
 Background: chats in database
 
     Given the following profiles exist:
-    | name    | location | education   | career              | phone	| password	| gender	| birthday	| sexuality	| height | profile_photo |
-    | Marcus  | NY       | Bachelor    | Student             | 1534643573 | 1       | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
-    | Zhen    | NY       | Master      | Student             | 5437525723 | 1       | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
-    | Jack    | NY       | PhD         | Software Engineer   | 4668756566 | 1       | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
-    | Hang    | NY       | High School | Unemployed          | 4527772777 | 1       | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
+    | name    | location | education   | career              | phone	  | password	| gender	| birthday	    | sexuality	| height | profile_photo |
+    | Marcus  | NY       | Bachelor    | Student             | 1534643573 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
+    | Zhen    | NY       | Master      | Student             | 5437525723 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
+    | Jack    | NY       | PhD         | Software Engineer   | 4668756566 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
+    | Hang    | NY       | High School | Unemployed          | 4527772777 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
 
 
     Given the following messages exist:
@@ -29,35 +29,26 @@ Background: chats in database
     | Y      	| Y      	| Y      	|
     | N      	| N      	| N      	|
 
-
+    Given  I am on the login page
+    Then   I logged in as a user
+    And    I press "Log in"
+    And    I am on the messages page
 
 
 Scenario: click "login" to see all messages of the specific user with other users
-    When    I am on the login page
-    Then    I logged in as a user
-    And     I press "Log in"
-    And     I am on the messages page
-    And     I should see the following names: Zhen, Jack, Hang
+    Then   I should see "Your Chats"
+    But    I should not see the following names: Lucy, Lily, Tom
 
 Scenario: click "show" to to see all messages with a particular user and go back to chat list
-    When   I am on the messages page
-    Then    I logged in as a user
-    And     I press "Log in"
-    And     I am on the messages page
-    And    I follow "Show"
-    Then   I should see "Chats for Hang"
+    When   I follow "Show"
+    Then   I should see "Conversation with"
     When   I follow "Back to Message List"
     Then   I should be on the messages page
 
 
-
 Scenario: click "show" to to see all messages with a particular user and go back to match page
-    When   I am on the messages page
-    Then    I logged in as a user
-    And     I press "Log in"
-    And     I am on the messages page
-    And    I follow "Show"
-    Then   I should see "Chats for Hang"
+    When   I follow "Show"
+    Then   I should see "Conversation with"
     When   I follow "Back to Match List"
     Then   I should be on the matchmake page
 
