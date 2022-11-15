@@ -23,9 +23,16 @@ RSpec.describe "Users", type: :request do
   describe '#create' do
     context 'all valid form attributes are present' do
       it 'creates the user profile successfully' do
-
         post "/users", { :user => { :phone => "4123423455", :password => "1234qwer" } }
+        expect(response).to redirect_to(edit_user_path(User.last))
+        follow_redirect!
+        expect(response).to render_template(:edit)
+      end
+    end
 
+    context 'user did not click signup to save' do
+      it 'creates the user profile successfully' do
+        post "/users", { :user => { :phone => "4123423455", :password => "1234qwer" } }
         expect(response).to redirect_to(edit_user_path(User.last))
         follow_redirect!
         expect(response).to render_template(:edit)
@@ -33,27 +40,43 @@ RSpec.describe "Users", type: :request do
     end
   end
 
+
   describe '#update' do
     context "Without logging in" do
       it "should redirect to login" do
         get "/users/3"
         expect(response).to redirect_to(login_url)
       end
-
     end
+
     context "incorrect user accesses the profile" do
-      #  it("should redirect to root") do
-      #   actual_user = User.last ||  User.create(phone: "5123423452", password: "1234qwer")
-      #   new_user = User.create(phone: "2123423452", password: "1234qwer")
-      #   post "/login", user: {phone: actual_user.phone, password: "1234qwer"}
-      #   get "/users/#{new_user.id}/edit"
-      #   expect(response).to redirect_to(root_url)
-      #   actual_user.destroy
-      #   new_user.destroy
-      # end
+       it("should redirect to root") do
+        actual_user = User.last ||  User.create(phone: "5123423452", password: "1234qwer")
+        new_user = User.create(phone: "2123423452", password: "1234qwer")
+        post "/login", user: {phone: actual_user.phone, password: "1234qwer"}
+        get "/users/#{new_user.id}/edit"
+        expect(response).to redirect_to(root_url)
+      end
     end
 
-     context 'career field is missing in the form attributes' do
+    context "created account with all info filled" do
+      it("should redirect to root") do
+        actual_user = User.create(:phone => '1234567890', :password => '123456', :name => 'Marcus', :gender => 'm', :sexuality => 'straight', :birthday => '01-Jan-2000', :location => 'NY', :education => 'Bachelor', :career => 'Student', :height => '6.0', :profile_photo => nil)
+        post "/login", user: {phone: actual_user.phone, password: "123456"}
+        get "/login"
+        expect(response).to redirect_to(root_url)
+      end
+    end
+
+    context "created account without filling" do
+      it("should redirect to root") do
+        actual_user = User.create(phone: "5123423477", password: "1234qwer")
+        post "/login", user: {phone: actual_user.phone, password: "1234qwer"}
+        expect(response).to redirect_to(edit_user_path(actual_user))
+      end
+    end
+
+    context 'career field is missing in the form attributes' do
       user = User.last ||  User.create(phone: "4123423452", password: "1234qwer")
 
       # let's intentionally remove career field,
@@ -86,7 +109,7 @@ RSpec.describe "Users", type: :request do
       end
     end
 
-     context 'all required user fields are present' do
+    context 'all required user fields are present' do
       user = User.last ||  User.create(phone: "4123423452", password: "1234qwer")
 
       fields = EXAMPLE_INPUT_FIELDS.clone
@@ -103,10 +126,8 @@ RSpec.describe "Users", type: :request do
         put "/users/#{user.id}", { :user => fields }
         expect(user.reload.interest).to_not be(nil)
         delete "/logout"
-
-
       end
-
     end
+
   end
 end

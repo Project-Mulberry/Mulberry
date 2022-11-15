@@ -26,11 +26,6 @@ class UsersController < ApplicationController
       log_in @user
       redirect_to edit_user_path(@user)
 
-      # This line overrides the default rendering behavior, which
-      # would have been to render the "create" view.
-      # render "new"
-    else
-      render "new"
     end
   end
 
