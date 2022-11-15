@@ -11,13 +11,18 @@ Background: the profile creation form is shown
 	And    the following questions exist: Phone, Password
 
 
-Scenario: fill in correct answers and create successful
+Scenario: fill in correct answers and create successful, log out, log in succesfully
 	Given  I fill in the following questions: Phone, Password
 	When   I press "Sign Up"
 	Then   I should be redirected to the user edit page
 	And    I fill in the following questions: Name, Gender, Sexuality, Location, Career, Height, Profile Photo URL
 	And    I press "Submit"
-	Then   I should be on the user profile page
+	Then   I should be on the home page
+	When   I follow "Log Out"
+	Then   I should be on the login page
+	Then   I fill in the following questions: Phone, Password
+	And    I press "Log In"
+	Then   I should be on the home page
 
 
 Scenario: click create button with incomplete answers for password

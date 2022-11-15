@@ -40,7 +40,10 @@ module NavigationHelpers
       "/users/#{User.last.id}"
 
     when /^the login page$/ then
-      "/login"
+      login_path
+
+    when /^the home page$/ then
+      root_path
 
 
     else
