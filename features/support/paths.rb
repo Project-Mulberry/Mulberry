@@ -39,6 +39,9 @@ module NavigationHelpers
     when /^the user profile page$/ then
       "/users/#{User.last.id}"
 
+    when /^the edit profile page$/ then
+      "/users/#{User.last.id}/edit"
+
     when /^the login page$/ then
       login_path
 
