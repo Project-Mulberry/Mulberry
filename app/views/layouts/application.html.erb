@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Blog</title>
+    <title>Mulberry</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
@@ -15,23 +15,26 @@
   </head>
   <body>
     <%# These classes come from the Bootstrap CSS framework. %>
-    <nav class="navbar navbar-expand-lg  text-white mb-3 " style="background-color: #536DFE;">
-      <ul>
-        <% if logged_in? %>
-          <ul class="nav navbar-right " style="background-color: #536DFE;">
-            <p style="color: white; text-align: right ">Logged In As: <%= current_user&.name || current_user.phone %></p>
-            <li><%= link_to "Matches", matchmake_index_path, class: "mx-2" %></li>
-            <li><%= link_to "Chats", messages_path, class: "mx-2" %></li>
-            <li><%= link_to "Profile", user_path(@current_user), class: "mx-2" %></li>
-            <li><%= link_to "Log out", logout_path, class: "mx-2", method: :delete %></li>
-          </ul>
+    <nav class="navbar navbar-expand-lg  text-white mb-3 " style="background-color:#6f42c1;">
+    <a class="navbar-brand" style="color: white" href="/"> MULBERRY </a>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <% if logged_in? %>
+        <ul class="navbar-nav mr-auto " style="background-color: #6f42c1;">
+          <li class="nav-item"> <%= link_to "Matches", matchmake_index_path %> </li>
+          <li class="nav-item"> <%= link_to "Chats", messages_path %> </li>
+          <li class="nav-item"> <%= link_to "Profile", user_path(@current_user) %> </li>
+          <li class="nav-item"> <%= link_to "Log out", logout_path, method: :delete %> </li>
+        </ul>
+        <span class="navbar-text" style="color: white">
+            Logged In As: <%= current_user&.name || current_user.phone %>
+        </span>
         <% else %>
           <ul class="nav navbar-right ">
             <li><%= link_to "Sign up", signup_path, class: "btn btn-primary" %></li>
             <li><%= link_to "Log In", login_path, class: "btn btn-primary" %></li>
           </ul>
         <% end %>
-      </ul>
+      </div>
     </nav>
     <div class="container">
       <main id="main">
