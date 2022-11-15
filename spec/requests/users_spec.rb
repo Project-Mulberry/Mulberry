@@ -118,7 +118,7 @@ RSpec.describe "Users", type: :request do
         post "/login", { :user => { :phone => "4123423452", :password => "1234qwer" } }
         get "/users/#{user.id}/edit"
         put "/users/#{user.id}", { :user => fields }
-        expect(response).to redirect_to(user)
+        expect(response).to redirect_to(root_path)
         expect(user.reload.name).to eq(EXAMPLE_INPUT_FIELDS[:name])
         expect(user.reload.gender).to eq(EXAMPLE_INPUT_FIELDS[:gender])
         #running a second request to ensure fields are updated
