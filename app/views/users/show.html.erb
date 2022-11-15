@@ -1,45 +1,47 @@
-<h1>This is your current profile</h1>
+<div class="row"><h1 class="col-9">Profile Information</h1><div class="col-3">
+  <%= link_to "Edit", edit_user_path(@current_user), { class: "btn btn-secondary" }%>
 
-<div>
-  Phone: <%= @user.phone %>
-</div>
+</div></div>
+<table class="table table-responsive">
+<tr>
+  <td>Phone:</td><td> <%= @user.phone %></td>
+</tr>
 
-<div>
-  Password: <%= @user.password %>
-</div>
+<tr>
+  <td>Password:</td><td> <%= @user.password %></td>
+</tr>
 
-<div>
-  Gender: <%= @user.gender %>
-</div>
+<tr>
+  <td>Gender:</td><td> <%= @user.gender %></td>
+</tr>
 
-<div>
-  Sexuality: <%= @user.sexuality %>
-</div>
+<tr>
+  <td>Sexuality:</td><td> <%= @user.sexuality %></td>
+</tr>
 
-<div>
-  Birthday <%= @user.birthday %>
-</div>
+<tr>
+  <td>Birthday </td><td><%= @user.birthday %></td>
+</tr>
 
-<div>
-  Location: <%= @user.location %>
-</div>
+<tr>
+  <td>Location:</td><td> <%= @user.location %></td>
+</tr>
 
-<div>
-  Education: <%= @user.education %>
-</div>
+<tr>
+  <td>Education:</td><td> <%= @user.education %></td>
+</tr>
 
-<div>
-  Career: <%= @user.career %>
-</div>
+<tr>
+  <td>Career:</td><td> <%= @user.career %></td>
+</tr>
 
-<div>
-  Height: <%= @user.height %>
-</div>
+<tr>
+  <td>Height:</td><td> <%= @user.height %></td>
+</tr>
 
-<div>
-  Profile_photo: <%= @user.profile_photo %>
-</div>
+<tr>
+  <td>Profile_photo:</td><td> <%= @user.profile_photo %></td>
+</tr>
 
 <br>
-
-<%= link_to "Edit", edit_user_path(@current_user)%>
+</table>

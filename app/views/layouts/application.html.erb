@@ -29,9 +29,9 @@
             Logged In As: <%= current_user&.name || current_user.phone %>
         </span>
         <% else %>
-          <ul class="nav navbar-right ">
-            <li><%= link_to "Sign up", signup_path, class: "btn btn-primary" %></li>
-            <li><%= link_to "Log In", login_path, class: "btn btn-primary" %></li>
+          <ul class="navbar-nav ml-auto " style="background-color: #6f42c1;">
+            <li class="nav-item"><%= link_to "Sign up", signup_path  %></li>
+            <li class="nav-item"><%= link_to "Log In", login_path %></li>
           </ul>
         <% end %>
       </div>
