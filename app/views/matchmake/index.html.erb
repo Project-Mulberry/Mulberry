@@ -2,47 +2,71 @@
 
 <h1>Listing Users</h1>
 
-<table>
+<table class="table">
   <thead>
   <tr>
-    <th colspan="3"></th>
+    <th scope="col"></th>
+    <th scope="col"><h4>Name   </h4></th>
+    <th scope="col"><h4>Location   </h4></th>
+    <th scope="col"><h4>Education   </h4></th>
+    <th scope="col"><h4>Career   </h4></th>
+    <th scope="col"><h4>Hobby1  </h4></th>
+    <th scope="col"><h4>Hobby2  </h4></th>
+    <th scope="col"><h4>Hobby3  </h4></th>
+    <th scope="col"></th>
   </tr>
   </thead>
 
   <tbody>
-  <tr>
-    <td><h4>Name   </h4></td>
-    <td><h4>Location   </h4></td>
-    <td><h4>Education   </h4></td>
-    <td><h4>Career   </h4></td>
-    <td><h4>Hobby1  </h4></td>
-    <td><h4>Hobby2  </h4></td>
-    <td><h4>Hobby3  </h4></td>
 
-  </tr>
-  <% @users.each do |user| %>
+  <% @new_matches.each do |new_match| %>
     <tr>
-      <td><%= user.name %>   </td>
-      <td><%= user.location %>   </td>
-      <td><%= user.education %>   </td>
-      <td><%= user.career %>   </td>
-      <% if user.interest.present? %>
-        <td><%= Interest.get_interests_by_uid(user.uid).interest1 %></td>
-        <td><%= Interest.get_interests_by_uid(user.uid).interest2 %></td>
-        <td><%= Interest.get_interests_by_uid(user.uid).interest3 %></td>
+      <td  class="text-primary">New</td>
+      <th scope="row"><%= new_match["name"] %> </th>
+      <td><%= new_match["location"] %> </td>
+      <td><%= new_match["education"] %> </td>
+      <td><%= new_match["career"] %> </td>
+      <% if User.find(new_match["uid"]).interest.present? %>
+        <td><%= Interest.get_interests_by_uid(new_match["uid"]).interest1 %></td>
+        <td><%= Interest.get_interests_by_uid(new_match["uid"]).interest2 %></td>
+        <td><%= Interest.get_interests_by_uid(new_match["uid"]).interest3 %></td>
       <% else %>
         <td></td>
         <td></td>
         <td></td>
       <% end %>
-      <td><%= link_to 'detail', matchmake_path(user.uid) %>   </td>
-      </td>
+      <td><%= link_to 'detail', matchmake_path(new_match["uid"]), class: 'btn btn-sm btn-outline-primary' %>   </td>
+    </tr>
+  <% end %>
+
+
+  <% @history_matches.each do |old_match| %>
+    <tr>
+      <td>Matches</td>
+      <th scope="row"><%= User.find(old_match).name %> </th>
+      <td><%= User.find(old_match).location %> </td>
+      <td><%= User.find(old_match).education %> </td>
+      <td><%= User.find(old_match).career %> </td>
+      <% if User.find(old_match).interest.present? %>
+        <td><%= Interest.get_interests_by_uid(old_match).interest1 %></td>
+        <td><%= Interest.get_interests_by_uid(old_match).interest2 %></td>
+        <td><%= Interest.get_interests_by_uid(old_match).interest3 %></td>
+      <% else %>
+        <td></td>
+        <td></td>
+        <td></td>
+      <% end %>
+      <td><%= link_to 'detail', matchmake_path(old_match), class: 'btn btn-sm btn-outline-primary' %>   </td>
 
     </tr>
   <% end %>
+
+
+
+
   </tbody>
 </table>
 
 <br>
-<%= link_to 'Direct to Message List', messages_path %>
+<%= link_to 'Direct to Message List', messages_path, class: 'btn btn-sm btn-outline-primary' %>
 <!%= link_to 'New User', new_user_path %>
