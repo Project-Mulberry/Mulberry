@@ -1,4 +1,4 @@
-<h2>Details about <em><%= @user.name %></em></h2>
+<h2>Profile of <em><%= @user.name %></em></h2>
 <div class="card" style="width: 20rem; margin-top: 2rem;">
   <% if User.find(@user.uid).profile_photo.present? %>
     <%= image_tag( @user.profile_photo, :alt => "Profile Pic") -%>
