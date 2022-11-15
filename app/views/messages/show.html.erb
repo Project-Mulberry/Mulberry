@@ -1,27 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Chats for <em><%= @user.name %></em> </h1>
+<div class="container">
+  <div class="row align-items-start">
+    <h1>Chats for <em><%= @user.name %></em> </h1>
+  </div>
+  <div class="row align-items-center">
+    <% @chat.each do |chat| %>
+      <% if chat["sender_uid"] == current_user.uid %>
+        <div class="send-box" >
+          <div class="message-box send-message">
+            <%= chat["message"] %>
+          </div>
+          <h6 class="name"> <%= User.find(chat["sender_uid"]).name %> </h6>
+        </div>
+      <% else %>
+        <div class="receive-box">
+          <h6 class="name"> <%=User.find(chat["sender_uid"]).name %> </h6>
+          <div class="message-box receive-box" >
+            <%= chat["message"] %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="row align-items-end">
+    <h3>New chat: </h3>
+  </div>
+</div>
 
-<table>
-  <thead>
-  <tr>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @chat.each do |chat| %>
-    <tr>
-      <td><%= User.find(chat["sender_uid"]).name %>:   </td>
-      <td><%= chat["message"] %>   </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
 
 <br>
 
 <!%= link_to 'Edit', edit_message_path(@message) %>
-<%= link_to 'Back to Message List', messages_path %>
-<%= link_to 'Back to Match List', matchmake_index_path %>
+<%= link_to 'Back to Message List', messages_path , class: 'btn btn-sm btn-outline-primary'%>
+<%= link_to 'Back to Match List', matchmake_index_path , class: 'btn btn-sm btn-outline-primary'%>
 
