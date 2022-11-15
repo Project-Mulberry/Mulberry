@@ -23,6 +23,7 @@ RSpec.describe "Users", type: :request do
   describe '#create' do
     context 'all valid form attributes are present' do
       it 'creates the user profile successfully' do
+
         post "/users", { :user => { :phone => "4123423455", :password => "1234qwer" } }
 
         expect(response).to redirect_to(edit_user_path(User.last))
@@ -33,15 +34,42 @@ RSpec.describe "Users", type: :request do
   end
 
   describe '#update' do
-    pending context 'career field is missing in the form attributes' do
+    context "Without logging in" do
+      it "should redirect to login" do
+        get "/users/3"
+        expect(response).to redirect_to(login_url)
+      end
+
+    end
+    context "incorrect user accesses the profile" do
+      #  it("should redirect to root") do
+      #   actual_user = User.last ||  User.create(phone: "5123423452", password: "1234qwer")
+      #   new_user = User.create(phone: "2123423452", password: "1234qwer")
+      #   post "/login", user: {phone: actual_user.phone, password: "1234qwer"}
+      #   get "/users/#{new_user.id}/edit"
+      #   expect(response).to redirect_to(root_url)
+      #   actual_user.destroy
+      #   new_user.destroy
+      # end
+    end
+
+     context 'career field is missing in the form attributes' do
       user = User.last ||  User.create(phone: "4123423452", password: "1234qwer")
+
       # let's intentionally remove career field,
       # which is required to be present
       # and checked by User model validation
       fields = EXAMPLE_INPUT_FIELDS.clone
+      fields['interest_attributes']= {interest1: "Climbing", interest2: "Biking", interest3: "Jogging"}
+      fields['prompt_attributes']= {interest1: "Poetry", interest2: "Chocolate", interest3: "Cake"}
       fields.delete(:career)
 
       it 'should not update the user  & display error message' do
+        get "/login"
+        post "/login", user: {phone: "4123423452", password: "1234qwe"}
+        expect(response).to render_template(:new)
+
+        post "/login", user: {phone: "4123423452", password: "1234qwer"}
         get "/users/#{user.id}"
         expect(response).to render_template(:show)
 
@@ -58,16 +86,27 @@ RSpec.describe "Users", type: :request do
       end
     end
 
-    pending context 'all required user fields are present' do
+     context 'all required user fields are present' do
       user = User.last ||  User.create(phone: "4123423452", password: "1234qwer")
 
+      fields = EXAMPLE_INPUT_FIELDS.clone
+      fields['interest_attributes']= {interest1: "Climbing", interest2: "Biking", interest3: "Jogging"}
+      fields['prompt_attributes']= {interest1: "Poetry", interest2: "Chocolate", interest3: "Cake"}
       it 'should update the user successfully' do
+        post "/login", { :user => { :phone => "4123423452", :password => "1234qwer" } }
         get "/users/#{user.id}/edit"
-        put "/users/#{user.id}", { :user => EXAMPLE_INPUT_FIELDS }
-        expect(response).to redirect_to(matchmake_index_path)
+        put "/users/#{user.id}", { :user => fields }
+        expect(response).to redirect_to(user)
         expect(user.reload.name).to eq(EXAMPLE_INPUT_FIELDS[:name])
         expect(user.reload.gender).to eq(EXAMPLE_INPUT_FIELDS[:gender])
+        #running a second request to ensure fields are updated
+        put "/users/#{user.id}", { :user => fields }
+        expect(user.reload.interest).to_not be(nil)
+        delete "/logout"
+
+
       end
+
     end
   end
 end
