@@ -1,40 +1,31 @@
 <h2>Details about <em><%= @user.name %></em></h2>
-
-<ul id="details">
-  <li>
-    Name:
-    <%= @user.name %>
-  </li>
-  <li>
-    Sexuality:
-    <%= @user.sexuality%>
-  </li>
-  <li>
-    Gender:
-    <%= @user.gender%>
-  </li>
-  <li>
-    Birthday:
-    <%= @user.birthday%>
-  </li>
-  <li>
-    Height:
-    <%= @user.height%>
-  </li>
-  <li>
-    Interest:
-    <p><%= @interest.interest1%></p>
-    <p><%= @interest.interest2%></p>
-    <p><%= @interest.interest3%></p>
-  </li>
-</ul>
-
-<h3>Prompt:</h3>
-<p>1. <%= @prompt.answer1 %></p>
-<p>2. <%= @prompt.answer2 %></p>
-<p>3. <%= @prompt.answer3 %></p>
-
-
-<p id="notice"><%= notice %></p>
-<%= link_to 'Chat', message_path(@user.uid) %>
-<%= link_to 'Back', matchmake_index_path %>
+<div class="card" style="width: 20rem; margin-top: 2rem;">
+  <% if User.find(@user.uid).profile_photo.present? %>
+    <%= image_tag( @user.profile_photo, :alt => "Profile Pic") -%>
+  <% else %>
+    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" class="card-img-top" alt="Profile Photo">
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @user.name %></h5>
+    <p class="card-text">Prompt:</p>
+    <p><%= @prompt.answer1 %></p>
+    <p><%= @prompt.answer2 %></p>
+    <p><%= @prompt.answer3 %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Sexuality: <%= @user.sexuality%></li>
+    <li class="list-group-item">Gender: <%= @user.gender%></li>
+    <li class="list-group-item">Birthday: <%= @user.birthday%></li>
+    <li class="list-group-item">Height: <%= @user.height%></li>
+    <li class="list-group-item">
+      Interest:
+      <p><%= @interest.interest1%></p>
+      <p><%= @interest.interest2%></p>
+      <p><%= @interest.interest3%></p>
+    </li>
+  </ul>
+  <div class="card-body">
+    <%= link_to 'Chat', message_path(@user.uid), class: 'btn btn-sm btn-outline-primary col' %>
+    <%= link_to 'Back', matchmake_index_path, class: 'btn btn-sm btn-outline-primary col' %>
+  </div>
+</div>

@@ -5,6 +5,8 @@ class MatchmakeController < ApplicationController
   # GET /matchmake
   def index
     @users = User.where(uid: current_user.uid)
+    @history_matches = MatchHistory.get_history_matched_uid_list(current_user.uid)
+    @new_matches = MatchHistory.get_match_recommendation(current_user.uid)
   end
 
   # GET /matchmake/1
