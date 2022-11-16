@@ -34,7 +34,7 @@ class MessagesController < ApplicationController
                            :is_read => false)
     if not @message.message.to_s.strip.empty?
       @message.save
-      redirect_to message_path(params[:id])
+      redirect_to message_path(params[:id], anchor: 'bottom')
     else
       redirect_to message_path(params[:id])
     end
