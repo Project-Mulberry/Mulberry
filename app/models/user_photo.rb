@@ -1,3 +1,5 @@
+# :nocov:
+
 class UserPhoto < ActiveRecord::Base
   # @param  int(uid)
   # @return list(UserPhoto)

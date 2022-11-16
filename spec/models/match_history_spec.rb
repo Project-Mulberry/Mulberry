@@ -2,59 +2,48 @@ require 'rails_helper'
 
 RSpec.describe MatchHistory, type: :model do
   before :each do
-    @uid1 = User.create_new_user('1234567890', '12345678')[:uid]
-    @uid2 = User.create_new_user('1234567891', '12345678')[:uid]
-    @uid3 = User.create_new_user('1234567892', '12345678')[:uid]
-
-    # initialize user profile
-    user1 = User.find(@uid1)
-    user1.name = 'User - 1 - male'
-    user1.gender = 'm'
-    user1.sexuality = 'straight'
-    user1.location = 'NY'
-    user1.birthday = '2000-01-01'
-    user1.education = 'bachelor'
-    user1.career = 'student'
-    user1.height = '6.0'
-    user1.profile_photo = '.'
-    user1.save!
-    user2 = User.find(@uid2)
-    user2.name = 'User - 2 - female'
-    user2.gender = 'f'
-    user2.sexuality = 'straight'
-    user2.location = 'NY'
-    user2.birthday = '2000-01-01'
-    user2.education = 'bachelor'
-    user2.career = 'student'
-    user2.height = '5.5'
-    user2.profile_photo = '.'
-    user2.save!
-    user3 = User.find(@uid3)
-    user3.name = 'User - 3 - male'
-    user3.gender = 'm'
-    user3.sexuality = 'homosexual'
-    user3.location = 'CA'
-    user3.birthday = '2000-01-01'
-    user3.education = 'bachelor'
-    user3.career = 'student'
-    user3.height = '6.0'
-    user3.profile_photo = '.'
-    user3.save!
-    interest1 = Interest.get_interests_by_uid(@uid1)
-    interest1.interest1 = 'Y'
-    interest1.interest2 = 'Y'
-    interest1.interest3 = 'Y'
-    Interest.update_interest(interest1)
-    interest2 = Interest.get_interests_by_uid(@uid2)
-    interest2.interest1 = 'Y'
-    interest2.interest2 = 'Y'
-    interest2.interest3 = 'Y'
-    Interest.update_interest(interest2)
-    interest3 = Interest.get_interests_by_uid(@uid3)
-    interest3.interest1 = 'Y'
-    interest3.interest2 = 'Y'
-    interest3.interest3 = 'Y'
-    Interest.update_interest(interest3)
+    @uid1 = User.create!({
+                           :phone => '1234567890',
+                           :password => '12345678',
+                           :name => 'User - 1 - male',
+                           :gender => 'm',
+                           :sexuality => 'straight',
+                           :location => 'NY',
+                           :birthday => '2000-01-01',
+                           :education => 'bachelor',
+                           :career => 'student',
+                           :height => '6.0',
+                           :profile_photo => '.',
+                         })[:uid]
+    @uid2 = User.create!({
+                           :phone => '1234567891',
+                           :password => '12345678',
+                           :name => 'User - 2 - female',
+                           :gender => 'f',
+                           :sexuality => 'straight',
+                           :location => 'NY',
+                           :birthday => '2000-01-01',
+                           :education => 'bachelor',
+                           :career => 'student',
+                           :height => '5.5',
+                           :profile_photo => '.',
+                         })[:uid]
+    @uid3 = User.create!({
+                           :phone => '1234567892',
+                           :password => '12345678',
+                           :name => 'User - 3 - male',
+                           :gender => 'm',
+                           :sexuality => 'homosexual',
+                           :location => 'CA',
+                           :birthday => '2000-01-01',
+                           :education => 'bachelor',
+                           :career => 'student',
+                           :height => '6.0',
+                           :profile_photo => '.',
+                         })[:uid]
+    Interest.create!({:uid => @uid1, :interest1 => 'Y', :interest2 => 'Y', :interest3 => 'Y'})
+    Interest.create!({:uid => @uid2, :interest1 => 'Y', :interest2 => 'Y', :interest3 => 'Y'})
+    Interest.create!({:uid => @uid3, :interest1 => 'Y', :interest2 => 'Y', :interest3 => 'Y'})
   end
 
   context 'add new match history' do

@@ -17,12 +17,21 @@ Then("I fill in the following questions: Name, Gender, Sexuality, Location, Care
   fill_in("user[career]", with: "driver")
   fill_in("user[height]", with: "7-7")
   fill_in("user[profile_photo]", with: "www.gogole.com")
-  fill_in("user[interest_attributes][interest1]", with: "")
-  fill_in("user[interest_attributes][interest2]", with: "")
-  fill_in("user[interest_attributes][interest3]", with: "")
-  fill_in("user[prompt_attributes][answer1]", with: "")
-  fill_in("user[prompt_attributes][answer2]", with: "")
-  fill_in("user[prompt_attributes][answer3]", with: "")
+  fill_in("user[interest_attributes][interest1]", with: "A")
+  fill_in("user[interest_attributes][interest2]", with: "B")
+  fill_in("user[interest_attributes][interest3]", with: "C")
+  fill_in("user[prompt_attributes][answer1]", with: "A")
+  fill_in("user[prompt_attributes][answer2]", with: "B")
+  fill_in("user[prompt_attributes][answer3]", with: "C")
+end
+
+Then("I fill in the following questions: Interest, Prompt") do
+  fill_in("user[interest_attributes][interest1]", with: "AAA")
+  fill_in("user[interest_attributes][interest2]", with: "BBB")
+  fill_in("user[interest_attributes][interest3]", with: "CCC")
+  fill_in("user[prompt_attributes][answer1]", with: "AAA")
+  fill_in("user[prompt_attributes][answer2]", with: "BBB")
+  fill_in("user[prompt_attributes][answer3]", with: "CCC")
 end
 
 Then("I fill in the following questions: Gender, Sexuality, Location, Career, Height, Profile Photo URL") do
@@ -64,4 +73,9 @@ end
 
 When /^I try to go to the URL "(.*)"$/ do |url|
   visit url
+end
+
+Then /I logged in using wrong password/ do
+  fill_in("user[phone]", with: "1534643573")
+  fill_in("user[password]", with: "2")
 end
