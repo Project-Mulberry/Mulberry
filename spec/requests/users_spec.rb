@@ -76,17 +76,16 @@ RSpec.describe "Users", type: :request do
     end
 
     context 'career field is missing in the form attributes' do
-      user = User.create(phone: "4123423452", password: "1234qwer")
-
-      # let's intentionally remove career field,
-      # which is required to be present
-      # and checked by User model validation
-      fields = EXAMPLE_INPUT_FIELDS.clone
-      fields['interest_attributes']= {interest1: "Climbing", interest2: "Biking", interest3: "Jogging"}
-      fields['prompt_attributes']= {interest1: "Poetry", interest2: "Chocolate", interest3: "Cake"}
-      fields.delete(:career)
-
       it 'should not update the user  & display error message' do
+        User.create(uid: 10086, phone: "4123423452", password: "1234qwer")
+        Interest.create!({:uid => 10086, :interest1 => '', :interest2 => '', :interest3 => ''})
+        Prompt.create!({:uid => 10086, :answer1 => '', :answer2 => '', :answer3 => ''})
+
+        fields = EXAMPLE_INPUT_FIELDS.clone
+        fields['interest_attributes']= {interest1: "Climbing", interest2: "Biking", interest3: "Jogging"}
+        fields['prompt_attributes']= {interest1: "Poetry", interest2: "Chocolate", interest3: "Cake"}
+        fields.delete(:career)
+
         get "/login"
         post "/login", user: {phone: "4123423452", password: "1234qwe"}
         expect(response).to render_template(:new)
@@ -108,12 +107,15 @@ RSpec.describe "Users", type: :request do
     end
 
     context 'all required user fields are present' do
-      user = User.create(phone: "4123423452", password: "1234qwer")
-
-      fields = EXAMPLE_INPUT_FIELDS.clone
-      fields['interest_attributes']= {interest1: "Climbing", interest2: "Biking", interest3: "Jogging"}
-      fields['prompt_attributes']= {interest1: "Poetry", interest2: "Chocolate", interest3: "Cake"}
       it 'should update the user successfully' do
+        User.create(uid: 10086, phone: "4123423452", password: "1234qwer")
+        Interest.create!({:uid => 10086, :interest1 => '', :interest2 => '', :interest3 => ''})
+        Prompt.create!({:uid => 10086, :answer1 => '', :answer2 => '', :answer3 => ''})
+
+        fields = EXAMPLE_INPUT_FIELDS.clone
+        fields['interest_attributes']= {interest1: "Climbing", interest2: "Biking", interest3: "Jogging"}
+        fields['prompt_attributes']= {answer1: "Poetry", answer2: "Chocolate", answer3: "Cake"}
+
         post "/login", { :user => { :phone => "4123423452", :password => "1234qwer" } }
         get edit_user_path(User.last)
         put user_path(User.last), { :user => fields }
@@ -126,6 +128,5 @@ RSpec.describe "Users", type: :request do
         delete "/logout"
       end
     end
-
   end
 end

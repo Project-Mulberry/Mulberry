@@ -37,10 +37,10 @@ module NavigationHelpers
       signup_path
 
     when /^the user profile page$/ then
-      "/users/#{User.last.id}"
+      user_path(User.last.id)
 
     when /^the edit profile page$/ then
-      "/users/#{User.last.id}/edit"
+      edit_user_path(User.last.id)
 
     when /^the login page$/ then
       login_path

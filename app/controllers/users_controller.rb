@@ -39,39 +39,18 @@ class UsersController < ApplicationController
   end
 
   def update
-    # we receive all fields in params[:user]
-    # # update the model
-    # if successful, redirect to user page
-    if @user.interest.blank?
-      @user.create_interest(
-        uid: @user.uid,
-        interest1: user_params_with_prompts_and_interests[:interest_attributes][:interest1],
-        interest2: user_params_with_prompts_and_interests[:interest_attributes][:interest2],
-        interest3: user_params_with_prompts_and_interests[:interest_attributes][:interest3]
-      )
-    else
-      @user.interest.update!(
-        interest1: user_params_with_prompts_and_interests[:interest_attributes][:interest1],
-        interest2: user_params_with_prompts_and_interests[:interest_attributes][:interest2],
-        interest3: user_params_with_prompts_and_interests[:interest_attributes][:interest3]
-      )
-    end
+    @user.interest.update!(
+      interest1: user_params_with_prompts_and_interests[:interest_attributes][:interest1],
+      interest2: user_params_with_prompts_and_interests[:interest_attributes][:interest2],
+      interest3: user_params_with_prompts_and_interests[:interest_attributes][:interest3]
+    )
 
-    if @user.prompt.blank?
-      @user.create_prompt(
-        uid: @user.uid,
-        answer1: user_params_with_prompts_and_interests[:prompt_attributes][:answer1],
-        answer2: user_params_with_prompts_and_interests[:prompt_attributes][:answer2],
-        answer3: user_params_with_prompts_and_interests[:prompt_attributes][:answer3]
-      )
-    else
-      @user.prompt.update!(
-        uid: @user.uid,
-        answer1: user_params_with_prompts_and_interests[:prompt_attributes][:answer1],
-        answer2: user_params_with_prompts_and_interests[:prompt_attributes][:answer2],
-        answer3: user_params_with_prompts_and_interests[:prompt_attributes][:answer3]
-      )
-    end
+    @user.prompt.update!(
+      uid: @user.uid,
+      answer1: user_params_with_prompts_and_interests[:prompt_attributes][:answer1],
+      answer2: user_params_with_prompts_and_interests[:prompt_attributes][:answer2],
+      answer3: user_params_with_prompts_and_interests[:prompt_attributes][:answer3]
+    )
 
     Rails.logger.info(user_params.inspect)
 

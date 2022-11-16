@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Activity, type: :model do
   before :each do
-    @uid1 = User.create_new_user('1234567890', '12345678')[:uid]
-    @uid2 = User.create_new_user('1234567891', '12345678')[:uid]
+    @uid1 = User.create!({:phone => '1234567890', :password => '12345678'})[:uid]
+    @uid2 = User.create!({:phone => '1234567891', :password => '12345678'})[:uid]
     @cid = Coupon.create!({:name => 'coupon'}).cid
   end
 

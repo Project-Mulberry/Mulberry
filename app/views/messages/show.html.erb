@@ -9,6 +9,7 @@
     <h1>Conversation with <em><%= @user.name %></em> </h1>
     <br>
   </div>
+
   <div class="row align-items-center">
     <!-- Add activity block based on timestamp -->
     <% @chat.each do |chat| %>
@@ -17,7 +18,7 @@
           <div class="receive-box activity">
             <div class="message-box receive-box activity-content" >
               <a href="/activities/<%= @activities[0]["aid"] %>" style="flex-direction: column; text-decoration: none; color: black; width: 100%">
-                <h6 style="text-align: -webkit-center; font-weight: bold">Activity Recommended</h6>
+                <h6 style="text-align: -webkit-center; font-weight: bold">Activity Recommendation</h6>
                 <%= @coupons[@activities[0]["coupon_id"]]["message"] %>
                 <a href="/activities/<%= @activities[0]["aid"] %>"></a>
               </a>
@@ -28,6 +29,7 @@
           <% @activities = @activities.drop(1) %>
         <% end %>
       <% end %>
+
 
       <!-- Display each message -->
       <% if chat["sender_uid"] == current_user.uid %>
@@ -54,7 +56,7 @@
       <div class="receive-box activity">
         <div class="message-box receive-box activity-content">
           <a href="/activities/<%= activity["aid"] %>" style="flex-direction: column; text-decoration: none; color: black; width: 100%">
-            <h6 style="text-align: -webkit-center; font-weight: bold">Activity Recommended</h6>
+            <h6 style="text-align: -webkit-center; font-weight: bold">Activity Recommendation</h6>
             <%= @coupons[activity["coupon_id"]]["message"] %>
           </a>
         </div>
