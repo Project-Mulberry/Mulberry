@@ -60,10 +60,54 @@ Scenario: click submit button with incomplete answers for some questions
 	Then   I should see a warning "can't be blank"
 
 
-Scenario: try to navigate to other users' profile
+Scenario: sign up and leave, log in and continue to finish filling profile
+	Given  I fill in the following questions: Phone, Password
+	When   I press "Sign Up"
+	Then   I should be redirected to the user edit page
+	When   I follow "Log Out"
+	Then   I should be on the login page
+	When   I fill in the following questions: Phone, Password
+	And    I press "Log In"
+	Then   I should be on the edit profile page
+
+	
+Scenario: sign up and log in with wrong number
+	Given  I am on the login page
+	Then   I logged in using wrong password
+	And    I press "Log In"
+	Then   I should be on the login page
+	And    I should see a warning "Invalid email/password combination"
+
+
+Scenario: try to navigate to other users' profile or login/signup again
 	Given  I am on the login page
 	Then   I logged in as a user
 	And    I press "Log In"
 	Then   I should be on the home page
 	When   I try to go to the URL "/users/5/edit"
 	Then   I should be on the home page
+	When   I try to go to the URL "/login"
+	Then   I should be on the home page
+
+
+Scenario: try to access pages before login/signup
+	Given  I am on the login page
+	When   I try to go to the URL "/matchmake"
+	Then   I should be on the login page
+	And    I should see a warning "Please log in."
+
+Scenario: edit profile successfully
+	Given  I fill in the following questions: Phone, Password
+	When   I press "Sign Up"
+	Then   I should be redirected to the user edit page
+	And    I fill in the following questions: Name, Gender, Sexuality, Location, Career, Height, Profile Photo URL, Interest, Prompt
+	And    I press "Submit"
+	When   I follow "Profile"
+	Then   I should be on the user profile page
+	When   I follow "Edit"
+	Then   I should be on the edit profile page
+	And    I fill in the following questions: Interest, Prompt
+	And    I press "Submit"
+	Then   I should be on the home page
+
+

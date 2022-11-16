@@ -15,22 +15,10 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
   end
 
   # GET /messages/1/edit
   def edit
   end
 
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_message
-      @message = Message.find(params[:id])
-    end
-
-    # Only allow a trusted parameter "white list" through.
-    def message_params
-      params[:message]
-    end
 end
