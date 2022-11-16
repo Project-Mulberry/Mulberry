@@ -60,3 +60,12 @@ Scenario: send an empty message to a particular user
     When   I press "Send"
     Then   I should see "Conversation with"
     But    I should not see "This is a test message"
+
+
+Scenario: send a valid message to a particular user
+    When   I follow "Show"
+    Then   I should see "Conversation with"
+    When   I fill in a test message
+    When   I press "Send"
+    Then   I should see "Conversation with"
+    But    I should see "This is a test message"
