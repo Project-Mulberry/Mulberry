@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'Back to Message List', messages_path , class: 'btn btn-sm btn-outline-primary'%>
+<%= link_to 'Back to Match List', matchmake_index_path , class: 'btn btn-sm btn-outline-primary'%>
+<br>
+<br>
 
 <div class="container">
   <div class="row align-items-start">
     <h1>Conversation with <em><%= @user.name %></em> </h1>
+    <br>
   </div>
   <div class="row align-items-center">
     <!-- Add activity block based on timestamp -->
@@ -56,13 +61,21 @@
       </div>
     <% end %>
   </div>
-  <div class="row align-items-end">
-    <h3>New chat: </h3>
-  </div>
 </div>
 
 <br>
 
 <!%= link_to 'Edit', edit_message_path(@message) %>
-<%= link_to 'Back to Message List', messages_path , class: 'btn btn-sm btn-outline-primary'%>
-<%= link_to 'Back to Match List', matchmake_index_path , class: 'btn btn-sm btn-outline-primary'%>
+
+
+<form class="row g-3 msg-form">
+  <div class="col-5">
+    <label for="new_message" class="visually-hidden">new_message</label>
+    <input type="text" class="form-control" id="new_message" placeholder="Type Something...">
+  </div>
+  <div class="col-5">
+    let theText = new_message.value;
+    <button onclick=<%Message.post_message(current_user.uid, @user.uid, "new_message") %> type="submit" class="btn btn-primary mb-3">Send</button>
+  </div>
+
+</form>
