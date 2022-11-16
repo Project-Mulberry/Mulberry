@@ -41,3 +41,20 @@ Then /I should see all chats for "Marcus"/ do
   result.should be true
   #pending "Fill in this step in movie_steps.rb"
 end
+
+Then("I fill in the chat box") do
+  fill_in("user[name]", with: "Jack")
+  fill_in("user[gender]", with: "male")
+  fill_in("user[sexuality]", with: "straight")
+  fill_in("user[birthday]", with: "2010-11-11")
+  fill_in("user[location]", with: "Chicago")
+  fill_in("user[career]", with: "driver")
+  fill_in("user[height]", with: "7-7")
+  fill_in("user[profile_photo]", with: "www.gogole.com")
+  fill_in("user[interest_attributes][interest1]", with: "A")
+  fill_in("user[interest_attributes][interest2]", with: "B")
+  fill_in("user[interest_attributes][interest3]", with: "C")
+  fill_in("user[prompt_attributes][answer1]", with: "A")
+  fill_in("user[prompt_attributes][answer2]", with: "B")
+  fill_in("user[prompt_attributes][answer3]", with: "C")
+end

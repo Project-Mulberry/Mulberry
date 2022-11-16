@@ -14,7 +14,6 @@ Background: chats in database
     | Jack    | NY       | PhD         | Software Engineer   | 4668756566 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
     | Hang    | NY       | High School | Unemployed          | 4527772777 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
 
-
     Given the following messages exist:
     | sender_uid | receiver_uid | key     | message                  |
     | 1          | 2            | <1>-<2> | Hello Zhen, How are you! |
@@ -51,3 +50,20 @@ Background: chats in database
 Scenario: click "login" to see all messages of the specific user with other users
     Then   I should see "Your Chats"
     But    I should not see the following names: Lucy, Lily, Tom
+
+
+Scenario: try to access an valid activity
+    When   I try to go to the URL "/activities/1"
+    Then   I should see "Activity #1"
+
+
+Scenario: try to navigate to an invalid activity
+    When   I follow "Log Out"
+    And    I follow "Sign Up"
+    Given  I fill in the following questions: Phone, Password
+    When   I press "Sign Up"
+    And    I fill in the following questions: Name, Gender, Sexuality, Location, Career, Height, Profile Photo URL, Interest, Prompt
+    And    I press "Submit"
+    Then   I should be on the home page
+    When   I try to go to the URL "/activities/1"
+    Then   I should be on the home page

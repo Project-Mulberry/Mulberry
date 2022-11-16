@@ -53,3 +53,10 @@ Scenario: click "show" to to see all messages with a particular user and go back
     When   I follow "Back to Match List"
     Then   I should be on the matchmake page
 
+
+Scenario: send an empty message to a particular user
+    When   I follow "Show"
+    Then   I should see "Conversation with"
+    When   I press "Send"
+    Then   I should see "Conversation with"
+    But    I should not see "This is a test message"
