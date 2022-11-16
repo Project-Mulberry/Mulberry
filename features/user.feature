@@ -70,7 +70,7 @@ Scenario: sign up and leave, log in and continue to finish filling profile
 	And    I press "Log In"
 	Then   I should be on the edit profile page
 
-	
+
 Scenario: sign up and log in with wrong number
 	Given  I am on the login page
 	Then   I logged in using wrong password
@@ -109,5 +109,3 @@ Scenario: edit profile successfully
 	And    I fill in the following questions: Interest, Prompt
 	And    I press "Submit"
 	Then   I should be on the home page
-
-
