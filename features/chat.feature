@@ -39,6 +39,7 @@ Scenario: click "login" to see all messages of the specific user with other user
     Then   I should see "Your Chats"
     But    I should not see the following names: Lucy, Lily, Tom
 
+
 Scenario: click "show" to to see all messages with a particular user and go back to chat list
     When   I follow "Show"
     Then   I should see "Conversation with"
