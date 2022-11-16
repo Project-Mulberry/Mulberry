@@ -2,7 +2,6 @@
 .message-box {
     width: fit-content;
     max-width: 40%;
-    padding: 5px;
     border-radius: 10px;
     margin-bottom: 10px;
     background-color: #E0E0E0 ;
@@ -22,4 +21,18 @@
 .send-message{
     background-color: #EDE7F6 !important;
     padding: 10px;
+}
+
+.activity {
+    font-size: 14px;
+    font-family: cursive;
+    justify-content: center !important;
+    cursor: pointer;
+    :hover {
+        background-color: #EDE7F6;
+    }
+}
+
+.activity-content {
+    width: 350px !important;
 }

@@ -11,6 +11,16 @@ class MessagesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @chat = Message.pull_message(current_user.uid,params[:id])
+    @activities = Activity.pull_dual_activities(current_user.uid, params[:id])
+    coupon_ids = []
+    @activities.each do |activity|
+      coupon_ids.push(activity["coupon_id"])
+    end
+    @coupons = {}
+    Coupon.where("cid IN (?)", coupon_ids).each do |coupon|
+      @coupons[coupon["cid"]] = coupon
+    end
+    puts @coupons
   end
 
   # GET /messages/new
@@ -21,7 +31,6 @@ class MessagesController < ApplicationController
   # GET /messages/1/edit
   def edit
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
