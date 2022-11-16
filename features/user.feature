@@ -84,7 +84,7 @@ Scenario: try to navigate to other users' profile or login/signup again
 	Then   I logged in as a user
 	And    I press "Log In"
 	Then   I should be on the home page
-	When   I try to go to the URL "/users/5/edit"
+	When   I try to go to the URL "/users/4/edit"
 	Then   I should be on the home page
 	When   I try to go to the URL "/login"
 	Then   I should be on the home page
