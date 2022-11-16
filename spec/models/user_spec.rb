@@ -2,55 +2,9 @@ require 'rails_helper'
 
 
 RSpec.describe User, type: :model do
-  context 'create a user' do
-    it 'created with valid phone and password -> Success' do
-      user = User.create_new_user('1234567890', '12345678')
-      expect(user[:phone]).to eq('1234567890')
-      expect(user[:password]).to eq('12345678')
-    end
-    it 'created with invalid phone -> Fail' do
-      user = User.create_new_user('invalid phone number', '12345678')
-      expect(user).to eq(nil)
-    end
-    it 'created with already existed phone -> Fail' do
-      user = User.create_new_user('1234567890', '12345678')
-      expect(user[:phone]).to eq('1234567890')
-      expect(user[:password]).to eq('12345678')
-      user = User.create_new_user('1234567890', '12345678')
-      expect(user).to eq(nil)
-    end
-  end
-  context "create a user and update profile" do
-    it("should create a user and update the profile") do
-      user = User.create_new_user('1234567890', '12345678')
-
-      user.name="ABCD"
-      user.gender = "other"
-      user.sexuality= "abcd"
-      user.birthday= DateTime.now()-20.year
-      user.location= "United States"
-      user.education= "College"
-      user.career= "Student"
-      user.height= "88"
-      user.profile_photo= "http:///"
-      user.save!
-      expect(user.profile_created?).to eq(true)
-
-    end
-  end
-
-  context 'verify user phone and password pair' do
-    it 'verify an existing phone and password pair -> Success' do
-      User.create_new_user('1234567890', '12345678')
-      result = User.verify_phone_and_password('1234567890', '12345678')
-      expect(result).to eq(true)
-    end
-    it 'verify with an invalid phone -> Fail' do
-      result = User.verify_phone_and_password('invalid phone number', '12345678')
-      expect(result).to eq(false)
-    end
-    it 'verify with an non-existing phone -> Fail' do
-      result = User.verify_phone_and_password('0987654321', '12345678')
+  context 'check profile created' do
+    it 'created' do
+      result = User.create.profile_created?
       expect(result).to eq(false)
     end
   end
