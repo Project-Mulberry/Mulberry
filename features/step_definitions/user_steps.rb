@@ -8,10 +8,26 @@ Given("I fill in the following questions: Phone, Password") do
   fill_in("user[password]", with: "test1234")
 end
 
-Then("I fill in the following questions: Name, Gender, Sexuality, Location, Career, Height, Profile Photo URL") do
+Then("I fill in the following questions: Name, Gender, Sexuality, Location, Career, Height, Profile Photo URL, Interest, Prompt") do
   fill_in("user[name]", with: "Jack")
   fill_in("user[gender]", with: "male")
-  fill_in("user[sexuality]", with: "hetero")
+  fill_in("user[sexuality]", with: "straight")
+  fill_in("user[birthday]", with: "2010-11-11")
+  fill_in("user[location]", with: "Chicago")
+  fill_in("user[career]", with: "driver")
+  fill_in("user[height]", with: "7-7")
+  fill_in("user[profile_photo]", with: "www.gogole.com")
+  fill_in("user[interest_attributes][interest1]", with: "")
+  fill_in("user[interest_attributes][interest2]", with: "")
+  fill_in("user[interest_attributes][interest3]", with: "")
+  fill_in("user[prompt_attributes][answer1]", with: "")
+  fill_in("user[prompt_attributes][answer2]", with: "")
+  fill_in("user[prompt_attributes][answer3]", with: "")
+end
+
+Then("I fill in the following questions: Gender, Sexuality, Location, Career, Height, Profile Photo URL") do
+  fill_in("user[gender]", with: "male")
+  fill_in("user[sexuality]", with: "straight")
   fill_in("user[birthday]", with: "2010-11-11")
   fill_in("user[location]", with: "Chicago")
   fill_in("user[career]", with: "driver")
@@ -44,4 +60,8 @@ end
 
 Then("I should see a warning {string}") do |string|
   puts "string: #{string}"
+end
+
+When /^I try to go to the URL "(.*)"$/ do |url|
+  visit url
 end

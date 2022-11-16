@@ -10,9 +10,6 @@ class Helper
   end
 
   def self.convert_array_to_sql_list(list)
-    if list.nil? or list.length == 0
-      return '()'
-    end
     result = '('
     list.each do |element|
       if element.instance_of? String
@@ -23,4 +20,5 @@ class Helper
     end
     return result.chop! + ')'
   end
+
 end

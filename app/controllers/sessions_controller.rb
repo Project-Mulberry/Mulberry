@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user && user.password == params[:user][:password]
       log_in user
       if user.profile_created?
-        redirect_to matchmake_index_path
+        redirect_to root_path
       else
         redirect_to edit_user_path(user)
       end
@@ -27,10 +27,6 @@ class SessionsController < ApplicationController
 
 
   private
-  def set_user
-    @user = User.find(params[:id])
-  end
-
   def ensure_owner_user
     if @user != current_user
       redirect_to root_url
