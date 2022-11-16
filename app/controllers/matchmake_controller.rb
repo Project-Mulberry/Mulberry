@@ -14,7 +14,7 @@ class MatchmakeController < ApplicationController
     id = params[:id]
     @user = User.find(id)
     @interest = Interest.get_interests_by_uid(id)
-    @prompt = Prompt.get_prompt_by_uid(id)
+    @prompt = Prompt.where(uid: id).first
   end
 
   # DELETE /matchmake/1

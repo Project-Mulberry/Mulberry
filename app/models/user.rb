@@ -26,8 +26,6 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :interest
   accepts_nested_attributes_for :prompt
 
-
-
   def profile_created?
     name.present? && gender.present? && sexuality.present?
   end

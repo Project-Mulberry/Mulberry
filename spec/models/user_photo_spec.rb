@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe UserPhoto, type: :model do
   before :each do
-    @user = User.create_new_user('1234567890', '12345678')
+    @user = User.create!({:phone => '1234567890', :password => '12345678'})
     @uid = @user[:uid]
   end
 
