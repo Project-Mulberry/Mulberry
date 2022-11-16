@@ -16,7 +16,7 @@
   <body>
     <%# These classes come from the Bootstrap CSS framework. %>
     <nav class="navbar navbar-expand-lg  text-white mb-3 " style="background-color:#6f42c1;">
-    <a class="navbar-brand" style="color: white" href="/"> MULBERRY </a>
+    <a class="navbar-brand p-3" style="color: white" href="/" > MULBERRY </a>
     <div class="collapse navbar-collapse" id="navbarText">
       <% if logged_in? %>
         <ul class="navbar-nav mr-auto " style="background-color: #6f42c1;">
@@ -29,9 +29,9 @@
             Logged In As: <%= current_user&.name || current_user.phone %>
         </span>
         <% else %>
-        <ul class="navbar-nav mr-auto " style="background-color: #6f42c1;">
-            <li><%= link_to "Sign up", signup_path %></li>
-            <li><%= link_to "Log In", login_path %></li>
+          <ul class="navbar-nav ml-auto " style="background-color: #6f42c1;">
+            <li class="nav-item"><%= link_to "Sign up", signup_path  %></li>
+            <li class="nav-item"><%= link_to "Log In", login_path %></li>
           </ul>
         <% end %>
       </div>

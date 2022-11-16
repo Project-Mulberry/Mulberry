@@ -2,13 +2,14 @@
 <!-- <p>Find me in app/views/users/edit.html.erb</p> -->
 
 
-<h1>Please Update Your Profile</h1>
+
+<h1>Edit your profile</h1>
 
 <%= form_for @user do |f| %>
 
   <div class="name">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
     <% if @user.errors[:name].present? %>
       <% @user.errors[:name].each do |msg| %>
         <p style="color:red"><%= msg %></p>
@@ -18,7 +19,7 @@
   </div>
   <div class="gender">
     <%= f.label :gender %>
-    <%= f.text_field :gender %>
+    <%= f.text_field :gender, class: "form-control" %>
     <% if @user.errors[:gender].present? %>
       <% @user.errors[:gender].each do |msg| %>
         <p style="color:red"><%= msg %></p>
@@ -28,7 +29,7 @@
 
   <div class="sexuality">
     <%= f.label :sexuality %>
-    <%= f.text_field :sexuality %>
+    <%= f.text_field :sexuality, class: "form-control" %>
     <% if @user.errors[:sexuality].present? %>
       <% @user.errors[:sexuality].each do |msg| %>
         <p style="color:red"><%= msg %></p>
@@ -38,7 +39,7 @@
 
   <div class="birthday">
     <%= f.label :birthday %>
-    <%= f.date_field :birthday, value: Date.today %>
+    <%= f.date_field :birthday, value: Date.today, class: "form-control" %>
     <% if @user.errors[:birthday].present? %>
       <% @user.errors[:birthday].each do |msg| %>
         <p style="color:red"><%= msg %></p>
@@ -48,7 +49,7 @@
 
   <div class="location">
     <%= f.label :location %>
-    <%= f.text_field :location %>
+    <%= f.text_field :location, class: "form-control" %>
     <% if @user.errors[:location].present? %>
       <% @user.errors[:location].each do |msg| %>
         <p style="color:red"><%= msg %></p>
@@ -58,7 +59,7 @@
 
   <div class="education">
     <%= f.label :education %>
-    <%= f.select :education, ["high school", 'undergradute', 'master','phd']%>
+    <%= f.select :education, ["high school", 'undergradute', 'master','phd'], {}, class:"form-control"%>
     <% if @user.errors[:education].present? %>
       <% @user.errors[:education].each do |msg| %>
         <p style="color:red"><%= msg %></p>
@@ -68,7 +69,7 @@
 
   <div class = "career">
     <%= f.label :career, "Career" %>
-    <%= f.text_field :career %>
+    <%= f.text_field :career, class: "form-control" %>
     <% if @user.errors[:career].present? %>
       <% @user.errors[:career].each do |msg| %>
         <p style="color:red"><%= msg %></p>
@@ -78,7 +79,7 @@
 
   <div class="height">
     <%= f.label :height %>
-    <%= f.text_field :height %>
+    <%= f.text_field :height, class: "form-control" %>
     <% if @user.errors[:height].present? %>
       <% @user.errors[:height].each do |msg| %>
         <p style="color:red"><%= msg %></p>
@@ -88,47 +89,58 @@
 
   <div class = "profile_photo">
     <%= f.label :profile_photo, "Profile Photo URL" %>
-    <%= f.text_field :profile_photo %>
+    <%= f.text_field :profile_photo, class: "form-control" %>
     <% if @user.errors[:profile_photo].present? %>
       <% @user.errors[:profile_photo].each do |msg| %>
         <p style="color:red"><%= msg %></p>
       <% end %>
     <% end %>
   </div>
-
+  <h3>Interests</h3>
+  <hr/>
+  <div class = "profile_photo">
   <%= f.fields_for :interest do |ff| %>
     <% ff.hidden_field :uid %>
     <% [:interest1, :interest2, :interest3].each do |field_name| %>
       <div class="profile_interest">
         <%= ff.label field_name %>
-        <%= ff.text_field field_name %>
+        <%= ff.text_field field_name, class: "form-control" %>
         <% if @user.errors[field_name].present? %>
           <% @user.errors[field_name].each do |msg| %>
             <p style="color:red"><%= msg %></p>
           <% end %>
         <% end %>
       </div>
+        <br/>
     <% end %>
   <% end %>
 
-  <br>
 
+
+  </div>
+
+  <div class="profile_photo">
+<h3>Answers</h3>
+    <hr/>
   <%= f.fields_for :prompt do |ff| %>
     <% ff.hidden_field :uid %>
     <% [:answer1, :answer2, :answer3].each do |field_name| %>
       <div class="profile_prompt">
         <%= ff.label field_name %>
-        <%= ff.text_field field_name %>
+        <%= ff.text_field field_name, class: "form-control" %>
         <% if @user.errors[field_name].present? %>
           <% @user.errors[field_name].each do |msg| %>
             <p style="color:red"><%= msg %></p>
           <% end %>
         <% end %>
       </div>
+        <br/>
     <% end %>
+
   <% end %>
+  </div>
 
   <br>
 
-  <%= submit_tag "Submit" %>
+  <%= submit_tag "Submit" ,class:"btn btn-primary" %>
 <% end %>
