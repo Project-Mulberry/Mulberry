@@ -70,14 +70,13 @@
 <!%= link_to 'Edit', edit_message_path(@message) %>
 
 
-<form class="row g-3 msg-form">
-  <div class="col-5">
-    <label for="new_message" class="visually-hidden">new_message</label>
-    <input type="text" class="form-control" id="new_message" placeholder="Type Something...">
-  </div>
-  <div class="col-5">
-    let theText = new_message.value;
-    <button onclick=<%Message.post_message(current_user.uid, @user.uid, "new_message") %> type="submit" class="btn btn-primary mb-3">Send</button>
-  </div>
 
-</form>
+
+
+
+<div class="msg-form">
+  <%= form_for(@message, url: create_new_url, local: true) do |f| %>
+    <%= f.text_field :message, id: 'chat-text', class: "form-control", placeholder: "Type Something..." %>
+    <%= f.submit "Send", data: { disable_with: false }, class: "btn btn-primary mb-3" %>
+  <% end %>
+</div>
