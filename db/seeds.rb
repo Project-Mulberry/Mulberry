@@ -43,19 +43,18 @@ end
 
 coupons = [
   {:name => 'Romantic Dining', :message => 'We found both of you love Italian food, so we reserved a table with coupon for you! Check this out!', :location => '116 Street, New York, NY 10000', :original_price => '1000.00', :discount_price => '50.00', :advertiser => 'Columbia Dining' },
-  {:name => 'Romantic Dining', :message => 'We found both of you love Italian food, so we reserved a table with coupon for you! Check this out!', :location => '116 Street, New York, NY 10000', :original_price => '20.00', :discount_price => '8.00', :advertiser => 'Columbia Dining' },
-  {:name => 'Romantic Dining', :message => 'We found both of you love Italian food, so we reserved a table with coupon for you! Check this out!', :location => '116 Street, New York, NY 10000', :original_price => '100.00', :discount_price => '20.00', :advertiser => 'Columbia Dining' }
+  {:name => 'Romantic Dining', :message => 'A', :location => '116 Street, New York, NY 10000', :original_price => '20.00', :discount_price => '8.00', :advertiser => 'Columbia Dining' },
+  {:name => 'Romantic Dining', :message => 'B', :location => '116 Street, New York, NY 10000', :original_price => '100.00', :discount_price => '20.00', :advertiser => 'Columbia Dining' }
 ]
 coupons.each do |coupon|
   Coupon.create!(coupon)
 end
 
 activities = [
-  {:status => 'PENDING', :coupon_id => 2, :datetime => '2022-01-01 18:00:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => false },
-  {:status => 'DONE', :coupon_id => 2, :datetime => '2022-01-01 18:00:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => true },
-  {:status => 'SCHEDULED', :coupon_id => 1, :datetime => '2022-01-01 18:00:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => true },
-  {:status => 'PENDING', :coupon_id => 2, :datetime => '2022-01-01 18:00:00', :fst_uid => 3, :fst_accept => true, :snd_uid => 4, :snd_accept => false },
-
+  {:status => 'DONE', :coupon_id => 2, :datetime => '2022-10-01 13:31:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => true },
+  {:status => 'PENDING', :coupon_id => 3, :datetime => '2022-10-02 15:00:00', :fst_uid => 1, :fst_accept => false, :snd_uid => 2, :snd_accept => true },
+  {:status => 'SCHEDULED', :coupon_id => 1, :datetime => '2022-10-03 18:00:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => true },
+  {:status => 'PENDING', :coupon_id => 2, :datetime => '2022-01-01 18:00:00', :fst_uid => 3, :fst_accept => true, :snd_uid => 4, :snd_accept => false }
 ]
 activities.each do |activity|
   Activity.create!(activity)

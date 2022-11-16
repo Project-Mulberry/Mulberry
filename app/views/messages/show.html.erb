@@ -5,7 +5,26 @@
     <h1>Conversation with <em><%= @user.name %></em> </h1>
   </div>
   <div class="row align-items-center">
+    <!-- Add activity block based on timestamp -->
     <% @chat.each do |chat| %>
+      <% if @activities.nil? == false and @activities.length > 0 %>
+        <% if @activities[0]["datetime"] <= chat["timestamp"] %>
+          <div class="receive-box activity">
+            <div class="message-box receive-box activity-content" >
+              <a href="/activities/<%= @activities[0]["aid"] %>" style="flex-direction: column; text-decoration: none; color: black; width: 100%">
+                <h6 style="text-align: -webkit-center; font-weight: bold">Activity Recommended</h6>
+                <%= @coupons[@activities[0]["coupon_id"]]["message"] %>
+                <a href="/activities/<%= @activities[0]["aid"] %>"></a>
+              </a>
+            </div>
+          </div>
+          <% puts @activities[0]["aid"]%>
+
+          <% @activities = @activities.drop(1) %>
+        <% end %>
+      <% end %>
+
+      <!-- Display each message -->
       <% if chat["sender_uid"] == current_user.uid %>
         <div class="send-box" >
           <div class="message-box send-message">
@@ -23,15 +42,27 @@
       <% end %>
     <% end %>
   </div>
+
+  <!-- Display rest of activities -->
+  <div class="row align-items-center">
+    <% @activities.each do |activity| %>
+      <div class="receive-box activity">
+        <div class="message-box receive-box activity-content">
+          <a href="/activities/<%= activity["aid"] %>" style="flex-direction: column; text-decoration: none; color: black; width: 100%">
+            <h6 style="text-align: -webkit-center; font-weight: bold">Activity Recommended</h6>
+            <%= @coupons[activity["coupon_id"]]["message"] %>
+          </a>
+        </div>
+      </div>
+    <% end %>
+  </div>
   <div class="row align-items-end">
     <h3>New chat: </h3>
   </div>
 </div>
-
 
 <br>
 
 <!%= link_to 'Edit', edit_message_path(@message) %>
 <%= link_to 'Back to Message List', messages_path , class: 'btn btn-sm btn-outline-primary'%>
 <%= link_to 'Back to Match List', matchmake_index_path , class: 'btn btn-sm btn-outline-primary'%>
-
