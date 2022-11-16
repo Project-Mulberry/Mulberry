@@ -42,9 +42,9 @@ messages.each do |message|
 end
 
 coupons = [
-  {:name => 'Romantic Dining', :message => 'We found both of you love Italian food, so we reserved a table with coupon for you! Check this out!', :location => '116 Street, New York, NY 10000', :original_price => '1000.00', :discount_price => '50.00', :advertiser => 'Columbia Dining' },
-  {:name => 'Romantic Dining', :message => 'A', :location => '116 Street, New York, NY 10000', :original_price => '20.00', :discount_price => '8.00', :advertiser => 'Columbia Dining' },
-  {:name => 'Romantic Dining', :message => 'B', :location => '116 Street, New York, NY 10000', :original_price => '100.00', :discount_price => '20.00', :advertiser => 'Columbia Dining' }
+  {:name => 'Food', :message => 'Both of you love Italian food, check out this amazing Italian restaurant and enjoy our special coupon!', :location => '116 Street, New York, NY 10000', :original_price => '1000.00', :discount_price => '50.00', :advertiser => 'Columbia Dining' },
+  {:name => 'Music', :message => 'Both of you love Jazz Music, check out this amazing Jazz bar and enjoy our special coupon!', :location => '116 Street, New York, NY 10000', :original_price => '20.00', :discount_price => '8.00', :advertiser => 'Columbia University' },
+  {:name => 'Sports', :message => 'Both of you love Tennis, check out this amazing tennis club and enjoy our special coupon!', :location => '116 Street, New York, NY 10000', :original_price => '100.00', :discount_price => '20.00', :advertiser => 'Columbia University' }
 ]
 coupons.each do |coupon|
   Coupon.create!(coupon)
