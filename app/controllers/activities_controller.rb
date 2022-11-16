@@ -1,13 +1,12 @@
 class ActivitiesController < ApplicationController
-
   before_action :logged_in_user
   before_action :set_activity, only: %i[show edit]
   before_action :ensure_activity_user, only: %i[edit show]
 
   # GET /messages
   def index
-    @activities = Activity.all
-    @coupons = Coupon.all
+    # @activities = Activity.all
+    # @coupons = Coupon.all
   end
 
   # GET /activities/1
@@ -50,7 +49,7 @@ class ActivitiesController < ApplicationController
 
   def ensure_activity_user
     if @activity.fst_uid != current_user.uid && @activity.snd_uid != current_user.uid
-      redirect_to root_url, notice: 'You do not have access to this activity'
+      redirect_to root_url
     end
   end
 end

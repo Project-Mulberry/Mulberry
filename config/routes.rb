@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :matchmake, :messages, :users
 
-  resources :activities do
+  resources :activities, except: [:index] do
     member do
       get :accept
     end
