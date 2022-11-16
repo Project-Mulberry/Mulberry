@@ -20,7 +20,6 @@ class MessagesController < ApplicationController
     Coupon.where("cid IN (?)", coupon_ids).each do |coupon|
       @coupons[coupon["cid"]] = coupon
     end
-    puts @coupons
   end
 
   # GET /messages/new

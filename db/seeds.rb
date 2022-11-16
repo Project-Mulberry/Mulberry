@@ -52,7 +52,7 @@ end
 
 activities = [
   {:status => 'DONE', :coupon_id => 2, :datetime => '2022-10-01 13:31:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => true },
-  {:status => 'PENDING', :coupon_id => 2, :datetime => '2022-10-02 15:00:00', :fst_uid => 1, :fst_accept => false, :snd_uid => 2, :snd_accept => true },
+  {:status => 'PENDING', :coupon_id => 3, :datetime => '2022-10-02 15:00:00', :fst_uid => 1, :fst_accept => false, :snd_uid => 2, :snd_accept => true },
   {:status => 'SCHEDULED', :coupon_id => 1, :datetime => '2022-10-03 18:00:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => true },
   {:status => 'PENDING', :coupon_id => 2, :datetime => '2022-01-01 18:00:00', :fst_uid => 3, :fst_accept => true, :snd_uid => 4, :snd_accept => false }
 ]
