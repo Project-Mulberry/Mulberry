@@ -8,6 +8,7 @@ class Activity < ActiveRecord::Base
     activity = {
       :status => 'PENDING',
       :coupon_id => cid,
+      :datetime => DateTime.now(),
       :fst_uid => fst_uid,
       :fst_accept => false,
       :snd_uid => snd_uid,
@@ -43,7 +44,7 @@ class Activity < ActiveRecord::Base
   end
 
   PULL_DUAL_USER_ACTIVITY_BASE_SQL_QUERY =
-    "SELECT * FROM activities WHERE (fst_uid = ? AND snd_uid = ?) OR (fst_uid = ? AND snd_uid = ?) ORDER BY aid DESC"
+    "SELECT * FROM activities WHERE (fst_uid = ? AND snd_uid = ?) OR (fst_uid = ? AND snd_uid = ?) ORDER BY datetime ASC"
 
   # @param  int(current login uid)
   # @param  int(uid who is invited)
