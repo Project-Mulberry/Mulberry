@@ -20,6 +20,24 @@ RSpec.describe User, type: :model do
       expect(user).to eq(nil)
     end
   end
+  context "create a user and update profile" do
+    it("should create a user and update the profile") do
+      user = User.create_new_user('1234567890', '12345678')
+
+      user.name="ABCD"
+      user.gender = "other"
+      user.sexuality= "abcd"
+      user.birthday= DateTime.now()-20.year
+      user.location= "United States"
+      user.education= "College"
+      user.career= "Student"
+      user.height= "88"
+      user.profile_photo= "http:///"
+      user.save!
+      expect(user.profile_created?).to eq(true)
+
+    end
+  end
 
   context 'verify user phone and password pair' do
     it 'verify an existing phone and password pair -> Success' do

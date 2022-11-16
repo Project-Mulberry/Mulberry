@@ -25,11 +25,9 @@ class UsersController < ApplicationController
 
       log_in @user
       redirect_to edit_user_path(@user)
-
+    else
       # This line overrides the default rendering behavior, which
       # would have been to render the "create" view.
-      # render "new"
-    else
       render "new"
     end
   end
@@ -78,7 +76,7 @@ class UsersController < ApplicationController
     Rails.logger.info(user_params.inspect)
 
     if @user.update(user_params)
-      redirect_to user_path
+      redirect_to root_path
     else
       # This line overrides the default rendering behavior, which
       # would have been to render the "create" view.
