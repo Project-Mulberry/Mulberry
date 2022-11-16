@@ -26,10 +26,7 @@ class ActivitiesController < ApplicationController
   end
 
   def accept
-    @activity = Activity.find(params[:id])
-    @uid = params[:uid]
-    Activity.schedule_activity(@activity.id, @uid)
-    redirect_to @activity
+    redirect_to Activity.schedule_activity(params[:id], params[:uid])
   end
 
   private

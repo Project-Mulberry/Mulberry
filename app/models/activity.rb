@@ -21,7 +21,7 @@ class Activity < ActiveRecord::Base
   # @return Activity
   def self.schedule_activity(aid, uid)
     activity = Activity.where(aid: aid).first
-    if activity[:fst_uid] == uid
+    if activity[:fst_uid].to_s == uid.to_s
       activity[:fst_accept] = true
     else
       activity[:snd_accept] = true
