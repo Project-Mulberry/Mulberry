@@ -83,7 +83,6 @@ RSpec.describe MatchHistory, type: :model do
       matched_id = MatchHistory.get_history_matched_uid_list(@uid3)
       expect(matched_id.length).to eq(0)
 
-      expect(Helper.convert_array_to_sql_list(nil)).to eq('()')
     end
   end
 

@@ -39,8 +39,7 @@ RSpec.describe SessionsHelper, type: :helper do
       expect(user).to be(sample_user)
       expect(User).to have_received(:find_by).with ({uid: 20})
       expect(helper.logged_in?).to be(true)
-      expect(helper.current_user?(sample_user)).to be(true)
-      expect(helper.current_user?(double())).to be(false)
+
 
     end
     it("when user is not logged in") do
@@ -52,7 +51,6 @@ RSpec.describe SessionsHelper, type: :helper do
       expect(user).to be(nil)
       expect(User).not_to have_received(:find_by)
       expect(helper.logged_in?).to be(false)
-      expect(helper.current_user?(double())).to be(false)
     end
 
   end
