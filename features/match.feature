@@ -9,10 +9,10 @@ Background: profiles in database
 
 	Given the following profiles exist:
 	| name    | location | education   | career              | phone	  | password	| gender	| birthday	    | sexuality	| height | profile_photo |
-	| Marcus  | NY       | Bachelor    | Student             | 1534643573 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
-	| Zhen    | NY       | Master      | Student             | 5437525723 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
-	| Jack    | NY       | PhD         | Software Engineer   | 4668756566 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
-	| Hang    | NY       | High School | Unemployed          | 4527772777 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
+	| Marcus  | NY       | Bachelor    | Student             | 1534643573 | 1           | m         | 01-Jan-2000	| straight  | 1      | 1             |
+	| Zhen    | NY       | Master      | Student             | 5437525723 | 1           | f         | 01-Jan-2000	| straight  | 1      | 1             |
+	| Jack    | NY       | PhD         | Software Engineer   | 4668756566 | 1           | m         | 01-Jan-2000	| straight  | 1      | 1             |
+	| Hang    | NY       | High School | Unemployed          | 4527772777 | 1           | m         | 01-Jan-2000	| straight  | 1      | 1             |
 
 
 	Given the following messages exist:

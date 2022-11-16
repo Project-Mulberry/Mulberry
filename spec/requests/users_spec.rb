@@ -76,7 +76,7 @@ RSpec.describe "Users", type: :request do
     end
 
     context 'career field is missing in the form attributes' do
-      user = User.last ||  User.create(phone: "4123423452", password: "1234qwer")
+      user = User.create(phone: "4123423452", password: "1234qwer")
 
       # let's intentionally remove career field,
       # which is required to be present
@@ -92,14 +92,13 @@ RSpec.describe "Users", type: :request do
         expect(response).to render_template(:new)
 
         post "/login", user: {phone: "4123423452", password: "1234qwer"}
-        get "/users/#{user.id}"
-        expect(response).to render_template(:show)
+        expect(response).to redirect_to(edit_user_path(User.last))
 
-        get "/users/#{user.id}/edit"
+        get edit_user_path(User.last)
 
         # this request should not update our user,
         # since required field was not provided
-        put "/users/#{user.id}", { :user => fields }
+        put user_path(User.last), { :user => fields }
 
         expect(response).to render_template(:edit)
 
@@ -109,21 +108,21 @@ RSpec.describe "Users", type: :request do
     end
 
     context 'all required user fields are present' do
-      user = User.last ||  User.create(phone: "4123423452", password: "1234qwer")
+      user = User.create(phone: "4123423452", password: "1234qwer")
 
       fields = EXAMPLE_INPUT_FIELDS.clone
       fields['interest_attributes']= {interest1: "Climbing", interest2: "Biking", interest3: "Jogging"}
       fields['prompt_attributes']= {interest1: "Poetry", interest2: "Chocolate", interest3: "Cake"}
       it 'should update the user successfully' do
         post "/login", { :user => { :phone => "4123423452", :password => "1234qwer" } }
-        get "/users/#{user.id}/edit"
-        put "/users/#{user.id}", { :user => fields }
+        get edit_user_path(User.last)
+        put user_path(User.last), { :user => fields }
         expect(response).to redirect_to(root_path)
-        expect(user.reload.name).to eq(EXAMPLE_INPUT_FIELDS[:name])
-        expect(user.reload.gender).to eq(EXAMPLE_INPUT_FIELDS[:gender])
+        expect(User.last.name).to eq(EXAMPLE_INPUT_FIELDS[:name])
+        expect(User.last.gender).to eq(EXAMPLE_INPUT_FIELDS[:gender])
         #running a second request to ensure fields are updated
-        put "/users/#{user.id}", { :user => fields }
-        expect(user.reload.interest).to_not be(nil)
+        put user_path(User.last), { :user => fields }
+        expect(User.last.interest).to_not be(nil)
         delete "/logout"
       end
     end
