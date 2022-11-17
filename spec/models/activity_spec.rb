@@ -15,18 +15,6 @@ RSpec.describe Activity, type: :model do
     end
   end
 
-  context 'pull all activities by uid' do
-    before :each do
-      Activity.create_new_activity(@cid, @uid1, @uid2)
-      Activity.create_new_activity(@cid, @uid2, @uid1)
-    end
-    it 'Successfully' do
-      activities = Activity.pull_activities(@uid1)
-      expect(activities.nil?).to eq(false)
-      expect(activities.count).to eq(2)
-    end
-  end
-
   context 'pull all activities by two uids' do
     before :each do
       Activity.create_new_activity(@cid, @uid1, @uid2)

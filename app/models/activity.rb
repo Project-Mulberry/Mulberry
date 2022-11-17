@@ -21,7 +21,7 @@ class Activity < ActiveRecord::Base
   # @return Activity
   def self.schedule_activity(aid, uid)
     activity = Activity.where(aid: aid).first
-    if activity[:fst_uid] == uid
+    if activity[:fst_uid].to_s == uid.to_s
       activity[:fst_accept] = true
     else
       activity[:snd_accept] = true
@@ -31,16 +31,6 @@ class Activity < ActiveRecord::Base
     end
     activity.save
     return activity
-  end
-
-  PULL_SINGLE_USER_ACTIVITY_BASE_SQL_QUERY =
-    "SELECT * FROM activities WHERE fst_uid = ? OR snd_uid = ? ORDER BY aid DESC"
-
-  # @param  int(uid)
-  # @return list(Activity)
-  def self.pull_activities(uid)
-    sql = Helper.generate_query(PULL_SINGLE_USER_ACTIVITY_BASE_SQL_QUERY, [uid.to_s, uid.to_s])
-    return ActiveRecord::Base.connection.execute(sql)
   end
 
   PULL_DUAL_USER_ACTIVITY_BASE_SQL_QUERY =

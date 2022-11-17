@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
-<h1>Activity #<%=@activity.id %></h1>
+<h1>Activity Information</h1>
 <p>Status: <%=@activity.status %></p>
 <p>First User: <%= link_to User.find(@activity.fst_uid).name, user_path(@activity.fst_uid) %>(Accepted: <%= @activity.fst_accept %>)</p>
-<p>Second User: <%= link_to User.find(@activity.snd_uid).name, matchmake_path(@activity.snd_uid) %>(Accepted: <%= @activity.snd_accept %>)</p>
+<p>Second User: <%= link_to User.find(@activity.snd_uid).name, user_path(@activity.snd_uid) %>(Accepted: <%= @activity.snd_accept %>)</p>
 <p>DateTime: <%=@activity.datetime %>  </p>
 
 <p>Name: <%=Coupon.find(@activity.coupon_id).name %></p>
@@ -11,36 +11,32 @@
 <p>Original price: <%=Coupon.find(@activity.coupon_id).original_price%></p>
 <p>Discount price: <%=Coupon.find(@activity.coupon_id).discount_price%></p>
 
-<% if @activity.status == 'PENDING' && @activity.fst_uid == current_user.uid && @activity.fst_accept != true %>
-  <td colspan="100"><%= link_to 'Accept Invitation', accept_activity_path(@activity.id, uid: current_user.uid) %></td>
-<% end %>
-
-<% if @activity.status == 'PENDING' && @activity.fst_uid == current_user.uid && @activity.fst_accept == true && @activity.snd_accept == false %>
-  <td colspan="100"><h3>You have already accepted the invitation! </h3></td>
-  <td colspan="100"><h3>Waiting for the other user to accept the invite! </h3></td>
-<% end %>
-
-<% if @activity.status == 'PENDING' && @activity.snd_uid == current_user.uid && @activity.snd_accept == true && @activity.fst_accept == false %>
-  <td colspan="100"><h3>You have already accepted the invitation! </h3></td>
-  <td colspan="100"><h3>Waiting for the other user to accept the invite! </h3></td>
-<% end %>
-
-<% if (@activity.snd_uid == current_user.uid || @activity.fst_uid == current_user.uid) && @activity.snd_accept == true && @activity.fst_accept == true %>
-  <td colspan="100"><h3>Both of you have accepted! </h3></td>
-  <% if ['PENDING', 'SCHEDULED'].include?(@activity.status) %>
-    <td colspan="100"><h3>The activity has been scheduled! </h3></td>
-  <% elsif@activity.status == 'DONE' %>
-    <td colspan="100"><h3>The activity has been completed! </h3></td>
-  <% end  %>
-<% end %>
-
-<% if @activity.status == 'PENDING' && @activity.snd_uid == current_user.uid && @activity.snd_accept != true %>
-  <% if @activity.fst_accept == true %>
-    <td colspan="100"><h3>The other user have already accepted the invitation! </h3></td>
-    <td colspan="100"><h3>Waiting for you to accept the invite! </h3></td>
+<% if @activity.status == 'PENDING'
+  # no user ever accepted
+  if @activity.fst_accept == false && @activity.snd_accept == false %>
+    <td colspan="100"><%= link_to 'Accept Invitation', accept_activity_path(@activity.id, uid: current_user.uid) %></td>
+  <%
+  # current user accepted but the other user hasn't
+  elsif (@activity.fst_uid == current_user.uid && @activity.snd_accept == false) or (@activity.snd_uid == current_user.uid && @activity.fst_accept == false) %>
+    <td colspan="100"><h3>You have already accepted the invitation!</h3></td>
+    <td colspan="100"><h3>Waiting for the other user to accept the invitation!</h3></td>
+  <%
+  # current user hasn't accepted but the other user accepted
+  elsif (@activity.fst_uid == current_user.uid && @activity.snd_accept == true) or (@activity.snd_uid == current_user.uid && @activity.fst_accept == true) %>
+    <td colspan="100"><h3>The other user have already accepted the invitation!</h3></td>
+    <td colspan="100"><h3>Waiting for you to accept the invitation! </h3></td>
+    <td colspan="100"><%= link_to 'Accept Invitation', accept_activity_path(@activity.id, uid: current_user.uid) %></td>
   <% end %>
-
-
-
-  <td colspan="100"><%= link_to 'Accept Invitation', accept_activity_path(@activity.id, uid: current_user.uid) %></td>
 <% end %>
+
+<%
+  # activity is scheduled
+  if @activity.status == 'SCHEDULED' %>
+    <td colspan="100"><h3>This activity has been scheduled! Dressed up and be on time for it!</h3></td>
+<%
+  # activity is done
+  elsif @activity.status == 'DONE' %>
+    <td colspan="100"><h3>This activity has been completed!</h3></td>
+<% end %>
+
+<%= link_to 'Back to Chat', message_path(@chat_interactive_uid) %>

@@ -14,6 +14,7 @@ class ActivitiesController < ApplicationController
     # @user = User.find(params[:id])
     # @message_send = Message.where(sender_uid: params[:id]).all
     # @message_receive = Message.where(receiver_uid: params[:id]).all
+    @chat_interactive_uid = @activity.fst_uid == current_user.uid ? @activity.snd_uid : current_user.uid
   end
 
   # GET /messages/new
@@ -26,10 +27,7 @@ class ActivitiesController < ApplicationController
   end
 
   def accept
-    @activity = Activity.find(params[:id])
-    @uid = params[:uid]
-    Activity.schedule_activity(@activity.id, @uid)
-    redirect_to @activity
+    redirect_to Activity.schedule_activity(params[:id], params[:uid])
   end
 
 
