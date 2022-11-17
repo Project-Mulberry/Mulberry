@@ -47,7 +47,7 @@ WHERE u.gender = '?' AND u.location = '?' AND u.sexuality = '?' AND u.uid NOT IN
     match_list = ActiveRecord::Base.connection.execute(match_sql)
 
     # if not find qualified match with interests, then return all qualified users without considering interests
-    if match_list.nil? or match_list.length == 0
+    if match_list.nil? or match_list.to_a.empty?
       match_sql = Helper.generate_query(MATCH_RECOMMENDATION_NO_INTEREST_BASE_SQL,
                                         [gender, user.location, user.sexuality, matched_uid_list])
       match_list = ActiveRecord::Base.connection.execute(match_sql)
