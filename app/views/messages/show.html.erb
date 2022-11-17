@@ -64,7 +64,7 @@
         <div class="message-box receive-box activity-content">
           <a href="/activities/<%= activity["aid"] %>" style="flex-direction: column; text-decoration: none; color: black; width: 100%">
             <h6 style="text-align: -webkit-center; font-weight: bold">Activity Recommendation</h6>
-            <%= @coupons[activity["coupon_id"]]["message"] %>
+            <%= @coupons[ activity["coupon_id"].to_i ]["message"] %>
           </a>
         </div>
       </div>
