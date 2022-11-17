@@ -28,6 +28,7 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 ## Version Information
 
 &nbsp;&nbsp;&nbsp;&nbsp;**v0.1** - 11/02/2022 - Basic App with MVP
+&nbsp;&nbsp;&nbsp;&nbsp;**v0.9** - 11/16/2022 - Major functionalities completed
 
 ## Guidance
 ### Environment Setup
@@ -60,7 +61,7 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 
 # Guidance for Grading
 > **Running Environment**
-> * **branch**: proj-iter-1
+> * **branch**: proj-iter-2
 > * **Ruby Version**: ruby 2.6.6p146
 > * **OS**: Mac(12.0), Ubuntu(20.04 LTS)
 > * **Bundler version**: 1.17.2
