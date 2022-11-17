@@ -68,3 +68,17 @@ Scenario: send a valid message to a particular user
     When   I press "Send"
     Then   I should see "Conversation with"
     But    I should see "This is a test message"
+
+
+Scenario: send a valid message as another user
+    When   I follow "Log Out"
+    Then   I should be on the login page
+    Then   I logged in as a Zhen
+    And    I press "Log In"
+    And    I follow "Chats"
+    And    I follow "Show"
+    Then   I should see "Conversation with Marcus"
+    When   I fill in a test message
+    When   I press "Send"
+    Then   I should see "Conversation with Marcus"
+    But    I should see "This is a test message"

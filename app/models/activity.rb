@@ -4,17 +4,17 @@ class Activity < ActiveRecord::Base
   # @param  int(second uid)
   # @return list(Activity)
 
-  def self.create_new_activity(cid, fst_uid, snd_uid)
-    activity = {
-      :status => 'PENDING',
-      :coupon_id => cid,
-      :datetime => DateTime.now(),
-      :fst_uid => fst_uid,
-      :fst_accept => false,
-      :snd_uid => snd_uid,
-      :snd_accept => false }
-    return Activity.create!(activity)
-  end
+  # def self.create_new_activity(cid, fst_uid, snd_uid)
+  #   activity = {
+  #     :status => 'PENDING',
+  #     :coupon_id => cid,
+  #     :datetime => DateTime.now(),
+  #     :fst_uid => fst_uid,
+  #     :fst_accept => false,
+  #     :snd_uid => snd_uid,
+  #     :snd_accept => false }
+  #   return Activity.create!(activity)
+  # end
 
   # @param  int(activity id)
   # @param  int(uid)
@@ -44,12 +44,4 @@ class Activity < ActiveRecord::Base
     return ActiveRecord::Base.connection.execute(sql)
   end
 
-  # @param  int(activity id)
-  # @return None
-  def self.done_activity(aid)
-    activity = Activity.where(aid: aid).first
-    activity[:status] = 'DONE'
-    activity.save
-    return activity
-  end
 end
