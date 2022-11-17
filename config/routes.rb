@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post    '/login',   to: 'sessions#create'
   delete  '/logout',  to: 'sessions#destroy'
 
+  post '/messages/:id', to: 'messages#create_new', as: 'create_new'
+
   resources :matchmake, :messages, :users
 
   resources :activities, except: [:index] do

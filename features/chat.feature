@@ -14,7 +14,6 @@ Background: chats in database
     | Jack    | NY       | PhD         | Software Engineer   | 4668756566 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
     | Hang    | NY       | High School | Unemployed          | 4527772777 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
 
-
     Given the following messages exist:
     | sender_uid | receiver_uid | key     | message                  |
     | 1          | 2            | <1>-<2> | Hello Zhen, How are you! |
@@ -53,3 +52,19 @@ Scenario: click "show" to to see all messages with a particular user and go back
     When   I follow "Back to Match List"
     Then   I should be on the matchmake page
 
+
+Scenario: send an empty message to a particular user
+    When   I follow "Show"
+    Then   I should see "Conversation with"
+    When   I press "Send"
+    Then   I should see "Conversation with"
+    But    I should not see "This is a test message"
+
+
+Scenario: send a valid message to a particular user
+    When   I follow "Show"
+    Then   I should see "Conversation with"
+    When   I fill in a test message
+    When   I press "Send"
+    Then   I should see "Conversation with"
+    But    I should see "This is a test message"

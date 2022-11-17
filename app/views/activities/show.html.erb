@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 <h1>Activity Information</h1>
 <p>Status: <%=@activity.status %></p>
-<p>First User: <%= link_to User.find(@activity.fst_uid).name, user_path(@activity.fst_uid) %></p>
-<p>Second User: <%= link_to User.find(@activity.snd_uid).name, user_path(@activity.snd_uid) %></p>
+<p>First User: <%= link_to User.find(@activity.fst_uid).name, user_path(@activity.fst_uid) %>(Accepted: <%= @activity.fst_accept %>)</p>
+<p>Second User: <%= link_to User.find(@activity.snd_uid).name, user_path(@activity.snd_uid) %>(Accepted: <%= @activity.snd_accept %>)</p>
 <p>DateTime: <%=@activity.datetime %>  </p>
 
 <p>Name: <%=Coupon.find(@activity.coupon_id).name %></p>
@@ -32,7 +32,7 @@
 <%
   # activity is scheduled
   if @activity.status == 'SCHEDULED' %>
-    <td colspan="100"><h3>This activity has been scheduled! Dressed up and be on time to the activity!</h3></td>
+    <td colspan="100"><h3>This activity has been scheduled! Dressed up and be on time for it!</h3></td>
 <%
   # activity is done
   elsif @activity.status == 'DONE' %>
