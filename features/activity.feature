@@ -14,20 +14,12 @@ Background: chats in database
     | Jack    | NY       | PhD         | Software Engineer   | 4668756566 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
     | Hang    | NY       | High School | Unemployed          | 4527772777 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
 
-
     Given the following messages exist:
     | sender_uid | receiver_uid | key     | message                  |
     | 1          | 2            | <1>-<2> | Hello Zhen, How are you! |
     | 2          | 1            | <1>-<2> | Hi Marcus!               |
     | 1          | 3            | <1>-<3> | Hi, what\'s up           |
     | 4          | 1            | <1>-<4> | Morning!                 |
-
-    Given the following interests exist:
-    | interest1 | interest2 | interest3 |
-    | Y         | Y         | Y      	|
-    | Y      	| Y      	| Y      	|
-    | Y      	| Y      	| Y      	|
-    | N      	| N      	| N      	|
 
     Given the following coupons exist:
     | name            | message                                                                                             | location                       | original_price | discount_price | advertiser      |
@@ -38,7 +30,7 @@ Background: chats in database
     Given the following activities exist:
     | status    | coupon_id | datetime            | fst_uid | fst_accept | snd_uid | snd_accept |
     | PENDING   | 2         | 2022-01-01 18:00:00 | 1       | true       | 2       | false      |
-    | DONE      | 2         | 2022-01-01 18:00:00 | 1       | true       | 2       | true       |
+    | DONE      | 3         | 2022-01-01 18:00:00 | 1       | true       | 2       | true       |
     | SCHEDULED | 1         | 2022-01-01 18:00:00 | 1       | true       | 2       | true       |
     | PENDING   | 2         | 2022-01-01 18:00:00 | 3       | true       | 4       | false      |
 
@@ -48,6 +40,22 @@ Background: chats in database
     And    I am on the messages page
 
 
-Scenario: click "login" to see all messages of the specific user with other users
+Scenario: access an activity from a conversation
     Then   I should see "Your Chats"
-    But    I should not see the following names: Lucy, Lily, Tom
+
+
+Scenario: try to access an valid activity
+    When   I try to go to the URL "/activities/1"
+    Then   I should see "Activity #1"
+
+
+Scenario: try to navigate to an invalid activity
+    When   I follow "Log Out"
+    And    I follow "Sign Up"
+    Given  I fill in the following questions: Phone, Password
+    When   I press "Sign Up"
+    And    I fill in the following questions: Name, Gender, Sexuality, Location, Career, Height, Profile Photo URL, Interest, Prompt
+    And    I press "Submit"
+    Then   I should be on the home page
+    When   I try to go to the URL "/activities/1"
+    Then   I should be on the home page

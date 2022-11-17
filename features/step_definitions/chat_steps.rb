@@ -41,3 +41,7 @@ Then /I should see all chats for "Marcus"/ do
   result.should be true
   #pending "Fill in this step in movie_steps.rb"
 end
+
+Then("I fill in a test message") do
+  fill_in("message[message]", with: "This is a test message")
+end
