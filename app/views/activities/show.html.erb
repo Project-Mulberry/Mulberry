@@ -2,7 +2,7 @@
 <h1>Activity #<%=@activity.id %></h1>
 <p>Status: <%=@activity.status %></p>
 <p>First User: <%= link_to User.find(@activity.fst_uid).name, user_path(@activity.fst_uid) %>(Accepted: <%= @activity.fst_accept %>)</p>
-<p>Second User: <%= link_to User.find(@activity.snd_uid).name, user_path(@activity.snd_uid) %>(Accepted: <%= @activity.snd_accept %>)</p>
+<p>Second User: <%= link_to User.find(@activity.snd_uid).name, matchmake_path(@activity.snd_uid) %>(Accepted: <%= @activity.snd_accept %>)</p>
 <p>DateTime: <%=@activity.datetime %>  </p>
 
 <p>Name: <%=Coupon.find(@activity.coupon_id).name %></p>

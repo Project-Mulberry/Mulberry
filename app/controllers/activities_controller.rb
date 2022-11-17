@@ -18,7 +18,7 @@ class ActivitiesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
+    # @message = Message.new
   end
 
   # GET /messages/1/edit
@@ -32,20 +32,13 @@ class ActivitiesController < ApplicationController
     redirect_to @activity
   end
 
+
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_message
-      @message = Message.find(params[:id])
-    end
 
   def set_activity
     @activity = Activity.find(params[:id])
   end
 
-    # Only allow a trusted parameter "white list" through.
-    def message_params
-      params[:message]
-    end
 
   def ensure_activity_user
     if @activity.fst_uid != current_user.uid && @activity.snd_uid != current_user.uid

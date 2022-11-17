@@ -35,3 +35,16 @@
 .activity-content {
     width: 350px !important;
 }
+
+.msg-form {
+    position: fixed;
+    left: 25%;
+    bottom: 0;
+    width: 50%
+}
+
+.list-box{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column
+}
