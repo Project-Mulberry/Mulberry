@@ -77,6 +77,10 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 > 5. `rails server -b 0.0.0.0`
 > 6. open browser with URL: `localhost:3000`
 
+**TEST USER**
+* **phone**: 1234567890
+* **password**: 123456
+
 > **For test coverage check**
 > 1. `[OPTIONAL: if datbase exist] rake db:reset`
 > 2. `rake db:migrate RAILS_ENV=test`   
