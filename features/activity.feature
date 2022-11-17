@@ -46,7 +46,7 @@ Scenario: access an activity from a conversation
 
 Scenario: try to access an valid activity
     When   I try to go to the URL "/activities/1"
-    Then   I should see "Activity #1"
+    Then   I should see "Activity Information"
 
 
 Scenario: try to navigate to an invalid activity
