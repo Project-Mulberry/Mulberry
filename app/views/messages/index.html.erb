@@ -39,6 +39,8 @@
           puts "-------------------------------"
           puts "receiver is current"
           puts message.inspect
+          puts message["sender_uid"].class
+          puts current_user.uid.class
           puts "-------------------------------"
         %>
         <td>
