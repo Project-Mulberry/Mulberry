@@ -18,12 +18,12 @@
   <%
   # current user accepted but the other user hasn't
   elsif (@activity.fst_uid == current_user.uid && @activity.snd_accept == false) or (@activity.snd_uid == current_user.uid && @activity.fst_accept == false) %>
-    <td colspan="100"><h3>You have already accepted the invitation! </h3></td>
-    <td colspan="100"><h3>Waiting for the other user to accept the invitation! </h3></td>
+    <td colspan="100"><h3>You have already accepted the invitation!</h3></td>
+    <td colspan="100"><h3>Waiting for the other user to accept the invitation!</h3></td>
   <%
   # current user hasn't accepted but the other user accepted
   elsif (@activity.fst_uid == current_user.uid && @activity.snd_accept == true) or (@activity.snd_uid == current_user.uid && @activity.fst_accept == true) %>
-    <td colspan="100"><h3>The other user have already accepted the invitation! </h3></td>
+    <td colspan="100"><h3>The other user have already accepted the invitation!</h3></td>
     <td colspan="100"><h3>Waiting for you to accept the invitation! </h3></td>
     <td colspan="100"><%= link_to 'Accept Invitation', accept_activity_path(@activity.id, uid: current_user.uid) %></td>
   <% end %>
@@ -36,7 +36,7 @@
 <%
   # activity is done
   elsif @activity.status == 'DONE' %>
-    <td colspan="100"><h3>This activity has been completed! </h3></td>
+    <td colspan="100"><h3>This activity has been completed!</h3></td>
 <% end %>
 
-<%= link_to 'Back to chat', message_path(@chat_interactive_uid) %>
+<%= link_to 'Back to Chat', message_path(@chat_interactive_uid) %>

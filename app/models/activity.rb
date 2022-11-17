@@ -33,16 +33,6 @@ class Activity < ActiveRecord::Base
     return activity
   end
 
-  PULL_SINGLE_USER_ACTIVITY_BASE_SQL_QUERY =
-    "SELECT * FROM activities WHERE fst_uid = ? OR snd_uid = ? ORDER BY aid DESC"
-
-  # @param  int(uid)
-  # @return list(Activity)
-  def self.pull_activities(uid)
-    sql = Helper.generate_query(PULL_SINGLE_USER_ACTIVITY_BASE_SQL_QUERY, [uid.to_s, uid.to_s])
-    return ActiveRecord::Base.connection.execute(sql)
-  end
-
   PULL_DUAL_USER_ACTIVITY_BASE_SQL_QUERY =
     "SELECT * FROM activities WHERE (fst_uid = ? AND snd_uid = ?) OR (fst_uid = ? AND snd_uid = ?) ORDER BY datetime ASC"
 
