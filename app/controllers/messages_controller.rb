@@ -18,10 +18,9 @@ class MessagesController < ApplicationController
       coupon_ids.push(activity["coupon_id"])
     end
     @coupons = {}
-    Coupon.where("cid IN (?)", coupon_ids).each do |coupon|
+    Coupon.all.to_a.each do |coupon|
       @coupons[coupon["cid"]] = coupon
     end
-
   end
 
   # GET /messages/new
