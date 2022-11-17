@@ -13,7 +13,7 @@
   <div class="row align-items-center">
     <!-- Add activity block based on timestamp -->
     <% @chat.each do |chat| %>
-      <% if @activities.nil? == false and @activities.length > 0 %>
+      <% if @activities.nil? == false and @activities.empty? == false > 0 %>
         <% if @activities[0]["datetime"] <= chat["timestamp"] %>
           <div class="receive-box activity">
             <div class="message-box receive-box activity-content" >
@@ -67,15 +67,9 @@
 <div id="bottom"></div>
 <br>
 
-
-
-
 <div class="msg-form", style="background: white">
   <%= form_for(@message, url: create_new_url, local: true) do |f| %>
     <%= f.text_field :message, id: 'chat-text', class: "form-control", placeholder: "Type Something..." %>
     <%= f.submit "Send", data: { disable_with: false }, class: "btn btn-primary mb-3" %>
   <% end %>
 </div>
-
-
-
