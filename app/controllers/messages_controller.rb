@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
     end
     @coupons = {}
     Coupon.all.to_a.each do |coupon|
-      @coupons[coupon["cid"]] = coupon
+      @coupons[coupon["cid"].to_i] = coupon
     end
     puts '--------------------'
     puts @coupons
