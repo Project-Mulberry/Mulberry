@@ -13,6 +13,12 @@
   <% @messages.each do |message| %>
     <tr>
       <% if message["sender_uid"] == current_user.uid %>
+        <%
+          puts "-------------------------------"
+          puts "sender is current"
+          puts message.inspect
+          puts "-------------------------------"
+        %>
         <td>
           <div >
             <b><%= User.find(message["receiver_uid"]).name %>:</b>
@@ -27,6 +33,12 @@
         </td>
         <td><%= link_to 'Show', message_path(message["receiver_uid"]), class: 'btn btn-sm btn-outline-primary' %></td>
       <% else %>
+        <%
+          puts "-------------------------------"
+          puts "receiver is current"
+          puts message.inspect
+          puts "-------------------------------"
+        %>
         <td>
           <div >
             <b><%= User.find(message["sender_uid"]).name %>:</b>
