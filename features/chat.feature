@@ -14,7 +14,6 @@ Background: chats in database
     | Jack    | NY       | PhD         | Software Engineer   | 4668756566 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
     | Hang    | NY       | High School | Unemployed          | 4527772777 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
 
-
     Given the following messages exist:
     | sender_uid | receiver_uid | key     | message                  |
     | 1          | 2            | <1>-<2> | Hello Zhen, How are you! |

@@ -21,13 +21,6 @@ Background: chats in database
     | 1          | 3            | <1>-<3> | Hi, what\'s up           |
     | 4          | 1            | <1>-<4> | Morning!                 |
 
-    Given the following interests exist:
-    | interest1 | interest2 | interest3 |
-    | Y         | Y         | Y      	|
-    | Y      	| Y      	| Y      	|
-    | Y      	| Y      	| Y      	|
-    | N      	| N      	| N      	|
-
     Given the following coupons exist:
     | name            | message                                                                                             | location                       | original_price | discount_price | advertiser      |
     | Romantic Dining | We found both of you love Italian food, so we reserved a table with coupon for you! Check this out! | 116 Street, New York, NY 10000 | 1000.00        | 50.00          | Columbia Dining |
@@ -37,7 +30,7 @@ Background: chats in database
     Given the following activities exist:
     | status    | coupon_id | datetime            | fst_uid | fst_accept | snd_uid | snd_accept |
     | PENDING   | 2         | 2022-01-01 18:00:00 | 1       | true       | 2       | false      |
-    | DONE      | 2         | 2022-01-01 18:00:00 | 1       | true       | 2       | true       |
+    | DONE      | 3         | 2022-01-01 18:00:00 | 1       | true       | 2       | true       |
     | SCHEDULED | 1         | 2022-01-01 18:00:00 | 1       | true       | 2       | true       |
     | PENDING   | 2         | 2022-01-01 18:00:00 | 3       | true       | 4       | false      |
 
@@ -47,9 +40,8 @@ Background: chats in database
     And    I am on the messages page
 
 
-Scenario: click "login" to see all messages of the specific user with other users
+Scenario: access an activity from a conversation
     Then   I should see "Your Chats"
-    But    I should not see the following names: Lucy, Lily, Tom
 
 
 Scenario: try to access an valid activity
