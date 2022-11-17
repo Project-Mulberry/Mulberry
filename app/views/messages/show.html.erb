@@ -4,7 +4,7 @@
 <br>
 <br>
 
-<div class="container">
+<div class="container", style="padding-bottom: 5rem">
   <div class="row align-items-start">
     <h1>Conversation with <em><%= @user.name %></em> </h1>
     <br>
@@ -70,10 +70,7 @@
 
 
 
-
-
-
-<div class="msg-form">
+<div class="msg-form", style="background: white">
   <%= form_for(@message, url: create_new_url, local: true) do |f| %>
     <%= f.text_field :message, id: 'chat-text', class: "form-control", placeholder: "Type Something..." %>
     <%= f.submit "Send", data: { disable_with: false }, class: "btn btn-primary mb-3" %>
