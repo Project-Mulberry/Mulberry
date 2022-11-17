@@ -2,7 +2,15 @@ require 'date'
 
 class Message < ActiveRecord::Base
   PULL_MESSAGE_LIST_BASE_SQL_QUERY =
-    "SELECT sender_uid, receiver_uid, key, MAX(timestamp) as timestamp, message, is_read FROM messages WHERE key LIKE '%<?>%' GROUP BY key ORDER BY timestamp DESC"
+    "SELECT m.sender_uid, m.receiver_uid, m.key, m.timestamp, m.message, m.is_read
+FROM
+    (SELECT key, MAX(timestamp) as timestamp
+    FROM messages
+    WHERE key LIKE '%<?>%'
+    GROUP BY key
+    ORDER BY timestamp DESC) temp, messages m
+WHERE temp.key = m.key AND temp.timestamp = m.timestamp"
+    # "SELECT sender_uid, receiver_uid, key, MAX(timestamp) as timestamp, message, is_read FROM messages WHERE key LIKE '%<?>%' GROUP BY key ORDER BY timestamp DESC"
 
   # @param  int(uid)
   # @return List(Message), the last message record related to this uid with different user
