@@ -22,6 +22,9 @@
                 <%=
                   puts '!!!!!!!!!!!!!!!!!!!!!!!!!'
                   puts @activities.inspect
+                  puts @activities[0].inspect
+                  puts @activities[0]["coupon_id"]
+                  puts @coupons[@activities[0]["coupon_id"]]
                   puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!'
                   @coupons[@activities[0]["coupon_id"]]["message"] %>
                 <a href="/activities/<%= @activities[0]["aid"] %>"></a>
