@@ -18,10 +18,9 @@ class MessagesController < ApplicationController
       coupon_ids.push(activity["coupon_id"])
     end
     @coupons = {}
-    Coupon.where("cid IN (?)", coupon_ids).each do |coupon|
-      @coupons[coupon["cid"]] = coupon
+    Coupon.all.to_a.each do |coupon|
+      @coupons[coupon["cid"].to_i] = coupon
     end
-
   end
 
   # GET /messages/new
@@ -33,9 +32,8 @@ class MessagesController < ApplicationController
     #                        :message => params[:message][:message],
     #                        :is_read => false)
 
-    @message = Message.post_message(current_user.uid, params[:id].to_i, params[:message][:message])
-    if not @message.message.to_s.strip.empty?
-      @message.save
+    if not params[:message][:message].to_s.strip.empty?
+      @message = Message.post_message(current_user.uid, params[:id].to_i, params[:message][:message])
       redirect_to message_path(params[:id], anchor: 'bottom')
     else
       redirect_to message_path(params[:id])
