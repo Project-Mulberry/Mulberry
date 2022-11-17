@@ -30,7 +30,7 @@
 
 
       <!-- Display each message -->
-      <% if chat["sender_uid"] == current_user.uid %>
+      <% if chat["sender_uid"].to_i == current_user.uid.to_i %>
         <div class="send-box" >
           <div class="message-box send-message">
             <%= chat["message"] %>
