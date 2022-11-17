@@ -41,7 +41,7 @@ class Activity < ActiveRecord::Base
   # @return list(Activity)
   def self.pull_dual_activities(current_uid, interactive_uid)
     sql = Helper.generate_query(PULL_DUAL_USER_ACTIVITY_BASE_SQL_QUERY, [current_uid.to_s, interactive_uid.to_s, interactive_uid.to_s, current_uid.to_s])
-    return ActiveRecord::Base.connection.execute(sql)
+    return ActiveRecord::Base.connection.execute(sql).to_a
   end
 
 end

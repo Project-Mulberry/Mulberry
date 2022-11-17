@@ -25,10 +25,10 @@ Background: chats in database
     | 3          | 4            | <3>-<4> | Wanna eat out?                          | 01-Oct-2022 18:00:00  | true     |
 
     Given the following coupons exist:
-    | name     | message                                                                                                | location                       | original_price | discount_price | advertiser      |
-    | Food     | Both of you love Italian food, check out this amazing Italian restaurant and enjoy our special coupon! | 116 Street, New York, NY 10000 | 1000.00        | 50.00          | Columbia Dining |
-    | Music    | Both of you love Jazz Music, check out this amazing Jazz bar and enjoy our special coupon!             | 116 Street, New York, NY 10000 | 20.00          | 8.00           | Columbia Dining |
-    | Sports   | Both of you love Tennis, check out this amazing tennis club and enjoy our special coupon!              | 116 Street, New York, NY 10000 | 100.00         | 20.00          | Columbia Dining |
+    | cid | name     | message                                                                                                | location                       | original_price | discount_price | advertiser      |
+    | 1   | Food     | Both of you love Italian food, check out this amazing Italian restaurant and enjoy our special coupon! | 116 Street, New York, NY 10000 | 1000.00        | 50.00          | Columbia Dining |
+    | 2   | Music    | Both of you love Jazz Music, check out this amazing Jazz bar and enjoy our special coupon!             | 116 Street, New York, NY 10000 | 20.00          | 8.00           | Columbia Dining |
+    | 3   | Sports   | Both of you love Tennis, check out this amazing tennis club and enjoy our special coupon!              | 116 Street, New York, NY 10000 | 100.00         | 20.00          | Columbia Dining |
 
     Given the following activities exist:
     | status    | coupon_id | datetime            | fst_uid | fst_accept | snd_uid | snd_accept |

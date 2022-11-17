@@ -12,10 +12,10 @@
   <tbody>
   <% @messages.each do |message| %>
     <tr>
-      <% if message["sender_uid"] == current_user.uid %>
+      <% if message["sender_uid"].to_i == current_user.uid.to_i %>
         <td>
           <div >
-            <b><%= User.find(message["receiver_uid"]).name %>:</b>
+            <b><%= User.find(message["receiver_uid"].to_i).name %>:</b>
             <div class="list-box">
               <% if message["is_read"] == "f" %>
                 <small><%= message["message"] %><em class="text-primary"> &#10003;</em></small>
@@ -29,7 +29,7 @@
       <% else %>
         <td>
           <div >
-            <b><%= User.find(message["sender_uid"]).name %>:</b>
+            <b><%= User.find(message["sender_uid"].to_i).name %>:</b>
             <div class="list-box">
               <% if message["is_read"] == "f" %>
                 <small style="font-weight: 600;"><%= message["message"] %></small>
@@ -39,7 +39,7 @@
             </div>
           </div>
         </td>
-        <td><%= link_to 'Show', message_path(message["sender_uid"]), class: 'btn btn-sm btn-outline-primary'%></td>
+        <td><%= link_to 'Show', message_path(message["sender_uid"].to_i), class: 'btn btn-sm btn-outline-primary'%></td>
       <% end %>
 
     </tr>
