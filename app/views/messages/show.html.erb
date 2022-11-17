@@ -19,7 +19,11 @@
             <div class="message-box receive-box activity-content" >
               <a href="/activities/<%= @activities[0]["aid"] %>" style="flex-direction: column; text-decoration: none; color: black; width: 100%">
                 <h6 style="text-align: -webkit-center; font-weight: bold">Activity Recommendation</h6>
-                <%= @coupons[@activities[0]["coupon_id"]]["message"] %>
+                <%=
+                  puts '!!!!!!!!!!!!!!!!!!!!!!!!!'
+                  puts @activities.inspect
+                  puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+                  @coupons[@activities[0]["coupon_id"]]["message"] %>
                 <a href="/activities/<%= @activities[0]["aid"] %>"></a>
               </a>
             </div>
