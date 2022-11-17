@@ -21,9 +21,6 @@ class MessagesController < ApplicationController
     Coupon.all.to_a.each do |coupon|
       @coupons[coupon["cid"].to_i] = coupon
     end
-    puts '--------------------'
-    puts @coupons
-    puts '--------------------'
   end
 
   # GET /messages/new
