@@ -15,11 +15,14 @@ Background: chats in database
     | Hang    | NY       | High School | Unemployed          | 4527772777 | 1           | 1         | 01-Jan-2000	| 1		    | 1      | 1             |
 
     Given the following messages exist:
-    | sender_uid | receiver_uid | key     | message                  |
-    | 1          | 2            | <1>-<2> | Hello Zhen, How are you! |
-    | 2          | 1            | <1>-<2> | Hi Marcus!               |
-    | 1          | 3            | <1>-<3> | Hi, what\'s up           |
-    | 4          | 1            | <1>-<4> | Morning!                 |
+    | sender_uid | receiver_uid | key     | message                                 | timestamp             | is_read  |
+    | 1          | 2            | <1>-<2> | Hello Zhen, How are you!                | 01-Oct-2022 11:30:00  | true     |
+    | 2          | 1            | <1>-<2> | Hi Marcus!                              | 01-Oct-2022 13:30:00  | true     |
+    | 1          | 2            | <1>-<2> | Interested in the recommended activity? | 01-Oct-2022 15:00:00  | false    |
+    | 1          | 3            | <1>-<3> | Hi, what\'s up                          | 01-Oct-2022 12:00:00  | false    |
+    | 3          | 1            | <1>-<3> | Hey! How is it going?                   | 01-Oct-2022 13:00:00  | false    |
+    | 4          | 1            | <1>-<4> | Morning!                                | 01-Oct-2022 10:00:00  | false    |
+    | 3          | 4            | <3>-<4> | Wanna eat out?                          | 01-Oct-2022 18:00:00  | true     |
 
     Given the following interests exist:
     | interest1 | interest2 | interest3 |
