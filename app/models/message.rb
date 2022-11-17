@@ -16,7 +16,7 @@ WHERE temp.key = m.key AND temp.timestamp = m.timestamp"
   # @return List(Message), the last message record related to this uid with different user
   def self.get_message_list(uid)
     sql = Helper.generate_query(PULL_MESSAGE_LIST_BASE_SQL_QUERY, [uid.to_s])
-    messages = ActiveRecord::Base.connection.execute(sql)
+    messages = ActiveRecord::Base.connection.execute(sql).to_a
     return messages
   end
 
@@ -52,7 +52,7 @@ WHERE temp.key = m.key AND temp.timestamp = m.timestamp"
     ActiveRecord::Base.connection.execute(update_is_read_sql)
     # obtain updated records
     sql = Helper.generate_query(PULL_MESSAGE_BASE_SQL_QUERY, [current_uid.to_s, interactive_uid.to_s, interactive_uid.to_s, current_uid.to_s])
-    messages = ActiveRecord::Base.connection.execute(sql)
+    messages = ActiveRecord::Base.connection.execute(sql).to_a
     return messages
   end
 end
