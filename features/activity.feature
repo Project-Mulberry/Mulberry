@@ -74,6 +74,20 @@ Scenario: accept an activity that the other user hasn't accepted yet
     Then   I should see "Waiting for the other user to accept the invitation!"
 
 
+Scenario: the other user also accepts the activity
+    When   I follow "Log Out"
+    Then   I should be on the login page
+    Then   I logged in as a Zhen
+    And    I press "Log In"
+    And    I follow "Chats"
+    And    I follow "Show"
+    Then   I should see "Conversation with Marcus"
+    When   I follow "Both of you love Italian food"
+    Then   I should see "Food"
+    When   I follow "Accept Invitation"
+    Then   I should see "Waiting for the other user to accept the invitation!"
+
+
 Scenario: try to access an valid activity
     When   I try to go to the URL "/activities/1"
     Then   I should see "Activity Information"

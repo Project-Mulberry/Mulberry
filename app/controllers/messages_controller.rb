@@ -26,12 +26,14 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def create_new
-    @message = Message.new(:sender_uid => current_user.uid,
-                           :receiver_uid => params[:id],
-                           :key => Message.generate_key(current_user.uid, params[:id].to_i),
-                           :timestamp => DateTime.now(),
-                           :message => params[:message][:message],
-                           :is_read => false)
+    # @message = Message.new(:sender_uid => current_user.uid,
+    #                        :receiver_uid => params[:id],
+    #                        :key => Message.generate_key(current_user.uid, params[:id].to_i),
+    #                        :timestamp => DateTime.now(),
+    #                        :message => params[:message][:message],
+    #                        :is_read => false)
+
+    @message = Message.post_message(current_user.uid, params[:id].to_i, params[:message][:message])
     if not @message.message.to_s.strip.empty?
       @message.save
       redirect_to message_path(params[:id], anchor: 'bottom')

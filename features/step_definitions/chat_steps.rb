@@ -45,3 +45,8 @@ end
 Then("I fill in a test message") do
   fill_in("message[message]", with: "This is a test message")
 end
+
+Then("I logged in as a Zhen") do
+  fill_in("user[phone]", with: "5437525723")
+  fill_in("user[password]", with: "1")
+end

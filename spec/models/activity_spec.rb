@@ -1,6 +1,20 @@
 require 'rails_helper'
 
+
+
 RSpec.describe Activity, type: :model do
+  def create_new_activity(cid, fst_uid, snd_uid)
+    activity = {
+      :status => 'PENDING',
+      :coupon_id => cid,
+      :datetime => DateTime.now(),
+      :fst_uid => fst_uid,
+      :fst_accept => false,
+      :snd_uid => snd_uid,
+      :snd_accept => false }
+    return Activity.create!(activity)
+  end
+
   before :each do
     @uid1 = User.create!({:phone => '1234567890', :password => '12345678'})[:uid]
     @uid2 = User.create!({:phone => '1234567891', :password => '12345678'})[:uid]
@@ -9,7 +23,7 @@ RSpec.describe Activity, type: :model do
 
   context 'create new activity' do
     it 'Successfully' do
-      activity = Activity.create_new_activity(@cid, @uid1, @uid2)
+      activity = create_new_activity(@cid, @uid1, @uid2)
       expect(activity.nil?).to eq(false)
       expect(activity.status).to eq('PENDING')
     end
@@ -17,8 +31,8 @@ RSpec.describe Activity, type: :model do
 
   context 'pull all activities by two uids' do
     before :each do
-      Activity.create_new_activity(@cid, @uid1, @uid2)
-      Activity.create_new_activity(@cid, @uid2, @uid1)
+      create_new_activity(@cid, @uid1, @uid2)
+      create_new_activity(@cid, @uid2, @uid1)
     end
     it 'Successfully' do
       activities = Activity.pull_dual_activities(@uid1, @uid2)
@@ -29,7 +43,7 @@ RSpec.describe Activity, type: :model do
 
   context 'confirm activity' do
     it 'one user accept' do
-      activity = Activity.create_new_activity(@cid, @uid1, @uid2)
+      activity = create_new_activity(@cid, @uid1, @uid2)
       activity = Activity.schedule_activity(activity.aid, @uid1)
       expect(activity.nil?).to eq(false)
       expect(activity[:status]).to eq('PENDING')
@@ -37,7 +51,7 @@ RSpec.describe Activity, type: :model do
       expect(activity[:snd_accept]).to eq(false)
     end
     it 'both matchmake accept' do
-      activity = Activity.create_new_activity(@cid, @uid1, @uid2)
+      activity = create_new_activity(@cid, @uid1, @uid2)
       activity = Activity.schedule_activity(activity.aid, @uid1)
       activity = Activity.schedule_activity(activity.aid, @uid2)
       expect(activity.nil?).to eq(false)
@@ -47,12 +61,4 @@ RSpec.describe Activity, type: :model do
     end
   end
 
-  context 'mark activity as done' do
-    it 'Successfully' do
-      activity = Activity.create_new_activity(@cid, @uid1, @uid2)
-      activity = Activity.done_activity(activity.aid)
-      expect(activity.nil?).to eq(false)
-      expect(activity[:status]).to eq('DONE')
-    end
-  end
 end
