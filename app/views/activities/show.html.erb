@@ -38,3 +38,5 @@
   elsif @activity.status == 'DONE' %>
     <td colspan="100"><h3>This activity has been completed! </h3></td>
 <% end %>
+
+<%= link_to 'Back to chat', message_path(@chat_interactive_uid) %>
