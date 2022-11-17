@@ -1,35 +1,74 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Chats for <em><%= @user.name %></em> </h1>
-
-<table>
-  <thead>
-  <tr>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @message_send.each do |message| %>
-    <tr>
-      <td><!%= message.receiver_uid %>   </td>
-      <td>To <%= User.find(message.receiver_uid).name %>: </td>
-      <td><%= message.message %>   </td>
-    </tr>
-  <% end %>
-  <% @message_receive.each do |message| %>
-    <tr>
-      <td><!%= message.sender_uid %>   </td>
-      <td>From <%= User.find(message.sender_uid).name %>: </td>
-      <td><%= message.message %>   </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
+<%= link_to 'Back to Message List', messages_path , class: 'btn btn-sm btn-outline-primary'%>
+<%= link_to 'Back to Match List', matchmake_index_path , class: 'btn btn-sm btn-outline-primary'%>
+<br>
 <br>
 
-<!%= link_to 'Edit', edit_message_path(@message) %>
-<%= link_to 'Back to Message List', messages_path %>
-<%= link_to 'Back to Match List', matchmake_index_path %>
+<div class="container", style="padding-bottom: 5rem">
+  <div class="row align-items-start">
+    <h1>Conversation with <em><%= @user.name %></em> </h1>
+    <br>
+  </div>
 
+  <div class="row align-items-center">
+    <!-- Add activity block based on timestamp -->
+    <% @chat.each do |chat| %>
+      <% while @activities.nil? == false and @activities.empty? == false %>
+        <% if @activities[0]["datetime"] <= chat["timestamp"] %>
+          <div class="receive-box activity">
+            <div class="message-box receive-box activity-content" >
+              <a href="/activities/<%= @activities[0]["aid"] %>" style="flex-direction: column; text-decoration: none; color: black; width: 100%">
+                <h6 style="text-align: -webkit-center; font-weight: bold">Activity Recommendation</h6>
+                <%= @coupons[ @activities[0]["coupon_id"].to_i ]["message"] %>
+                <a href="/activities/<%= @activities[0]["aid"] %>"></a>
+              </a>
+            </div>
+          </div>
+          <% @activities = @activities.drop(1) %>
+        <% else
+          break%>
+        <% end %>
+      <% end %>
+
+
+      <!-- Display each message -->
+      <% if chat["sender_uid"].to_i == current_user.uid.to_i %>
+        <div class="send-box" >
+          <div class="message-box send-message">
+            <%= chat["message"] %>
+          </div>
+          <h6 class="name"> <%= User.find(chat["sender_uid"]).name %> </h6>
+        </div>
+      <% else %>
+        <div class="receive-box">
+          <h6 class="name"> <%=User.find(chat["sender_uid"]).name %> </h6>
+          <div class="message-box receive-box" >
+            <%= chat["message"] %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <% if @activities.nil? == false and @activities.empty? == false
+         @activities.each do |activity| %>
+      <div class="receive-box activity">
+        <div class="message-box receive-box activity-content" >
+          <a href="/activities/<%= activity["aid"] %>" style="flex-direction: column; text-decoration: none; color: black; width: 100%">
+            <h6 style="text-align: -webkit-center; font-weight: bold">Activity Recommendation</h6>
+            <%= @coupons[ activity["coupon_id"].to_i ]["message"] %>
+            <a href="/activities/<%= activity["aid"] %>"></a>
+          </a>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div id="bottom"></div>
+<br>
+
+<div class="msg-form", style="background: white">
+  <%= form_for(@message, url: create_new_url, local: true) do |f| %>
+    <%= f.text_field :message, id: 'chat-text', class: "form-control", placeholder: "Type Something..." %>
+    <%= f.submit "Send", data: { disable_with: false }, class: "btn btn-primary mb-3" %>
+  <% end %>
+</div>

@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, except: %i[new create]
+  before_action :set_user, only: %i[show edit update destroy]
+  before_action :ensure_owner_user, only: %i[new show edit update delete]
   def new
     @user = User.new
   end
 
   def create
-    puts "params: #{params.inspect}"
     @user = User.new(user_params)
 
     # @user = User.create_new_user(user_params[:phone], user_params[:password])
@@ -21,37 +23,39 @@ class UsersController < ApplicationController
                       :answer2 => '',
                       :answer3 => ''})
 
+      log_in @user
       redirect_to edit_user_path(@user)
-
+    else
       # This line overrides the default rendering behavior, which
       # would have been to render the "create" view.
-      # render "new"
-    else
       render "new"
     end
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    # we receive all fields in params[:user]
-    # # update the model
-    # if successful, redirect to user page
-    @user = User.find(params[:id])
-    if @user.interest.blank?
-      @user.interest = Interest.new(uid: @user.id)
-    end
+    @user.interest.update!(
+      interest1: user_params_with_prompts_and_interests[:interest_attributes][:interest1],
+      interest2: user_params_with_prompts_and_interests[:interest_attributes][:interest2],
+      interest3: user_params_with_prompts_and_interests[:interest_attributes][:interest3]
+    )
+
+    @user.prompt.update!(
+      uid: @user.uid,
+      answer1: user_params_with_prompts_and_interests[:prompt_attributes][:answer1],
+      answer2: user_params_with_prompts_and_interests[:prompt_attributes][:answer2],
+      answer3: user_params_with_prompts_and_interests[:prompt_attributes][:answer3]
+    )
 
     Rails.logger.info(user_params.inspect)
 
     if @user.update(user_params)
-      redirect_to matchmake_index_path
+      redirect_to root_path
     else
       # This line overrides the default rendering behavior, which
       # would have been to render the "create" view.
@@ -65,9 +69,27 @@ class UsersController < ApplicationController
 
   private
 
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(
       :phone, :password , :name , :gender , :sexuality , :birthday ,
       :location, :education , :career, :height, :profile_photo)
+  end
+
+  def user_params_with_prompts_and_interests
+    params.require(:user).permit(
+      :phone, :password , :name , :gender , :sexuality , :birthday ,
+      :location, :education , :career, :height, :profile_photo,
+      interest_attributes: %i[interest1 interest2 interest3],
+      prompt_attributes: %i[answer1 answer2 answer3])
+  end
+
+  def ensure_owner_user
+    if @user != current_user
+      redirect_to root_url
+    end
   end
 end

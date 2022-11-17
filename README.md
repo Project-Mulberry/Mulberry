@@ -1,9 +1,8 @@
 # Mulberry
 
-.  
+
 ### [**Hi TAs!** _Please click me to see the guidance for grading_](#guidance-for-grading)
 
-.  
 
 ## Brief Introduction
 
@@ -17,7 +16,7 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 
 ## Development Team
 
-|                           |                    | UNI    |
+| Role                      | Name               | UNI    |
 |---------------------------|--------------------|--------|
 | ***PM & Testing***        | Marcus Min         | jm5025 |
 | ***Front End***           | Jack Wang          | yw4014 |
@@ -29,6 +28,7 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 ## Version Information
 
 &nbsp;&nbsp;&nbsp;&nbsp;**v0.1** - 11/02/2022 - Basic App with MVP
+&nbsp;&nbsp;&nbsp;&nbsp;**v0.9** - 11/16/2022 - Major functionalities completed
 
 ## Guidance
 ### Environment Setup
@@ -40,9 +40,10 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 6. open browser localhost:3000
 
 > **For test:**  
-> 1. `db:migrate RAILS_ENV=test`   
-> 2. `rake spec (or rspec or bundle exec autotest)`  
+> 1. `[OPTIONAL: if datbase exist] rake db:reset`
+> 2. `rake db:migrate RAILS_ENV=test`   
 > 3. `rake cucumber`
+> 4. `rake spec (or rspec or bundle exec autotest)`  
   
 > **For deployment:**  
 > 1. `heroku stack:set heroku-20`  
@@ -60,7 +61,7 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 
 # Guidance for Grading
 > **Running Environment**
-> * **branch**: proj-iter-1
+> * **branch**: proj-iter-2
 > * **Ruby Version**: ruby 2.6.6p146
 > * **OS**: Mac(12.0), Ubuntu(20.04 LTS)
 > * **Bundler version**: 1.17.2
@@ -75,11 +76,13 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 > 4. `rake db:seed`
 > 5. `rails server -b 0.0.0.0`
 > 6. open browser with URL: `localhost:3000`
-> > **For test coverage check**
-> > 1. `rake db:migrate RAILS_ENV=test` (for testing env)
-> > 2. `rake spec`
-> > 3. `rake cucumber`
-> > 4. open the `index.html` file under coverage folder
+
+> **For test coverage check**
+> 1. `[OPTIONAL: if datbase exist] rake db:reset`
+> 2. `rake db:migrate RAILS_ENV=test`   
+> 3. `rake cucumber`
+> 4. `rake spec`
+> 5. open the `index.html` file under coverage folder
 
 >
 > local sqlite database doesn't need credentials;  
@@ -88,7 +91,7 @@ Video Link: https://www.youtube.com/watch?v=ceh8UM0KatE
 >
 
 ## Development Team
-|                           |                    | UNI    |
+| Role                      | Name               | UNI    |
 |---------------------------|--------------------|--------|
 | ***PM & Testing***        | Marcus Min         | jm5025 |
 | ***Front End***           | Jack Wang          | yw4014 |

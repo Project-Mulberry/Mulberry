@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Messages</h1>
+<h1>Your Chats</h1>
 
-<table>
+<table class="table">
   <thead>
   <tr>
     <th colspan="3"></th>
@@ -10,11 +10,37 @@
   </thead>
 
   <tbody>
-  <% @users.each do |user| %>
+  <% @messages.each do |message| %>
     <tr>
-      <td><%= user.phone %></td>
-      <td><%= user.name %></td>
-      <td><%= link_to 'Show', message_path(user.uid) %></td>
+      <% if message["sender_uid"].to_i == current_user.uid.to_i %>
+        <td>
+          <div >
+            <b><%= User.find(message["receiver_uid"].to_i).name %>:</b>
+            <div class="list-box">
+              <% if message["is_read"] == "f" %>
+                <small><%= message["message"] %><em class="text-primary"> &#10003;</em></small>
+              <% else %>
+                <small><%= message["message"] %><em class="text-primary"> &#10003;&#10003;</em></small></small>
+              <% end %>
+            </div>
+          </div>
+        </td>
+        <td><%= link_to 'Show', message_path(message["receiver_uid"]), class: 'btn btn-sm btn-outline-primary' %></td>
+      <% else %>
+        <td>
+          <div >
+            <b><%= User.find(message["sender_uid"].to_i).name %>:</b>
+            <div class="list-box">
+              <% if message["is_read"] == "f" %>
+                <small style="font-weight: 600;"><%= message["message"] %></small>
+              <% else %>
+                <small><%= message["message"] %></small>
+              <% end %>
+            </div>
+          </div>
+        </td>
+        <td><%= link_to 'Show', message_path(message["sender_uid"].to_i), class: 'btn btn-sm btn-outline-primary'%></td>
+      <% end %>
 
     </tr>
   <% end %>

@@ -1,0 +1,19 @@
+
+
+<div class="d-flex  justify-content-center align-items-center" style="height:500px">
+  <div class=" card  bg-light  " style="width:50%">
+    <div class="card-header"><h1 class="text-center ">Login</h1></div>
+    <div class="card-body">
+    <%= form_for :user, url: login_path, method: :post do |f| %>
+
+      <%= f.label :phone %>
+      <%= f.text_field :phone, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "Log In", class: " mt-2 btn btn-primary" %>
+    <% end %>
+    </div>
+  </div>
+</div>

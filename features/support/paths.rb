@@ -33,8 +33,20 @@ module NavigationHelpers
     when /^the messages page$/ then
       messages_path
 
+    when /^the signup page$/ then
+      signup_path
+
+    when /^the user profile page$/ then
+      user_path(User.last.id)
+
+    when /^the edit profile page$/ then
+      edit_user_path(User.last.id)
+
+    when /^the login page$/ then
+      login_path
+
     when /^the home page$/ then
-      "users/new"
+      root_path
 
 
     else

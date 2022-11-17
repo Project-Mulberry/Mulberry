@@ -24,32 +24,80 @@ RSpec.describe "Users", type: :request do
     context 'all valid form attributes are present' do
       it 'creates the user profile successfully' do
         post "/users", { :user => { :phone => "4123423455", :password => "1234qwer" } }
-
         expect(response).to redirect_to(edit_user_path(User.last))
         follow_redirect!
         expect(response).to render_template(:edit)
       end
     end
+
+    context 'user did not put a password' do
+      it 'flash a warning and stay on the same page' do
+        post "/users", { :user => { :phone => "4123423455", :password => "" } }
+        expect(response).to render_template(:new)
+        expect(response.body).to match("can&#39;t be blank")
+      end
+    end
   end
 
+
   describe '#update' do
+    context "Without logging in" do
+      it "should redirect to login" do
+        get "/users/3"
+        expect(response).to redirect_to(login_url)
+      end
+    end
+
+    context "incorrect user accesses the profile" do
+       it("should redirect to root") do
+        actual_user = User.last ||  User.create(phone: "5123423452", password: "1234qwer")
+        new_user = User.create(phone: "2123423452", password: "1234qwer")
+        post "/login", user: {phone: actual_user.phone, password: "1234qwer"}
+        get "/users/#{new_user.id}/edit"
+        expect(response).to redirect_to(root_url)
+      end
+    end
+
+    context "created account with all info filled" do
+      it("should redirect to root") do
+        actual_user = User.create(:phone => '1234567890', :password => '123456', :name => 'Marcus', :gender => 'm', :sexuality => 'straight', :birthday => '01-Jan-2000', :location => 'NY', :education => 'Bachelor', :career => 'Student', :height => '6.0', :profile_photo => nil)
+        post "/login", user: {phone: actual_user.phone, password: "123456"}
+        get "/login"
+        expect(response).to redirect_to(root_url)
+      end
+    end
+
+    context "created account without filling" do
+      it("should redirect to root") do
+        actual_user = User.create(phone: "5123423477", password: "1234qwer")
+        post "/login", user: {phone: actual_user.phone, password: "1234qwer"}
+        expect(response).to redirect_to(edit_user_path(actual_user))
+      end
+    end
+
     context 'career field is missing in the form attributes' do
-      user = User.last ||  User.create(phone: "4123423452", password: "1234qwer")
-      # let's intentionally remove career field,
-      # which is required to be present
-      # and checked by User model validations
-      fields = EXAMPLE_INPUT_FIELDS.clone
-      fields.delete(:career)
-
       it 'should not update the user  & display error message' do
-        get "/users/#{user.id}"
-        expect(response).to render_template(:show)
+        User.create(uid: 10086, phone: "4123423452", password: "1234qwer")
+        Interest.create!({:uid => 10086, :interest1 => '', :interest2 => '', :interest3 => ''})
+        Prompt.create!({:uid => 10086, :answer1 => '', :answer2 => '', :answer3 => ''})
 
-        get "/users/#{user.id}/edit"
+        fields = EXAMPLE_INPUT_FIELDS.clone
+        fields['interest_attributes']= {interest1: "Climbing", interest2: "Biking", interest3: "Jogging"}
+        fields['prompt_attributes']= {interest1: "Poetry", interest2: "Chocolate", interest3: "Cake"}
+        fields.delete(:career)
+
+        get "/login"
+        post "/login", user: {phone: "4123423452", password: "1234qwe"}
+        expect(response).to render_template(:new)
+
+        post "/login", user: {phone: "4123423452", password: "1234qwer"}
+        expect(response).to redirect_to(edit_user_path(User.last))
+
+        get edit_user_path(User.last)
 
         # this request should not update our user,
         # since required field was not provided
-        put "/users/#{user.id}", { :user => fields }
+        put user_path(User.last), { :user => fields }
 
         expect(response).to render_template(:edit)
 
@@ -59,14 +107,25 @@ RSpec.describe "Users", type: :request do
     end
 
     context 'all required user fields are present' do
-      user = User.last ||  User.create(phone: "4123423452", password: "1234qwer")
-
       it 'should update the user successfully' do
-        get "/users/#{user.id}/edit"
-        put "/users/#{user.id}", { :user => EXAMPLE_INPUT_FIELDS }
-        expect(response).to redirect_to(matchmake_index_path)
-        expect(user.reload.name).to eq(EXAMPLE_INPUT_FIELDS[:name])
-        expect(user.reload.gender).to eq(EXAMPLE_INPUT_FIELDS[:gender])
+        User.create(uid: 10086, phone: "4123423452", password: "1234qwer")
+        Interest.create!({:uid => 10086, :interest1 => '', :interest2 => '', :interest3 => ''})
+        Prompt.create!({:uid => 10086, :answer1 => '', :answer2 => '', :answer3 => ''})
+
+        fields = EXAMPLE_INPUT_FIELDS.clone
+        fields['interest_attributes']= {interest1: "Climbing", interest2: "Biking", interest3: "Jogging"}
+        fields['prompt_attributes']= {answer1: "Poetry", answer2: "Chocolate", answer3: "Cake"}
+
+        post "/login", { :user => { :phone => "4123423452", :password => "1234qwer" } }
+        get edit_user_path(User.last)
+        put user_path(User.last), { :user => fields }
+        expect(response).to redirect_to(root_path)
+        expect(User.last.name).to eq(EXAMPLE_INPUT_FIELDS[:name])
+        expect(User.last.gender).to eq(EXAMPLE_INPUT_FIELDS[:gender])
+        #running a second request to ensure fields are updated
+        put user_path(User.last), { :user => fields }
+        expect(User.last.interest).to_not be(nil)
+        delete "/logout"
       end
     end
   end

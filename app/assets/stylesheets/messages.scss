@@ -1,0 +1,50 @@
+
+.message-box {
+    width: fit-content;
+    max-width: 40%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #E0E0E0 ;
+    padding: 10px
+}
+
+.send-box{
+    display: flex;
+    justify-content: flex-end
+}
+
+.receive-box{
+    display: flex;
+    justify-content: flex-start
+}
+
+.send-message{
+    background-color: #EDE7F6 !important;
+    padding: 10px;
+}
+
+.activity {
+    font-size: 14px;
+    justify-content: center !important;
+    cursor: pointer;
+    :hover {
+        background-color: #EDE7F6;
+    }
+}
+
+.activity-content {
+    width: 350px !important;
+}
+
+.msg-form {
+    position: fixed;
+    left: 25%;
+    bottom: 0;
+    width: 50%
+}
+
+.list-box{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column
+}
