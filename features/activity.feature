@@ -29,9 +29,9 @@ Background: chats in database
 
     Given the following activities exist:
     | status    | coupon_id | datetime            | fst_uid | fst_accept | snd_uid | snd_accept |
-    | PENDING   | 2         | 2022-01-01 18:00:00 | 1       | true       | 2       | false      |
-    | DONE      | 3         | 2022-01-01 18:00:00 | 1       | true       | 2       | true       |
-    | SCHEDULED | 1         | 2022-01-01 18:00:00 | 1       | true       | 2       | true       |
+    | PENDING   | 2         | 2022-01-01 18:00:00 | 1       | true       | 4       | false      |
+    | DONE      | 3         | 2022-01-01 18:00:00 | 1       | true       | 4       | true       |
+    | SCHEDULED | 1         | 2022-01-01 18:00:00 | 1       | true       | 4       | true       |
     | PENDING   | 2         | 2022-01-01 18:00:00 | 3       | true       | 4       | false      |
 
     Given  I am on the login page
@@ -42,7 +42,8 @@ Background: chats in database
 
 Scenario: access an activity from a conversation
     Then   I should see "Your Chats"
-
+    When   I follow "Show"
+    Then   I should see "Conversation with Hang"
 
 Scenario: try to access an valid activity
     When   I try to go to the URL "/activities/1"
