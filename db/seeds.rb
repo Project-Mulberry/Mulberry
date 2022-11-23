@@ -7,11 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = [
-  {:phone => '1234567890', :password => '123456', :name => 'Marcus', :gender => 'm', :sexuality => 'straight', :birthday => '01-Jan-2000', :location => 'NY', :education => 'Bachelor', :career => 'Student', :height => '6.0', :profile_photo => nil },
-  {:phone => '1234567891', :password => '123456', :name => 'Zhen', :gender => 'f', :sexuality => 'straight', :birthday => '02-Feb-2001', :location => 'NY', :education => 'Master', :career => 'Student', :height => '5.9', :profile_photo => nil },
-  {:phone => '1234567892', :password => '123456', :name => 'Jack', :gender => 'm', :sexuality => 'straight', :birthday => '03-Mar-2002', :location => 'NY', :education => 'PhD', :career => 'Software Engineer', :height => '5.8', :profile_photo => nil },
-  {:phone => '1234567893', :password => '123456', :name => 'Hang', :gender => 'f', :sexuality => 'straight', :birthday => '04-Apr-2003', :location => 'NY', :education => 'High School', :career => 'Unemployed', :height => '5.7', :profile_photo => nil },
-  {:phone => '1234567894', :password => '123456', :name => 'robot', :gender => 'f', :sexuality => 'straight', :birthday => '05-May-2004', :location => 'NY', :education => 'Bachelor', :career => 'Student', :height => '5.6', :profile_photo => nil }
+  {:phone => '1234567890', :password => '123456', :name => 'Marcus', :gender => 'm', :sexuality => 'straight', :birthday => '01-Jan-2000', :location => 'NY', :education => 'Bachelor', :career => 'Student', :height => '6.0', :profile_photo => "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" },
+  {:phone => '1234567891', :password => '123456', :name => 'Zhen', :gender => 'f', :sexuality => 'straight', :birthday => '02-Feb-2001', :location => 'NY', :education => 'Master', :career => 'Student', :height => '5.9', :profile_photo => "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" },
+  {:phone => '1234567892', :password => '123456', :name => 'Jack', :gender => 'm', :sexuality => 'straight', :birthday => '03-Mar-2002', :location => 'NY', :education => 'PhD', :career => 'Software Engineer', :height => '5.8', :profile_photo => "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" },
+  {:phone => '1234567893', :password => '123456', :name => 'Hang', :gender => 'f', :sexuality => 'straight', :birthday => '04-Apr-2003', :location => 'NY', :education => 'High School', :career => 'Unemployed', :height => '5.7', :profile_photo => "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" },
+  {:phone => '1234567894', :password => '123456', :name => 'robot', :gender => 'f', :sexuality => 'straight', :birthday => '05-May-2004', :location => 'NY', :education => 'Bachelor', :career => 'Student', :height => '5.6', :profile_photo => "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" }
 ]
 users.each do |user|
   User.create!(user)

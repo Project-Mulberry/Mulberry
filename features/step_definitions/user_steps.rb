@@ -10,8 +10,9 @@ end
 
 Then("I fill in the following questions: Name, Gender, Sexuality, Location, Career, Height, Profile Photo URL, Interest, Prompt") do
   fill_in("user[name]", with: "Jack")
-  fill_in("user[gender]", with: "male")
-  fill_in("user[sexuality]", with: "straight")
+  #fill_in("user[gender]", with: "male")
+  select("Male", from: "user_gender")
+  select("Heterosexual", from: "user_sexuality")
   fill_in("user[birthday]", with: "2010-11-11")
   fill_in("user[location]", with: "Chicago")
   fill_in("user[career]", with: "driver")
@@ -35,8 +36,8 @@ Then("I fill in the following questions: Interest, Prompt") do
 end
 
 Then("I fill in the following questions: Gender, Sexuality, Location, Career, Height, Profile Photo URL") do
-  fill_in("user[gender]", with: "male")
-  fill_in("user[sexuality]", with: "straight")
+  select("Male", from: "user_gender")
+  select("Heterosexual", from: "user_sexuality")
   fill_in("user[birthday]", with: "2010-11-11")
   fill_in("user[location]", with: "Chicago")
   fill_in("user[career]", with: "driver")

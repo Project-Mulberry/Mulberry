@@ -19,7 +19,7 @@
   </div>
   <div class="gender">
     <%= f.label :gender %>
-    <%= f.text_field :gender, class: "form-control" %>
+    <%= f.select :gender, [%w[Male male], %w[Female female], %w[Other other]], {}, { class: "form-control" } %>
     <% if @user.errors[:gender].present? %>
       <% @user.errors[:gender].each do |msg| %>
         <p style="color:red"><%= msg %></p>
@@ -29,7 +29,7 @@
 
   <div class="sexuality">
     <%= f.label :sexuality %>
-    <%= f.text_field :sexuality, class: "form-control" %>
+    <%= f.select :sexuality, [%w[Heterosexual heterosexual], %w[Homosexual homosexual], %w[Other other]], {}, class: "form-control" %>
     <% if @user.errors[:sexuality].present? %>
       <% @user.errors[:sexuality].each do |msg| %>
         <p style="color:red"><%= msg %></p>
@@ -120,13 +120,13 @@
   </div>
 
   <div class="profile_photo">
-<h3>Answers</h3>
+<h3>Prompts</h3>
     <hr/>
   <%= f.fields_for :prompt do |ff| %>
     <% ff.hidden_field :uid %>
-    <% [:answer1, :answer2, :answer3].each do |field_name| %>
+    <% [[:answer1, "What's most important to you?"], [:answer2, "What's your favorite food?"], [:answer3, "If you can work anywhere, where do you want to work?"]].each do |(field_name, field_label)| %>
       <div class="profile_prompt">
-        <%= ff.label field_name %>
+        <%= ff.label field_label %>
         <%= ff.text_field field_name, class: "form-control" %>
         <% if @user.errors[field_name].present? %>
           <% @user.errors[field_name].each do |msg| %>
