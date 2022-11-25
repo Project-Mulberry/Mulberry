@@ -49,7 +49,7 @@
 
   <div class="location">
     <%= f.label :location %>
-    <%= f.text_field :location, class: "form-control" %>
+    <%= f.select :location, [%w[AK ak], %w[AL al], %w[AR ar], %w[AS as], %w[AZ az], %w[CA ca], %w[CO co], %w[CT ct], %w[DC dc], %w[DE de], %w[FL fl], %w[GA ga], %w[GU gu], %w[HI hi], %w[IA ia], %w[ID id], %w[IL il], %w[IN in], %w[KS ks], %w[KY ky], %w[LA la], %w[MA ma], %w[MD md], %w[ME me], %w[MI mi], %w[MN mn], %w[MO mo], %w[MP mp], %w[MS ms], %w[MT mt], %w[NC nc], %w[ND nd], %w[NE ne], %w[NH nh], %w[NJ nj], %w[NM nm], %w[NV nv], %w[NY ny], %w[OH oh], %w[OK ok], %w[OR or], %w[PA pa], %w[PR pr], %w[RI ri], %w[SC sc], %w[SD sd], %w[TN tn], %w[TX tx], %w[UM um], %w[UT ut], %w[VA va], %w[VI vi], %w[VT vt], %w[WA wa], %w[WI wi], %w[WV wv], %w[WY wy]], {}, class: "form-control" %>
     <% if @user.errors[:location].present? %>
       <% @user.errors[:location].each do |msg| %>
         <p style="color:red"><%= msg %></p>
