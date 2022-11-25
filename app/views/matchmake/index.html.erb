@@ -1,71 +1,40 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Your Matches</h1>
+<br>
+<br>
 
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col"></th>
-    <th scope="col"><h4>Name   </h4></th>
-    <th scope="col"><h4>Location   </h4></th>
-    <th scope="col"><h4>Education   </h4></th>
-    <th scope="col"><h4>Career   </h4></th>
-    <th scope="col"><h4>Hobby1  </h4></th>
-    <th scope="col"><h4>Hobby2  </h4></th>
-    <th scope="col"><h4>Hobby3  </h4></th>
-    <th scope="col"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-
+<div class="match">
   <% @new_matches.each do |new_match| %>
-    <tr>
-      <td  class="text-primary">New</td>
-      <th scope="row"><%= new_match["name"] %> </th>
-      <td><%= new_match["location"] %> </td>
-      <td><%= new_match["education"] %> </td>
-      <td><%= new_match["career"] %> </td>
-      <% if User.find(new_match["uid"]).interest.present? %>
-        <td><%= Interest.get_interests_by_uid(new_match["uid"]).interest1 %></td>
-        <td><%= Interest.get_interests_by_uid(new_match["uid"]).interest2 %></td>
-        <td><%= Interest.get_interests_by_uid(new_match["uid"]).interest3 %></td>
+    <div class="card">
+      <% if User.find(new_match["uid"]).profile_photo.present? %>
+        <%= image_tag( User.find(new_match["uid"]).profile_photo, :alt => "Profile Pic", :class => "card-img-top") -%>
       <% else %>
-        <td></td>
-        <td></td>
-        <td></td>
+        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" class="card-img-top" alt="Profile Photo">
       <% end %>
-      <td><%= link_to 'detail', matchmake_path(new_match["uid"]), class: 'btn btn-sm btn-outline-primary' %>   </td>
-    </tr>
+      <div class="card-body">
+        <p class="card-text text-primary">New</p>
+        <h5 class="card-title" style="display:inline-block;"><%= new_match["name"] %> &nbsp</h5><p class="card-text" style="display:inline-block; justify-content: end;"><%= new_match["location"] %>, <%= new_match["career"] %> &nbsp&nbsp&nbsp</p><%= link_to 'detail', matchmake_path(new_match["uid"]), class: 'btn btn-sm btn-outline-primary', style: 'display:inline-block;' %>
+        <p class="card-text"><%= new_match["location"] %>, <%= new_match["career"] %><br><%= Interest.get_interests_by_uid(new_match["uid"]).interest1%> <br> <%= Interest.get_interests_by_uid(new_match["uid"]).interest2%> <br> <%= Interest.get_interests_by_uid(new_match["uid"]).interest3%></p>
+      </div>
+    </div>
   <% end %>
-
 
   <% @history_matches.each do |old_match| %>
-    <tr>
-      <td>Matches</td>
-      <th scope="row"><%= User.find(old_match).name %> </th>
-      <td><%= User.find(old_match).location %> </td>
-      <td><%= User.find(old_match).education %> </td>
-      <td><%= User.find(old_match).career %> </td>
-      <% if User.find(old_match).interest.present? %>
-        <td><%= Interest.get_interests_by_uid(old_match).interest1 %></td>
-        <td><%= Interest.get_interests_by_uid(old_match).interest2 %></td>
-        <td><%= Interest.get_interests_by_uid(old_match).interest3 %></td>
+    <div class="card">
+      <% if User.find(old_match).profile_photo.present? %>
+        <%= image_tag( User.find(old_match).profile_photo, :alt => "Profile Pic", :class => "card-img-top") -%>
       <% else %>
-        <td></td>
-        <td></td>
-        <td></td>
+        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" class="card-img-top" alt="Profile Photo">
       <% end %>
-      <td><%= link_to 'detail', matchmake_path(old_match), class: 'btn btn-sm btn-outline-primary' %>   </td>
-
-    </tr>
+      <div class="card-body">
+        <p class="card-text">Matched</p>
+        <h5 class="card-title" style="display:inline-block;"><%= User.find(old_match).name %> &nbsp</h5><p class="card-text" style="display:inline-block; justify-content: end;"><%= User.find(old_match).location %>, <%= User.find(old_match).career %> &nbsp&nbsp&nbsp</p><%= link_to 'detail', matchmake_path(old_match), class: 'btn btn-sm btn-outline-primary', style: 'display:inline-block;' %>
+        <p class="card-text">Interests: <br><%= Interest.get_interests_by_uid(old_match).interest1%> <br> <%= Interest.get_interests_by_uid(old_match).interest2%> <br> <%= Interest.get_interests_by_uid(old_match).interest3%></p>
+      </div>
+    </div>
   <% end %>
-
-
-
-
-  </tbody>
-</table>
+</div>
 
 <br>
 <%= link_to 'Direct to Message List', messages_path, class: 'btn btn-sm btn-outline-primary' %>
