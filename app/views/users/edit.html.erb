@@ -59,7 +59,7 @@
 
   <div class="education">
     <%= f.label :education %>
-    <%= f.select :education, ["high school", 'undergradute', 'master','phd'], {}, class:"form-control"%>
+    <%= f.select :education, ["High School", 'Undergradute', 'Master','PhD'], {}, class:"form-control"%>
     <% if @user.errors[:education].present? %>
       <% @user.errors[:education].each do |msg| %>
         <p style="color:red"><%= msg %></p>
