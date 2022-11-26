@@ -31,8 +31,12 @@ WHERE u.gender = '?' AND u.location = '?' AND u.sexuality = '?' AND u.uid NOT IN
   # @return List(User), the matched users
   def self.get_match_recommendation(uid)
     user = User.find(uid)
-    gender = if user.sexuality == 'straight'
-               user.gender == 'm' ? 'f' : 'm'
+    gender = if user.sexuality == 'Heterosexuality'
+               if user.gender == 'Other'
+                 user.gender
+               else
+                 user.gender == 'Male' ? 'Female' : 'Male'
+               end
              else
                user.gender
              end
