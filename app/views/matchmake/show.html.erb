@@ -7,16 +7,21 @@
   <% end %>
   <div class="card-body">
     <h5 class="card-title"><%= @user.name %></h5>
-    <p class="card-text">Prompt:</p>
+    <p class="card-text">What's most important to you?</p>
     <p><%= @prompt.answer1 %></p>
+    <p>What's your favorite food?</p>
     <p><%= @prompt.answer2 %></p>
+    <p>If you can work anywhere, where do you want to work?</p>
     <p><%= @prompt.answer3 %></p>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Sexuality: <%= @user.sexuality%></li>
     <li class="list-group-item">Gender: <%= @user.gender%></li>
-    <li class="list-group-item">Birthday: <%= @user.birthday.strftime("%Y-%m-%d") %></li>
+    <li class="list-group-item">Education: <%= @user.education%></li>
+    <li class="list-group-item">Career: <%= @user.career%></li>
+    <li class="list-group-item">Location: <%= @user.location%></li>
     <li class="list-group-item">Height: <%= @user.height%></li>
+    <li class="list-group-item">Birthday: <%= @user.birthday.strftime("%Y-%m-%d") %></li>
     <li class="list-group-item">
       Interest:
       <p><%= @interest.interest1%></p>
