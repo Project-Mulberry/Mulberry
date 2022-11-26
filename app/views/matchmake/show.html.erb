@@ -15,7 +15,7 @@
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Sexuality: <%= @user.sexuality%></li>
     <li class="list-group-item">Gender: <%= @user.gender%></li>
-    <li class="list-group-item">Birthday: <%= @user.birthday%></li>
+    <li class="list-group-item">Birthday: <%= @user.birthday.strftime("%Y-%m-%d") %></li>
     <li class="list-group-item">Height: <%= @user.height%></li>
     <li class="list-group-item">
       Interest:
