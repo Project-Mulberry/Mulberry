@@ -14,7 +14,7 @@ class ActivitiesController < ApplicationController
     # @user = User.find(params[:id])
     # @message_send = Message.where(sender_uid: params[:id]).all
     # @message_receive = Message.where(receiver_uid: params[:id]).all
-    @chat_interactive_uid = @activity.fst_uid == current_user.uid ? @activity.snd_uid : current_user.uid
+    @chat_interactive_uid = @activity.fst_uid == current_user.uid ? @activity.snd_uid : @activity.fst_uid
   end
 
   # GET /messages/new

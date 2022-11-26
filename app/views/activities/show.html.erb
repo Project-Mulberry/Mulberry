@@ -1,15 +1,18 @@
 
 <p id="notice"><%= notice %></p>
+
+<%= link_to 'Back to Chat', message_path(@chat_interactive_uid), class: 'btn btn-sm btn-outline-primary' %>
+<br>
 <h1>Activity Information</h1>
 <table class="table">
   <tr>
     <td>Status: </td><td> <%=@activity.status %></td>
   </tr>
   <tr>
-    <td>First User:</td><td> <%= link_to User.find(@activity.fst_uid).name, matchmake_path(@activity.fst_uid) %>(Accepted: <%= @activity.fst_accept %>)</td>
+    <td>First User:</td><td> <%= link_to User.find(@activity.fst_uid).name, matchmake_path(@activity.fst_uid) %></td>
   </tr>
   <tr>
-    <td>Second User: </td><td>  <%= link_to User.find(@activity.snd_uid).name, matchmake_path(@activity.snd_uid) %>(Accepted: <%= @activity.snd_accept %>) </td>
+    <td>Second User: </td><td>  <%= link_to User.find(@activity.snd_uid).name, matchmake_path(@activity.snd_uid) %></td>
   </tr>
   <tr>
     <td>DateTime: </td><td>  <%=@activity.datetime %></td>
@@ -34,7 +37,7 @@
 <% if @activity.status == 'PENDING'
   # no user ever accepted
   if @activity.fst_accept == false && @activity.snd_accept == false %>
-    <td colspan="100"><%= link_to 'Accept Invitation', accept_activity_path(@activity.id, uid: current_user.uid) %></td>
+    <td colspan="100"><%= link_to 'Accept Invitation', accept_activity_path(@activity.id, uid: current_user.uid), class: 'btn btn-sm btn-outline-primary' %></td>
   <%
   # current user accepted but the other user hasn't
   elsif (@activity.fst_uid == current_user.uid && @activity.snd_accept == false) or (@activity.snd_uid == current_user.uid && @activity.fst_accept == false) %>
@@ -45,7 +48,7 @@
   elsif (@activity.fst_uid == current_user.uid && @activity.snd_accept == true) or (@activity.snd_uid == current_user.uid && @activity.fst_accept == true) %>
     <td colspan="100"><h3>The other user have already accepted the invitation!</h3></td>
     <td colspan="100"><h3>Waiting for you to accept the invitation! </h3></td>
-    <td colspan="100"><%= link_to 'Accept Invitation', accept_activity_path(@activity.id, uid: current_user.uid) %></td>
+    <td colspan="100"><%= link_to 'Accept Invitation', accept_activity_path(@activity.id, uid: current_user.uid), class: 'btn btn-sm btn-outline-primary' %></td>
   <% end %>
 <% end %>
 
@@ -58,6 +61,3 @@
   elsif @activity.status == 'DONE' %>
     <td colspan="100"><h3>This activity has been completed!</h3></td>
 <% end %>
-
-<br>
-<%= link_to 'Back to Chat', message_path(@chat_interactive_uid), class: 'btn btn-sm btn-outline-primary' %>
