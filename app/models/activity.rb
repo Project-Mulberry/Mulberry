@@ -1,20 +1,19 @@
 class Activity < ActiveRecord::Base
-  # @param  int(coupon_id)
   # @param  int(first uid)
   # @param  int(second uid)
-  # @return list(Activity)
-
-  # def self.create_new_activity(cid, fst_uid, snd_uid)
-  #   activity = {
-  #     :status => 'PENDING',
-  #     :coupon_id => cid,
-  #     :datetime => DateTime.now(),
-  #     :fst_uid => fst_uid,
-  #     :fst_accept => false,
-  #     :snd_uid => snd_uid,
-  #     :snd_accept => false }
-  #   return Activity.create!(activity)
-  # end
+  # @return Activity
+  def self.create_new_activity(fst_uid, snd_uid)
+    cid = Coupon.coupon_recommend(fst_uid, snd_uid)
+    activity = {
+      :status => 'PENDING',
+      :coupon_id => cid,
+      :datetime => DateTime.now(),
+      :fst_uid => fst_uid,
+      :fst_accept => false,
+      :snd_uid => snd_uid,
+      :snd_accept => false }
+    return Activity.create!(activity)
+  end
 
   # @param  int(activity id)
   # @param  int(uid)
