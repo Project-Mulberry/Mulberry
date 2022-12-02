@@ -6,8 +6,8 @@ RSpec.describe MatchHistory, type: :model do
                            :phone => '1234567890',
                            :password => '12345678',
                            :name => 'User - 1 - male',
-                           :gender => 'm',
-                           :sexuality => 'straight',
+                           :gender => 'Male',
+                           :sexuality => 'Heterosexuality',
                            :location => 'NY',
                            :birthday => '2000-01-01',
                            :education => 'bachelor',
@@ -19,8 +19,8 @@ RSpec.describe MatchHistory, type: :model do
                            :phone => '1234567891',
                            :password => '12345678',
                            :name => 'User - 2 - female',
-                           :gender => 'f',
-                           :sexuality => 'straight',
+                           :gender => 'Female',
+                           :sexuality => 'Heterosexuality',
                            :location => 'NY',
                            :birthday => '2000-01-01',
                            :education => 'bachelor',
@@ -31,9 +31,22 @@ RSpec.describe MatchHistory, type: :model do
     @uid3 = User.create!({
                            :phone => '1234567892',
                            :password => '12345678',
-                           :name => 'User - 3 - male',
-                           :gender => 'm',
-                           :sexuality => 'homosexual',
+                           :name => 'User - 3 - Other',
+                           :gender => 'Other',
+                           :sexuality => 'Heterosexuality',
+                           :location => 'CA',
+                           :birthday => '2000-01-01',
+                           :education => 'bachelor',
+                           :career => 'student',
+                           :height => '6.0',
+                           :profile_photo => '.',
+                         })[:uid]
+    @uid4 = User.create!({
+                           :phone => '1234567893',
+                           :password => '12345678',
+                           :name => 'User - 4 - male',
+                           :gender => 'Male',
+                           :sexuality => 'Homosexuality',
                            :location => 'CA',
                            :birthday => '2000-01-01',
                            :education => 'bachelor',
@@ -44,6 +57,7 @@ RSpec.describe MatchHistory, type: :model do
     Interest.create!({:uid => @uid1, :interest1 => 'Y', :interest2 => 'Y', :interest3 => 'Y'})
     Interest.create!({:uid => @uid2, :interest1 => 'Y', :interest2 => 'Y', :interest3 => 'Y'})
     Interest.create!({:uid => @uid3, :interest1 => 'Y', :interest2 => 'Y', :interest3 => 'Y'})
+    Interest.create!({:uid => @uid4, :interest1 => 'Y', :interest2 => 'Y', :interest3 => 'Y'})
   end
 
   context 'add new match history' do
@@ -70,6 +84,15 @@ RSpec.describe MatchHistory, type: :model do
       expect(recommendation.length).to eq(0)
 
       matched_id = MatchHistory.get_history_matched_uid_list(@uid3)
+      expect(matched_id.length).to eq(0)
+
+    end
+
+    it 'Successfully' do
+      recommendation = MatchHistory.get_match_recommendation(@uid4)
+      expect(recommendation.length).to eq(0)
+
+      matched_id = MatchHistory.get_history_matched_uid_list(@uid4)
       expect(matched_id.length).to eq(0)
 
     end

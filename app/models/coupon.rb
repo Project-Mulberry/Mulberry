@@ -1,7 +1,9 @@
 class Coupon < ActiveRecord::Base
 
   PULL_ALL_COUPONS_BASE_SQL_QUERY = "SELECT cid FROM coupons WHERE name = 'food'"
-  @@default_coupons = []
+  def self.get_default_coupon_list
+    ActiveRecord::Base.connection.execute(PULL_ALL_COUPONS_BASE_SQL_QUERY).to_a
+  end
 
   FIND_MATCH_INTEREST_IN_COUPON_BASE_SQL_QUERY =
     "SELECT cid FROM coupons WHERE name IN ?"
@@ -30,16 +32,16 @@ class Coupon < ActiveRecord::Base
       end
     end
 
+    default_coupons = Coupon.get_default_coupon_list
+    default_cid = default_coupons[rand(default_coupons.length)]["cid"]
+    # return a random cid from the query result list or from a general 'food' list
+    if interests.empty? then default_cid end
+
     # search valid uid
     sql = Helper.generate_query(FIND_MATCH_INTEREST_IN_COUPON_BASE_SQL_QUERY,
                                 [Helper.convert_array_to_sql_list(interests)])
     interests_list = ActiveRecord::Base.connection.execute(sql).to_a
 
-    if @@default_coupons.empty?
-      @@default_coupons = ActiveRecord::Base.connection.execute(PULL_ALL_COUPONS_BASE_SQL_QUERY).to_a
-    end
-
-    # return a random cid from the query result list or from a general 'food' list
-    interests_list.empty? ? @@default_coupons[rand(@@default_coupons.length)]["cid"] : interests_list[rand(interests_list.length)]["cid"]
+    interests_list.empty? ? default_cid : interests_list[rand(interests_list.length)]["cid"]
   end
 end

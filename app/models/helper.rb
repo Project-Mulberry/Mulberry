@@ -10,6 +10,7 @@ class Helper
   end
 
   def self.convert_array_to_sql_list(list)
+    if list.nil? or list.empty? then return '()' end
     result = '('
     list.each do |element|
       if element.instance_of? String
