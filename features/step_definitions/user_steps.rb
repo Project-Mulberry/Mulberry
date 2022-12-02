@@ -16,7 +16,8 @@ Then("I fill in the following questions: Name, Gender, Sexuality, Location, Care
   fill_in("user[birthday]", with: "2010-11-11")
   select("NY", from: "user_location")
   fill_in("user[career]", with: "driver")
-  fill_in("user[height]", with: "7-7")
+  select("7'7", from: "user_height")
+  #fill_in("user[height]", with: "7-7")
   fill_in("user[profile_photo]", with: "www.gogole.com")
   fill_in("user[interest_attributes][interest1]", with: "A")
   fill_in("user[interest_attributes][interest2]", with: "B")
@@ -41,7 +42,8 @@ Then("I fill in the following questions: Gender, Sexuality, Location, Career, He
   fill_in("user[birthday]", with: "2010-11-11")
   select("NY", from: "user_location")
   fill_in("user[career]", with: "driver")
-  fill_in("user[height]", with: "7-7")
+  select("7'7", from: "user_height")
+  #fill_in("user[height]", with: "7-7")
   fill_in("user[profile_photo]", with: "www.gogole.com")
 end
 

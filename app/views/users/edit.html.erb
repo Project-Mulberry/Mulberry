@@ -19,7 +19,7 @@
   </div>
   <div class="gender">
     <%= f.label :gender %>
-    <%= f.select :gender, [%w[Male Male], %w[Female Female], %w[Other Other]], {}, { class: "form-control" } %>
+    <%= f.select :gender, [%w[Male male], %w[Female female], %w[Other other]], {}, { class: "form-control" } %>
     <% if @user.errors[:gender].present? %>
       <% @user.errors[:gender].each do |msg| %>
         <p style="color:red"><%= msg %></p>
@@ -29,7 +29,7 @@
 
   <div class="sexuality">
     <%= f.label :sexuality %>
-    <%= f.select :sexuality, [%w[Heterosexual Heterosexual], %w[Homosexual Homosexual], %w[Other Other]], {}, class: "form-control" %>
+    <%= f.select :sexuality, [%w[Heterosexual heterosexual], %w[Homosexual homosexual], %w[Other other]], {}, class: "form-control" %>
     <% if @user.errors[:sexuality].present? %>
       <% @user.errors[:sexuality].each do |msg| %>
         <p style="color:red"><%= msg %></p>
@@ -49,7 +49,7 @@
 
   <div class="location">
     <%= f.label :location %>
-    <%= f.select :location, [%w[AK AK], %w[AL AL], %w[AR AR], %w[AS AS], %w[AZ AZ], %w[CA CA], %w[CO CO], %w[CT CT], %w[DC DC], %w[DE DE], %w[FL FL], %w[GA GA], %w[GU GU], %w[HI HI], %w[IA IA], %w[ID ID], %w[IL IL], %w[IN IN], %w[KS KS], %w[KY KY], %w[LA LA], %w[MA MA], %w[MD MD], %w[ME ME], %w[MI MI], %w[MN MN], %w[MO MO], %w[MP MP], %w[MS MS], %w[MT MT], %w[NC NC], %w[ND ND], %w[NE NE], %w[NH NH], %w[NJ NJ], %w[NM NM], %w[NV NV], %w[NY NY], %w[OH OH], %w[OK OK], %w[OR OR], %w[PA PA], %w[PR PR], %w[RI RI], %w[SC SC], %w[SD SD], %w[TN TN], %w[TX TX], %w[UM UM], %w[UT UT], %w[VA VA], %w[VI VI], %w[VT VT], %w[WA WA], %w[WI WI], %w[WV WV], %w[WY WY]], {}, class: "form-control" %>
+    <%= f.select :location, [%w[AK ak], %w[AL al], %w[AR ar], %w[AS as], %w[AZ az], %w[CA ca], %w[CO co], %w[CT ct], %w[DC dc], %w[DE de], %w[FL fl], %w[GA ga], %w[GU gu], %w[HI hi], %w[IA ia], %w[ID id], %w[IL il], %w[IN in], %w[KS ks], %w[KY ky], %w[LA la], %w[MA ma], %w[MD md], %w[ME me], %w[MI mi], %w[MN mn], %w[MO mo], %w[MP mp], %w[MS ms], %w[MT mt], %w[NC nc], %w[ND nd], %w[NE ne], %w[NH nh], %w[NJ nj], %w[NM nm], %w[NV nv], %w[NY ny], %w[OH oh], %w[OK ok], %w[OR or], %w[PA pa], %w[PR pr], %w[RI ri], %w[SC sc], %w[SD sd], %w[TN tn], %w[TX tx], %w[UM um], %w[UT ut], %w[VA va], %w[VI vi], %w[VT vt], %w[WA wa], %w[WI wi], %w[WV wv], %w[WY wy]], {}, class: "form-control" %>
     <% if @user.errors[:location].present? %>
       <% @user.errors[:location].each do |msg| %>
         <p style="color:red"><%= msg %></p>
@@ -59,7 +59,7 @@
 
   <div class="education">
     <%= f.label :education %>
-    <%= f.select :education, ["High School", 'Undergradute', 'Master','PhD'], {}, class:"form-control"%>
+    <%= f.select :education, ["high school", 'undergradute', 'master','phd'], {}, class:"form-control"%>
     <% if @user.errors[:education].present? %>
       <% @user.errors[:education].each do |msg| %>
         <p style="color:red"><%= msg %></p>
