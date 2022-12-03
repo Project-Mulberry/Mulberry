@@ -42,6 +42,16 @@
 <br>
 </table>
 
+<h3>Interests</h3>
+<hr/>
+<div class = "profile_photo">
+  <table class="table table-responsive" >
+    <tr><td>Interest1:</td><td> <%= Interest.get_interests_by_uid(@user.uid).interest1 %></td></tr>
+    <tr><td>Interest2:</td><td> <%= Interest.get_interests_by_uid(@user.uid).interest2 %></td></tr>
+    <tr><td>Interest3:</td><td> <%= Interest.get_interests_by_uid(@user.uid).interest3 %></td></tr>
+  </table>
+</div>
+
 <h3>Prompts</h3>
 <hr/>
 <div class = "profile_photo">
@@ -51,16 +61,6 @@
     <tr><td>What's most important to you?</td><td> <%= Prompt.where(uid: @user.uid).first.answer1 %></td> </tr>
     <tr><td>What's your favorite food?</td><td> <%= Prompt.where(uid: @user.uid).first.answer2 %></td> </tr>
     <tr><td>If you can work anywhere, where do you want to work?</td><td> <%= Prompt.where(uid: @user.uid).first.answer3 %></td> </tr>
-  </table>
-</div>
-
-<h3>Interests</h3>
-<hr/>
-<div class = "profile_photo">
-  <table class="table table-responsive" >
-    <tr><td>Interest1:</td><td> <%= Interest.get_interests_by_uid(@user.uid).interest1 %></td></tr>
-    <tr><td>Interest2:</td><td> <%= Interest.get_interests_by_uid(@user.uid).interest2 %></td></tr>
-    <tr><td>Interest3:</td><td> <%= Interest.get_interests_by_uid(@user.uid).interest3 %></td></tr>
   </table>
 </div>
 

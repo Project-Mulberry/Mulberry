@@ -1,4 +1,4 @@
-<h2>Profile of <em><%= @user.name %></em></h2>
+<h2>Profile of <%= @user.name %></h2>
 
 <img class="rounded img-fluid w-200p" src="<%= @user.profile_photo %>"/>
 <table class="table table-responsive">
@@ -32,6 +32,16 @@
   </tr>
 </table>
 
+<h3>Interests</h3>
+<hr/>
+<div class = "profile_photo">
+  <table class="table table-responsive">
+    <tr><td>Interest1:</td><td> <%= @interest.interest1 %></td></tr>
+    <tr><td>Interest2:</td><td> <%= @interest.interest2 %></td></tr>
+    <tr><td>Interest3:</td><td> <%= @interest.interest3 %></td></tr>
+  </table>
+</div>
+
 <h3>Prompts</h3>
 <hr/>
 <div class = "profile_photo">
@@ -41,16 +51,6 @@
     <tr><td>What's most important to you?</td><td> <%= @prompt.answer1 %></td> </tr>
     <tr><td>What's your favorite food?</td><td> <%= @prompt.answer2 %></td> </tr>
     <tr><td>If you can work anywhere, where do you want to work?</td><td> <%= @prompt.answer3 %></td> </tr>
-  </table>
-</div>
-
-<h3>Interests</h3>
-<hr/>
-<div class = "profile_photo">
-  <table class="table table-responsive">
-    <tr><td>Interest1:</td><td> <%= @interest.interest1 %></td></tr>
-    <tr><td>Interest2:</td><td> <%= @interest.interest2 %></td></tr>
-    <tr><td>Interest3:</td><td> <%= @interest.interest3 %></td></tr>
   </table>
 </div>
 
