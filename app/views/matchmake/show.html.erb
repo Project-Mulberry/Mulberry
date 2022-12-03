@@ -2,9 +2,6 @@
 
 <img class="rounded img-fluid w-200p" src="<%= @user.profile_photo %>"/>
 <table class="table table-responsive">
-  <tr>
-    <td>Phone:</td><td> <%= @user.phone %></td>
-  </tr>
 
   <tr>
     <td>Gender:</td><td> <%= @user.gender %></td>
@@ -33,39 +30,28 @@
   <tr>
     <td>Height:</td><td> <%= @user.height %></td>
   </tr>
-
-  <tr>
-    <td>What's most important to you?</td><td> <%= @prompt.answer1 %></td>
-  </tr>
-
-  <tr>
-    <td>What's your favorite food?</td><td> <%= @prompt.answer2 %></td>
-  </tr>
-
-  <tr>
-    <td>If you can work anywhere, where do you want to work?</td><td> <%= @prompt.answer3 %></td>
-  </tr>
-
-  <tr>
-    <td>Interest1:</td><td> <%= @interest.interest1 %></td>
-  </tr>
-
-  <tr>
-    <td>Interest2:</td><td> <%= @interest.interest2 %></td>
-  </tr>
-
-  <tr>
-    <td>Interest3:</td><td> <%= @interest.interest3 %></td>
-  </tr>
-  <br>
 </table>
+
+<h3>Prompts</h3>
+<hr/>
+<div class = "profile_photo">
+  <table class="table table-responsive">
+    <col style="width: 46%;" />
+    <col style="width: 54%;" />
+    <tr><td>What's most important to you?</td><td> <%= @prompt.answer1 %></td> </tr>
+    <tr><td>What's your favorite food?</td><td> <%= @prompt.answer2 %></td> </tr>
+    <tr><td>If you can work anywhere, where do you want to work?</td><td> <%= @prompt.answer3 %></td> </tr>
+  </table>
+</div>
 
 <h3>Interests</h3>
 <hr/>
 <div class = "profile_photo">
-  Interest1:</td><td> <%= @interest.interest1 %> <br>
-  Interest2:</td><td> <%= @interest.interest2 %> <br>
-  Interest3:</td><td> <%= @interest.interest3 %>
+  <table class="table table-responsive">
+    <tr><td>Interest1:</td><td> <%= @interest.interest1 %></td></tr>
+    <tr><td>Interest2:</td><td> <%= @interest.interest2 %></td></tr>
+    <tr><td>Interest3:</td><td> <%= @interest.interest3 %></td></tr>
+  </table>
 </div>
 
 <%= link_to 'Send', message_path(@user.uid), class: 'btn btn-sm btn-outline-primary col' %>
