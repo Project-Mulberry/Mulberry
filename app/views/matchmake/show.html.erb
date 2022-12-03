@@ -1,11 +1,10 @@
-<h2>Profile of <em><%= @user.name %></em></h2>
+<h2>Profile of <%= @user.name %></h2>
 <div class="card" style="width: 20rem; margin-top: 2rem;">
   <% if User.find(@user.uid).profile_photo.present? %>
     <%= image_tag( @user.profile_photo, :alt => "Profile Pic") -%>
   <% else %>
     <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" class="card-img-top" alt="Profile Photo">
   <% end %>
-  <h5 class="card-title"><%= @user.name %></h5>
 
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Sexuality: <%= @user.sexuality%></li>
