@@ -40,9 +40,10 @@ end
 # end
 
 coupons = [
-  {:name => 'food', :message => 'Both of you love Italian food, check out this amazing Italian restaurant and enjoy our special coupon!', :location => '116 Street, New York, NY 10000', :original_price => '1000.00', :discount_price => '50.00', :advertiser => 'Columbia Dining' },
-  {:name => 'music', :message => 'Both of you love Jazz Music, check out this amazing Jazz bar and enjoy our special coupon!', :location => '116 Street, New York, NY 10000', :original_price => '20.00', :discount_price => '8.00', :advertiser => 'Fancy Jazz Bar' },
-  {:name => 'sports', :message => 'Both of you love Tennis, check out this amazing tennis club and enjoy our special coupon!', :location => '116 Street, New York, NY 10000', :original_price => '100.00', :discount_price => '20.00', :advertiser => 'Dodge Fitness Center' }
+  {:name => 'food', :message => 'Both of you may like this amazing restaurant! Check it out and enjoy our special coupon!', :location => '116 Street, New York, NY 10000', :original_price => '500.00', :discount_price => '450.00', :advertiser => 'Fancy Restaurant' },
+  {:name => 'italian food', :message => 'Both of you love Italian food! Check out this amazing Italian restaurant and enjoy our special coupon!', :location => '116 Street, New York, NY 10000', :original_price => '1000.00', :discount_price => '50.00', :advertiser => 'Columbia Dining' },
+  {:name => 'jazz music', :message => 'Both of you love Jazz Music! Check out this amazing Jazz bar and enjoy our special coupon!', :location => '116 Street, New York, NY 10000', :original_price => '20.00', :discount_price => '8.00', :advertiser => 'Fancy Jazz Bar' },
+  {:name => 'tennis', :message => 'Both of you love Tennis! Check out this amazing tennis club and enjoy our special coupon!', :location => '116 Street, New York, NY 10000', :original_price => '100.00', :discount_price => '20.00', :advertiser => 'Dodge Fitness Center' }
 ]
 coupons.each do |coupon|
   Coupon.create!(coupon)
