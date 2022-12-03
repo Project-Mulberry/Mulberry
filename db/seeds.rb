@@ -18,26 +18,26 @@ users.each do |user|
 end
 
 interests = [
-  {:uid => 1, :interest1 => 'Japanese Food', :interest2 => 'Jazz Music', :interest3 => 'Chess' },
-  {:uid => 2, :interest1 => 'Italian Food', :interest2 => 'Jazz Music', :interest3 => 'Tennis' },
+  {:uid => 1, :interest1 => 'japanese food', :interest2 => 'jazz music', :interest3 => 'chess' },
+  {:uid => 2, :interest1 => 'italian food', :interest2 => 'jazz music', :interest3 => 'tennis' },
   {:uid => 3, :interest1 => 'N', :interest2 => 'N', :interest3 => 'N' },
   {:uid => 4, :interest1 => '', :interest2 => '', :interest3 => '' },
-  {:uid => 5, :interest1 => 'Spanish Food', :interest2 => 'Country Music', :interest3 => 'Chess' }
+  {:uid => 5, :interest1 => 'spanish food', :interest2 => 'country music', :interest3 => 'chess' }
 ]
 interests.each do |interest|
   Interest.create!(interest)
 end
 
-# messages = [
-#   {:sender_uid => 1, :receiver_uid => 2, :key => '<1>-<2>', :timestamp => '01-Oct-2022 11:30:00', :message => 'Hello Zhen, How are you!', :is_read => true },
-#   {:sender_uid => 2, :receiver_uid => 1, :key => '<1>-<2>', :timestamp => '01-Oct-2022 13:30:00', :message => 'Hi Marcus!', :is_read => true },
-#   {:sender_uid => 1, :receiver_uid => 2, :key => '<1>-<2>', :timestamp => '01-Oct-2022 15:00:00', :message => 'Interested in the recommended activity?', :is_read => false },
-#   {:sender_uid => 4, :receiver_uid => 1, :key => '<1>-<4>', :timestamp => '01-Oct-2022 10:00:00', :message => 'Morning!', :is_read => false },
-#   {:sender_uid => 3, :receiver_uid => 4, :key => '<3>-<4>', :timestamp => '01-Oct-2022 18:00:00', :message => 'Wanna eat out?', :is_read => true }
-# ]
-# messages.each do |message|
-#   Message.create!(message)
-# end
+messages = [
+  {:sender_uid => 1, :receiver_uid => 2, :key => '<1>-<2>', :timestamp => '01-Oct-2022 11:30:00', :message => 'Hello Zhen, How are you!', :is_read => true },
+  {:sender_uid => 2, :receiver_uid => 1, :key => '<1>-<2>', :timestamp => '01-Oct-2022 13:30:00', :message => 'Hi Marcus!', :is_read => true },
+  {:sender_uid => 1, :receiver_uid => 2, :key => '<1>-<2>', :timestamp => '01-Oct-2022 15:00:00', :message => 'Interested in the recommended activity?', :is_read => false },
+  {:sender_uid => 4, :receiver_uid => 1, :key => '<1>-<4>', :timestamp => '01-Oct-2022 10:00:00', :message => 'Morning!', :is_read => false },
+  {:sender_uid => 3, :receiver_uid => 4, :key => '<3>-<4>', :timestamp => '01-Oct-2022 18:00:00', :message => 'Wanna eat out?', :is_read => true }
+]
+messages.each do |message|
+  Message.create!(message)
+end
 
 coupons = [
   {:name => 'food', :message => 'Both of you may like this amazing restaurant! Check it out and enjoy our special coupon!', :location => '116 Street, New York, NY 10000', :original_price => '500.00', :discount_price => '450.00', :advertiser => 'Fancy Restaurant' },
@@ -49,14 +49,14 @@ coupons.each do |coupon|
   Coupon.create!(coupon)
 end
 
-# activities = [
-#   {:status => 'PENDING', :coupon_id => 2, :datetime => '2022-10-01 13:31:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => true },
-#   {:status => 'PENDING', :coupon_id => 3, :datetime => '2022-10-02 15:00:00', :fst_uid => 1, :fst_accept => false, :snd_uid => 2, :snd_accept => true },
-#   {:status => 'PENDING', :coupon_id => 1, :datetime => '2022-10-03 18:00:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => true },
-# ]
-# activities.each do |activity|
-#   Activity.create!(activity)
-# end
+activities = [
+  {:status => 'DONE', :coupon_id => 2, :datetime => '2022-10-01 13:31:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => true },
+  {:status => 'PENDING', :coupon_id => 3, :datetime => '2022-10-02 15:00:00', :fst_uid => 1, :fst_accept => false, :snd_uid => 2, :snd_accept => true },
+  {:status => 'SCHEDULED', :coupon_id => 1, :datetime => '2022-10-03 18:00:00', :fst_uid => 1, :fst_accept => true, :snd_uid => 2, :snd_accept => true },
+]
+activities.each do |activity|
+  Activity.create!(activity)
+end
 
 prompts = [
   {:uid => 1, :answer1 => 'easy-going', :answer2 => 'geek', :answer3 => 'engineer' },
