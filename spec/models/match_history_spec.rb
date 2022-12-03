@@ -85,7 +85,6 @@ RSpec.describe MatchHistory, type: :model do
 
       matched_id = MatchHistory.get_history_matched_uid_list(@uid3)
       expect(matched_id.length).to eq(0)
-
     end
 
     it 'Successfully' do
@@ -94,7 +93,6 @@ RSpec.describe MatchHistory, type: :model do
 
       matched_id = MatchHistory.get_history_matched_uid_list(@uid4)
       expect(matched_id.length).to eq(0)
-
     end
   end
 

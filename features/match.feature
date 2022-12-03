@@ -8,11 +8,12 @@ Feature: view profile of 10 daily matches
 Background: profiles in database
 
 	Given the following profiles exist:
-	| name    | location | education   | career              | phone	  | password	| gender	| birthday	    | sexuality	| height | profile_photo |
-	| Marcus  | NY       | Bachelor    | Student             | 1534643573 | 1           | m         | 01-Jan-2000	| straight  | 1      | 1             |
-	| Zhen    | NY       | Master      | Student             | 5437525723 | 1           | f         | 01-Jan-2000	| straight  | 1      | 1             |
-	| Jack    | NY       | PhD         | Software Engineer   | 4668756566 | 1           | m         | 01-Jan-2000	| straight  | 1      | 1             |
-	| Hang    | NY       | High School | Unemployed          | 4527772777 | 1           | m         | 01-Jan-2000	| straight  | 1      | 1             |
+	| name    | location | education   | career              | phone	  | password	| gender	| birthday	    | sexuality	       | height | profile_photo |
+	| Marcus  | NY       | Bachelor    | Student             | 1534643573 | 1           | Male      | 01-Jan-2000	| Heterosexuality  | 1      | 1             |
+	| Zhen    | NY       | Master      | Student             | 5437525723 | 1           | Female    | 01-Jan-2000	| Heterosexuality  | 1      | 1             |
+	| Jack    | NY       | PhD         | Software Engineer   | 4668756566 | 1           | Male      | 01-Jan-2000	| Heterosexuality  | 1      | 1             |
+	| Hang    | NY       | High School | Unemployed          | 4527772777 | 1           | Male      | 01-Jan-2000	| Heterosexuality  | 1      | 1             |
+	| Robot   | NY       | High School | Unemployed          | 4527772778 | 1           | Other     | 01-Jan-2000	| Heterosexuality  | 1      | 1             |
 
 
 	Given the following messages exist:
@@ -28,9 +29,11 @@ Background: profiles in database
 	| Y      	| Y      	| Y      	|
 	| Y      	| Y      	| Y      	|
 	| N      	| N      	| N      	|
+	| N      	| N      	| N      	|
 
 	Given the following prompts exist:
 	| answer1         | answer2         | answer3         |
+	| prompt-1-answer | prompt-1-answer | prompt-1-answer |
 	| prompt-1-answer | prompt-1-answer | prompt-1-answer |
 	| prompt-1-answer | prompt-1-answer | prompt-1-answer |
 	| prompt-1-answer | prompt-1-answer | prompt-1-answer |
@@ -62,3 +65,11 @@ Scenario: click "detail" to see more details of a particular user and go back
 	Then   I should see "Profile of"
 	When   I follow "Back"
 	Then   I should be on the matchmake page
+
+Scenario: login as another user and see match recommendation
+	When   I follow "Log Out"
+	Then   I should see "Login"
+	When   I logged in as another user
+	And    I press "Log In"
+	Then   I am on the matchmake page
+    Then   I should see "Match"
