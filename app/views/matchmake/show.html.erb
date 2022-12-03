@@ -1,31 +1,67 @@
-<h2>Profile of <%= @user.name %></h2>
-<div class="card" style="width: 20rem; margin-top: 2rem;">
-  <% if User.find(@user.uid).profile_photo.present? %>
-    <%= image_tag( @user.profile_photo, :alt => "Profile Pic") -%>
-  <% else %>
-    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" class="card-img-top" alt="Profile Photo">
-  <% end %>
+<h2>Profile of <em><%= @user.name %></em></h2>
 
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Sexuality: <%= @user.sexuality%></li>
-    <li class="list-group-item">Gender: <%= @user.gender%></li>
-    <li class="list-group-item">Birthday: <%= @user.birthday%></li>
-    <li class="list-group-item">Height: <%= @user.height%></li>
-    <li class="list-group-item">
-      <h6><strong>Interests</strong></h6>
-      <p>1: <%= @interest.interest1%></p>
-      <p>2: <%= @interest.interest2%></p>
-      <p>3: <%= @interest.interest3%></p>
-    </li>
-    <li class="list-group-item">
-      <h6><strong>Prompts</strong></h6>
-      <p>1: <%= @prompt.answer1 %></p>
-      <p>2: <%= @prompt.answer2 %></p>
-      <p>3: <%= @prompt.answer3 %></p>
-    </li>
-  </ul>
-  <div class="card-body">
-    <%= link_to 'Send', message_path(@user.uid), class: 'btn btn-sm btn-outline-primary col' %>
-    <%= link_to 'Back', matchmake_index_path, class: 'btn btn-sm btn-outline-primary col' %>
-  </div>
-</div>
+<img class="rounded img-fluid w-200p" src="<%= @user.profile_photo %>"/>
+<table class="table table-responsive">
+  <tr>
+    <td>Phone:</td><td> <%= @user.phone %></td>
+  </tr>
+
+  <tr>
+    <td>Gender:</td><td> <%= @user.gender %></td>
+  </tr>
+
+  <tr>
+    <td>Sexuality:</td><td> <%= @user.sexuality %></td>
+  </tr>
+
+  <tr>
+    <td>Birthday </td><td><%= @user.birthday.strftime("%Y-%m-%d") %></td>
+  </tr>
+
+  <tr>
+    <td>Location:</td><td> <%= @user.location %></td>
+  </tr>
+
+  <tr>
+    <td>Education:</td><td> <%= @user.education %></td>
+  </tr>
+
+  <tr>
+    <td>Career:</td><td> <%= @user.career %></td>
+  </tr>
+
+  <tr>
+    <td>Height:</td><td> <%= @user.height %></td>
+  </tr>
+
+  <tr>
+    <td>What's most important to you?</td><td> <%= @prompt.answer1 %></td>
+  </tr>
+
+  <tr>
+    <td>What's your favorite food?</td><td> <%= @prompt.answer2 %></td>
+  </tr>
+
+  <tr>
+    <td>If you can work anywhere, where do you want to work?</td><td> <%= @prompt.answer3 %></td>
+  </tr>
+
+  <tr>
+    <td>Interest1:</td><td> <%= @interest.interest1 %></td>
+  </tr>
+
+  <tr>
+    <td>Interest2:</td><td> <%= @interest.interest2 %></td>
+  </tr>
+
+  <tr>
+    <td>Interest3:</td><td> <%= @interest.interest3 %></td>
+  </tr>
+
+
+
+  <br>
+</table>
+<%= link_to 'Send', message_path(@user.uid), class: 'btn btn-sm btn-outline-primary col' %>
+<%= link_to 'Back', matchmake_index_path, class: 'btn btn-sm btn-outline-primary col' %>
+
