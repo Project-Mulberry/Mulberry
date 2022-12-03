@@ -96,10 +96,12 @@
       <% end %>
     <% end %>
   </div>
+  <br>
+
   <h3>Interests</h3>
   <hr/>
   <div class = "profile_photo">
-  <%= f.fields_for :interest do |ff| %>
+    <%= f.fields_for :interest do |ff| %>
     <% ff.hidden_field :uid %>
     <% [:interest1, :interest2, :interest3].each do |field_name| %>
       <div class="profile_interest">
@@ -114,10 +116,8 @@
         <br/>
     <% end %>
   <% end %>
-
-
-
   </div>
+
 
   <div class="profile_photo">
 <h3>Answers</h3>
