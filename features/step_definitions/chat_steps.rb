@@ -23,6 +23,11 @@ Then /I logged in as a user/ do
   fill_in("user[password]", with: "1")
 end
 
+Then /I logged in as another user/ do
+  fill_in("user[phone]", with: "4527772778")
+  fill_in("user[password]", with: "1")
+end
+
 Then /I should see all chats for "Marcus"/ do
   # Make sure that all the chats for Marcus are visible in the table
   result = true
