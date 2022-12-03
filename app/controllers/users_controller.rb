@@ -40,9 +40,9 @@ class UsersController < ApplicationController
 
   def update
     @user.interest.update!(
-      interest1: user_params_with_prompts_and_interests[:interest_attributes][:interest1],
-      interest2: user_params_with_prompts_and_interests[:interest_attributes][:interest2],
-      interest3: user_params_with_prompts_and_interests[:interest_attributes][:interest3]
+      interest1: user_params_with_prompts_and_interests[:interest_attributes][:interest1].downcase,
+      interest2: user_params_with_prompts_and_interests[:interest_attributes][:interest2].downcase,
+      interest3: user_params_with_prompts_and_interests[:interest_attributes][:interest3].downcase
     )
 
     @user.prompt.update!(
@@ -51,8 +51,6 @@ class UsersController < ApplicationController
       answer2: user_params_with_prompts_and_interests[:prompt_attributes][:answer2],
       answer3: user_params_with_prompts_and_interests[:prompt_attributes][:answer3]
     )
-
-    Rails.logger.info(user_params.inspect)
 
     if @user.update(user_params)
       redirect_to root_path

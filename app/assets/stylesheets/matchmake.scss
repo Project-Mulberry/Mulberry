@@ -1,0 +1,11 @@
+.match{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+}
+
+.card-img-top {
+  width: 20vw;
+  height: 25vw;
+  object-fit: cover;
+}
