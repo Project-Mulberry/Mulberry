@@ -57,11 +57,16 @@
   <tr>
     <td>Interest3:</td><td> <%= @interest.interest3 %></td>
   </tr>
-
-
-
   <br>
 </table>
+
+<h3>Interests</h3>
+<hr/>
+<div class = "profile_photo">
+  Interest1:</td><td> <%= @interest.interest1 %> <br>
+  Interest2:</td><td> <%= @interest.interest2 %> <br>
+  Interest3:</td><td> <%= @interest.interest3 %>
+</div>
+
 <%= link_to 'Send', message_path(@user.uid), class: 'btn btn-sm btn-outline-primary col' %>
 <%= link_to 'Back', matchmake_index_path, class: 'btn btn-sm btn-outline-primary col' %>
-

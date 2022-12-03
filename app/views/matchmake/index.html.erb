@@ -14,8 +14,8 @@
       <% end %>
       <div class="card-body">
         <p class="card-text text-primary">New</p>
-        <h5 class="card-title" style="display:inline-block;"><%= new_match["name"] %> &nbsp</h5><p class="card-text" style="display:inline-block; justify-content: end;"><%= new_match["location"] %>, <%= new_match["career"] %> &nbsp&nbsp&nbsp</p><%= link_to 'detail', matchmake_path(new_match["uid"]), class: 'btn btn-sm btn-outline-primary', style: 'display:inline-block;' %>
-        <p class="card-text"><%= new_match["location"] %>, <%= new_match["career"] %><br><%= Interest.get_interests_by_uid(new_match["uid"]).interest1%> <br> <%= Interest.get_interests_by_uid(new_match["uid"]).interest2%> <br> <%= Interest.get_interests_by_uid(new_match["uid"]).interest3%></p>
+        <h5 class="card-title" style="display:inline-block;"><strong><%= new_match["name"] %></strong> &nbsp</h5><p class="card-text" style="display:inline-block; justify-content: end;"><%= new_match["location"] %>, <%= new_match["career"] %> &nbsp&nbsp&nbsp</p><%= link_to 'detail', matchmake_path(new_match["uid"]), class: 'btn btn-sm btn-outline-primary', style: 'display:inline-block;' %>
+        <p class="card-text"><strong>Interests:</strong> <br>1. <%= Interest.get_interests_by_uid(new_match["uid"]).interest1%> <br>2. <%= Interest.get_interests_by_uid(new_match["uid"]).interest2%> <br>3. <%= Interest.get_interests_by_uid(new_match["uid"]).interest3%></p>
       </div>
     </div>
   <% end %>
@@ -29,8 +29,8 @@
       <% end %>
       <div class="card-body">
         <p class="card-text">Matched</p>
-        <h5 class="card-title" style="display:inline-block;"><%= User.find(old_match).name %> &nbsp</h5><p class="card-text" style="display:inline-block; justify-content: end;"><%= User.find(old_match).location %>, <%= User.find(old_match).career %> &nbsp&nbsp&nbsp</p><%= link_to 'detail', matchmake_path(old_match), class: 'btn btn-sm btn-outline-primary', style: 'display:inline-block;' %>
-        <p class="card-text">Interests: <br><%= Interest.get_interests_by_uid(old_match).interest1%> <br> <%= Interest.get_interests_by_uid(old_match).interest2%> <br> <%= Interest.get_interests_by_uid(old_match).interest3%></p>
+        <h5 class="card-title" style="display:inline-block;"><strong><%= User.find(old_match).name %></strong> &nbsp</h5><p class="card-text" style="display:inline-block; justify-content: end;"><%= User.find(old_match).location %>, <%= User.find(old_match).career %> &nbsp&nbsp&nbsp</p><%= link_to 'detail', matchmake_path(old_match), class: 'btn btn-sm btn-outline-primary', style: 'display:inline-block;' %>
+        <p class="card-text"><strong>Interests:</strong> <br>1. <%= Interest.get_interests_by_uid(old_match).interest1%> <br>2. <%= Interest.get_interests_by_uid(old_match).interest2%> <br>3. <%= Interest.get_interests_by_uid(old_match).interest3%></p>
       </div>
     </div>
   <% end %>
