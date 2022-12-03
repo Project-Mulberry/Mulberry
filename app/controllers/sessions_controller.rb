@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
         redirect_to edit_user_path(user)
       end
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = 'Invalid phone/password combination'
       render 'new'
     end
   end

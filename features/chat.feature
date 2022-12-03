@@ -31,6 +31,10 @@ Background: chats in database
     | Y      	| Y      	| Y      	|
     | N      	| N      	| N      	|
 
+    Given the following coupons exist:
+    | name |
+    | food |
+
     Given  I am on the login page
     Then   I logged in as a user
     And    I press "Log In"

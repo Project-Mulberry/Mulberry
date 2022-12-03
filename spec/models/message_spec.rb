@@ -4,6 +4,9 @@ RSpec.describe Message, type: :model do
   before :each do
     @uid1 = User.create!({:phone => '1234567890', :password => '12345678'})[:uid]
     @uid2 = User.create!({:phone => '1234567891', :password => '12345678'})[:uid]
+    Interest.create!({:uid => @uid1, :interest1 => 'interest-1', :interest2 => 'interest-2', :interest3 => 'interest-3'})
+    Interest.create!({:uid => @uid2, :interest1 => 'interest-1', :interest2 => 'interest-2', :interest3 => 'interest-3'})
+    Coupon.create!({:name => 'food'})
   end
 
   context 'post a message' do
