@@ -61,7 +61,7 @@ Heroku App: https://mulberry.herokuapp.com/
 > * **OS**: Mac(12.0), Ubuntu(20.04 LTS)
 > * **Bundler version**: 1.17.2
 
-> **Heroku Web Link**  
+> **Heroku Deployment**  
 > [https://mulberry.herokuapp.com/](https://mulberry.herokuapp.com/)
 
 > **Local APP Setup**
