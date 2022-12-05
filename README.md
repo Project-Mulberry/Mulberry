@@ -62,7 +62,7 @@ Heroku App: https://mulberry.herokuapp.com/
 > * **Bundler version**: 1.17.2
 
 > **Heroku Deployment**  
-> [https://mulberry.herokuapp.com/](https://mulberry.herokuapp.com/)
+> * [https://mulberry.herokuapp.com/](https://mulberry.herokuapp.com/)
 
 > **Test Users**  
 > 1. Phone: 1234567890 Password: 123456
