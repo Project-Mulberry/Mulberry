@@ -12,8 +12,7 @@ Don't Worry!
 Mulberry solves that by limiting the matches per day & recommending fun dating activities with coupons!  
 More importantly, our App is Completely Free to users!!! No Membership Fee!!!  
   
-Demo Video: https://www.youtube.com/watch?v=x0TZsKuVZlY
-
+Demo Video: https://www.youtube.com/watch?v=x0TZsKuVZlY  
 Heroku App: https://mulberry.herokuapp.com/
 
 ## Development Team
@@ -30,11 +29,11 @@ Heroku App: https://mulberry.herokuapp.com/
 ## Version Information
 
 &nbsp;&nbsp;&nbsp;&nbsp;**v0.1** - 11/02/2022 - Basic App with MVP  
-&nbsp;&nbsp;&nbsp;&nbsp;**v0.9** - 11/16/2022 - Major functionalities completed
+&nbsp;&nbsp;&nbsp;&nbsp;**v0.9** - 11/16/2022 - Major functionalities completed  
 &nbsp;&nbsp;&nbsp;&nbsp;**v1.0** - 12/05/2022 - Most functionalities completed
 
 ## Guidance
-### Environment Setup
+### Local Environment Setup
 1. git pull repo
 2. bundle install --without production
 3. **[OPTIONAL: create database]** rake db:migrate
@@ -69,7 +68,7 @@ Heroku App: https://mulberry.herokuapp.com/
 > * **Bundler version**: 1.17.2
 
 > **Heroku Web Link**  
-> [https://arcane-fortress-74887.herokuapp.com/](https://arcane-fortress-74887.herokuapp.com/)
+> [https://mulberry.herokuapp.com/](https://mulberry.herokuapp.com/)
 
 > **Local APP Setup**
 > 1. `bundle install --without production`
