@@ -35,7 +35,7 @@ class Coupon < ActiveRecord::Base
     default_coupons = Coupon.get_default_coupon_list
     default_cid = default_coupons[rand(default_coupons.length)]["cid"]
     # return a random cid from the query result list or from a general 'food' list
-    if interests.empty? then default_cid end
+    if interests.empty? then return default_cid end
 
     # search valid uid
     sql = Helper.generate_query(FIND_MATCH_INTEREST_IN_COUPON_BASE_SQL_QUERY,
