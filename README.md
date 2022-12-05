@@ -24,7 +24,6 @@ Heroku App: https://mulberry.herokuapp.com/
 | ***Front End***           | Zhen Tao           |
 | ***Back End***            | Hang Yuan          |
 
-&nbsp;&nbsp;&nbsp;&nbsp;*Names are ordered by last name alphabetically*
 
 ## Version Information
 
