@@ -54,11 +54,6 @@ Heroku App: https://mulberry.herokuapp.com/
 > 6. `https://mulberry.herokuapp.com/`
 
 
-## Documentation
-
-&nbsp;&nbsp;&nbsp;&nbsp;Please refer to [Confluence](https://marcus117.atlassian.net/wiki/spaces/MULBERRY/overview "Mulberry Confluence") page for development documents
-
-
 # Guidance for Grading
 > **Running Environment**
 > * **branch**: proj-iter-2
