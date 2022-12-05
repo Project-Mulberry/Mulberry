@@ -65,10 +65,11 @@ Heroku App: https://mulberry.herokuapp.com/
 > [https://mulberry.herokuapp.com/](https://mulberry.herokuapp.com/)
 
 > **Test Users**  
-> Phone: 1234567890 Password: 123456
-> Phone: 1234567891 Password: 123456
-> Phone: 1234567892 Password: 123456
-> Phone: 1234567893 Password: 123456
+> 1. Phone: 1234567890 Password: 123456
+> 2. Phone: 1234567891 Password: 123456
+> 3. Phone: 1234567892 Password: 123456
+> 4. Phone: 1234567893 Password: 123456
+> 5. Phone: 1234567894 Password: 123456
 
 > **Local APP Setup**
 > 1. `bundle install --without production`
