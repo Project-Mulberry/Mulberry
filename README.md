@@ -56,7 +56,7 @@ Heroku App: https://mulberry.herokuapp.com/
 
 # Guidance for Grading
 > **Running Environment**
-> * **branch**: proj-iter-2
+> * **branch**: proj-launch
 > * **Ruby Version**: ruby 2.6.6
 > * **OS**: Mac(12.0), Ubuntu(20.04 LTS)
 > * **Bundler version**: 1.17.2
