@@ -1,16 +1,14 @@
 
 <div class="row"><h1 class="col-9">Profile Information</h1><div class="col-3">
-  <%= link_to "Edit", edit_user_path(@current_user), { class: "btn btn-secondary" }%>
+
 
 
 </div></div>
+
+<img class="rounded img-fluid w-200p" src="<%= @user.profile_photo %>"/>
 <table class="table table-responsive">
 <tr>
   <td>Phone:</td><td> <%= @user.phone %></td>
-</tr>
-
-<tr>
-  <td>Password:</td><td> <%= @user.password %></td>
 </tr>
 
 <tr>
@@ -22,7 +20,7 @@
 </tr>
 
 <tr>
-  <td>Birthday </td><td><%= @user.birthday %></td>
+  <td>Birthday </td><td><%= @user.birthday.strftime("%Y-%m-%d") %></td>
 </tr>
 
 <tr>
@@ -41,9 +39,29 @@
   <td>Height:</td><td> <%= @user.height %></td>
 </tr>
 
-<tr>
-  <td>Profile_photo:</td><td> <%= @user.profile_photo %></td>
-</tr>
-
 <br>
 </table>
+
+<h3>Interests</h3>
+<hr/>
+<div class = "profile_photo">
+  <table class="table table-responsive" >
+    <tr><td>Interest1:</td><td> <%= Interest.get_interests_by_uid(@user.uid).interest1 %></td></tr>
+    <tr><td>Interest2:</td><td> <%= Interest.get_interests_by_uid(@user.uid).interest2 %></td></tr>
+    <tr><td>Interest3:</td><td> <%= Interest.get_interests_by_uid(@user.uid).interest3 %></td></tr>
+  </table>
+</div>
+
+<h3>Prompts</h3>
+<hr/>
+<div class = "profile_photo">
+  <table class="table table-responsive">
+    <col style="width: 46%;" />
+    <col style="width: 54%;" />
+    <tr><td>What's most important to you?</td><td> <%= Prompt.where(uid: @user.uid).first.answer1 %></td> </tr>
+    <tr><td>What's your favorite food?</td><td> <%= Prompt.where(uid: @user.uid).first.answer2 %></td> </tr>
+    <tr><td>If you can work anywhere, where do you want to work?</td><td> <%= Prompt.where(uid: @user.uid).first.answer3 %></td> </tr>
+  </table>
+</div>
+
+<%= link_to "Edit", edit_user_path(@current_user), { class: "btn btn-secondary" }%>

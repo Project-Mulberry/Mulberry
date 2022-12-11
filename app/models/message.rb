@@ -28,6 +28,7 @@ WHERE temp.key = m.key AND temp.timestamp = m.timestamp"
     end
   end
 
+  PULL_DISTINCT_MESSAGE_BASE_SQL_QUERY = "SELECT COUNT(*) FROM messages WHERE key = '?' GROUP BY sender_uid"
   def self.post_message(sender_uid, receiver_uid, message)
     message = {:sender_uid => sender_uid,
                :receiver_uid => receiver_uid,
@@ -35,7 +36,18 @@ WHERE temp.key = m.key AND temp.timestamp = m.timestamp"
                :timestamp => DateTime.now(),
                :message => message,
                :is_read => false}
-    return Message.create!(message)
+    message = Message.create!(message)
+
+    # check if we need to create an activity
+    key = generate_key(sender_uid, receiver_uid)
+    sql = Helper.generate_query(PULL_DISTINCT_MESSAGE_BASE_SQL_QUERY, [key])
+    result = ActiveRecord::Base.connection.execute(sql).to_a
+    activities = Activity.pull_dual_activities(sender_uid, receiver_uid)
+    if result.length > 1 and activities.empty?
+      Activity.create_new_activity(sender_uid, receiver_uid)
+    end
+
+    message
   end
 
   PULL_MESSAGE_BASE_SQL_QUERY =

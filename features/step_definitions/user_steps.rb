@@ -10,12 +10,14 @@ end
 
 Then("I fill in the following questions: Name, Gender, Sexuality, Location, Career, Height, Profile Photo URL, Interest, Prompt") do
   fill_in("user[name]", with: "Jack")
-  fill_in("user[gender]", with: "male")
-  fill_in("user[sexuality]", with: "straight")
+  #fill_in("user[gender]", with: "male")
+  select("Male", from: "user_gender")
+  select("Heterosexual", from: "user_sexuality")
   fill_in("user[birthday]", with: "2010-11-11")
-  fill_in("user[location]", with: "Chicago")
+  select("NY", from: "user_location")
   fill_in("user[career]", with: "driver")
-  fill_in("user[height]", with: "7-7")
+  select("7'7", from: "user_height")
+  #fill_in("user[height]", with: "7-7")
   fill_in("user[profile_photo]", with: "www.gogole.com")
   fill_in("user[interest_attributes][interest1]", with: "A")
   fill_in("user[interest_attributes][interest2]", with: "B")
@@ -35,12 +37,13 @@ Then("I fill in the following questions: Interest, Prompt") do
 end
 
 Then("I fill in the following questions: Gender, Sexuality, Location, Career, Height, Profile Photo URL") do
-  fill_in("user[gender]", with: "male")
-  fill_in("user[sexuality]", with: "straight")
+  select("Male", from: "user_gender")
+  select("Heterosexual", from: "user_sexuality")
   fill_in("user[birthday]", with: "2010-11-11")
-  fill_in("user[location]", with: "Chicago")
+  select("NY", from: "user_location")
   fill_in("user[career]", with: "driver")
-  fill_in("user[height]", with: "7-7")
+  select("7'7", from: "user_height")
+  #fill_in("user[height]", with: "7-7")
   fill_in("user[profile_photo]", with: "www.gogole.com")
 end
 

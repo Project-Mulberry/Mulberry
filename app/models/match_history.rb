@@ -23,16 +23,22 @@ class MatchHistory < ActiveRecord::Base
 FROM users u LEFT JOIN interests i ON u.uid = i.uid
 WHERE u.gender = '?' AND u.location = '?' AND u.sexuality = '?' AND
       (i.interest1 IN ? OR i.interest2 IN ? OR i.interest3 IN ?) AND
-      u.uid NOT IN ?"
+      u.uid NOT IN ?
+LIMIT 10"
   MATCH_RECOMMENDATION_NO_INTEREST_BASE_SQL = "SELECT u.*
 FROM users u LEFT JOIN interests i ON u.uid = i.uid
-WHERE u.gender = '?' AND u.location = '?' AND u.sexuality = '?' AND u.uid NOT IN ?"
+WHERE u.gender = '?' AND u.location = '?' AND u.sexuality = '?' AND u.uid NOT IN ?
+LIMIT 10"
   # @param uid, current user id
   # @return List(User), the matched users
   def self.get_match_recommendation(uid)
     user = User.find(uid)
-    gender = if user.sexuality == 'straight'
-               user.gender == 'm' ? 'f' : 'm'
+    gender = if user.sexuality == 'Heterosexuality'
+               if user.gender == 'Other'
+                 user.gender
+               else
+                 user.gender == 'Male' ? 'Female' : 'Male'
+               end
              else
                user.gender
              end
