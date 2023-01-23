@@ -1,9 +1,6 @@
 # Mulberry
 
 
-### [**Hi TAs!** _Please click me to see the guidance for grading_](#guidance-for-grading)
-
-
 ## Brief Introduction
 
 Have you Ever got 99+ Matches on Tinder?  
@@ -53,38 +50,6 @@ Heroku App: https://mulberry.herokuapp.com/
 > 5. `heroku run rake db:seed`  
 > 6. `https://mulberry.herokuapp.com/`
 
-
-# Guidance for Grading
-> **Running Environment**
-> * **branch**: proj-launch
-> * **Ruby Version**: ruby 2.6.6
-> * **OS**: Mac(12.0), Ubuntu(20.04 LTS)
-> * **Bundler version**: 1.17.2
-
-> **Heroku Deployment**  
-> * [https://mulberry.herokuapp.com/](https://mulberry.herokuapp.com/)
-
-> **Test Users**  
-> 1. Phone: 1234567890 Password: 123456
-> 2. Phone: 1234567891 Password: 123456
-> 3. Phone: 1234567892 Password: 123456
-> 4. Phone: 1234567893 Password: 123456
-> 5. Phone: 1234567894 Password: 123456
-
-> **Local APP Setup**
-> 1. `bundle install --without production`
-> 2. `bundle update` (if bundler prompted to do so)
-> 3. `rake db:migrate`
-> 4. `rake db:seed`
-> 5. `rails server -b 0.0.0.0`
-> 6. open browser with URL: `localhost:3000`
-
-> **For test coverage check**
-> 1. `[OPTIONAL: if datbase exist] rake db:reset`
-> 2. `rake db:migrate RAILS_ENV=test`   
-> 3. `rake cucumber`
-> 4. `rake spec`
-> 5. open the `index.html` file under coverage folder
 
 >
 > local sqlite database doesn't need credentials;  
